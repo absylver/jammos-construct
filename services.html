@@ -1,8 +1,13 @@
 <!DOCTYPE html>
 <html class="light" lang="en">
 <head>
-  <meta charset="utf-8"/>
-  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="apple-touch-icon" sizes="180x180" href="Asset/favicon/apple-touch-icon.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="Asset/favicon/favicon-32x32.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="Asset/favicon/favicon-16x16.png" />
+<link rel="shortcut icon" href="Asset/favicon/favicon.ico" />
+<link rel="manifest" href="Asset/favicon/site.webmanifest" />
   <title>Services | Jammos Construction Nigeria Limited</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
@@ -35,51 +40,49 @@
     body {
       font-family: 'Inter', sans-serif;
     }
+    .glass-header { backdrop-filter: blur(12px); background-color: rgba(10, 25, 47, 0.95); }
     .material-symbols-outlined {
       font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
     }
   </style>
 </head>
-<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 antialiased">
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 antialiased overflow-x-hidden">
 <div class="flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden">
 <div class="layout-container flex h-full grow flex-col">
 
 <!-- Navigation -->
-<header class="sticky top-0 z-50 w-full border-b border-slate-200 dark:border-slate-800 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md">
-<div class="max-w-7xl mx-auto px-6">
-  <div class="h-20 flex items-center justify-between">
-    <a href="index.html" class="flex items-center gap-3 hover:opacity-80 transition-opacity">
-      <div class="size-8 flex items-center justify-center bg-primary rounded text-white">
-        <span class="material-symbols-outlined">architecture</span>
-      </div>
-      <h2 class="text-slate-900 dark:text-white text-lg font-bold leading-tight tracking-tight">Jammos Construction</h2>
+<header class="glass-header sticky top-0 z-50 border-b border-slate-700/50">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
+  <div class="h-20 sm:h-24 md:h-20 flex items-center justify-between">
+    <a href="index.html" class="flex items-center hover:opacity-80 transition-opacity">
+      <img src="Asset/images/jammos logo.png" alt="Jammos Construction Nigeria Limited" class="h-16 sm:h-20 md:h-16 lg:h-18 w-auto object-contain" />
     </a>
     <!-- Desktop nav -->
-    <nav class="hidden md:flex items-center gap-8">
-      <a class="text-slate-700 dark:text-slate-300 text-sm font-medium hover:text-primary transition-colors" href="index.html">Home</a>
-      <a class="text-slate-700 dark:text-slate-300 text-sm font-medium hover:text-primary transition-colors" href="about us.html">About Us</a>
-      <a class="text-primary dark:text-primary text-sm font-bold border-b-2 border-primary pb-1" href="services.html">Services</a>
-      <a class="text-slate-700 dark:text-slate-300 text-sm font-medium hover:text-primary transition-colors" href="project gallery.html">Projects</a>
-      <a class="text-slate-700 dark:text-slate-300 text-sm font-medium hover:text-primary transition-colors" href="contact.html">Contact</a>
+    <nav class="hidden md:flex items-center gap-8 text-base font-semibold text-slate-300">
+      <a class="text-slate-300 hover:text-primary transition-colors" href="index.html">Home</a>
+      <a class="text-slate-300 hover:text-primary transition-colors" href="about us.html">About Us</a>
+      <a class="text-primary dark:text-primary text-base font-bold border-b-2 border-primary pb-1" href="services.html">Services</a>
+      <a class="text-slate-300 hover:text-primary transition-colors" href="project gallery.html">Projects</a>
+      <a class="text-slate-300 hover:text-primary transition-colors" href="contact.html">Contact</a>
     </nav>
     <!-- Desktop button + mobile burger -->
     <div class="flex items-center gap-4">
       <button onclick="openConsultationModal()" class="hidden md:flex min-w-[120px] cursor-pointer items-center justify-center rounded-lg h-10 px-5 bg-primary text-white text-sm font-bold shadow-md hover:bg-blue-700 transition-all">
         Request Consultation
       </button>
-      <button id="mobile-menu-btn" class="md:hidden text-slate-900 dark:text-white p-2">
-        <span class="material-symbols-outlined text-2xl">menu</span>
+      <button id="mobile-menu-btn" class="md:hidden text-white p-2">
+        <span class="material-symbols-outlined text-[2rem]">menu</span>
       </button>
     </div>
   </div>
   <!-- Mobile nav (hidden by default) -->
-  <div id="mobile-nav" class="hidden md:hidden pb-4 pt-2 border-t border-slate-200 dark:border-slate-800">
-    <nav class="flex flex-col gap-2 text-sm font-medium text-slate-700 dark:text-slate-400 mb-4">
-      <a class="w-full text-center py-2.5 hover:text-primary transition-colors" href="index.html">Home</a>
-      <a class="w-full text-center py-2.5 hover:text-primary transition-colors" href="about us.html">About Us</a>
+  <div id="mobile-nav" class="hidden md:hidden pb-5 pt-3 border-t border-slate-700/30">
+    <nav class="flex flex-col gap-2 text-sm font-semibold text-slate-300 mb-4">
+      <a class="w-full text-center py-2.5 text-slate-300 hover:text-primary transition-colors" href="index.html">Home</a>
+      <a class="w-full text-center py-2.5 text-slate-300 hover:text-primary transition-colors" href="about us.html">About Us</a>
       <a class="w-full text-center py-2.5 text-primary font-bold" href="services.html">Services</a>
-      <a class="w-full text-center py-2.5 hover:text-primary transition-colors" href="project gallery.html">Projects</a>
-      <a class="w-full text-center py-2.5 hover:text-primary transition-colors" href="contact.html">Contact</a>
+      <a class="w-full text-center py-2.5 text-slate-300 hover:text-primary transition-colors" href="project gallery.html">Projects</a>
+      <a class="w-full text-center py-2.5 text-slate-300 hover:text-primary transition-colors" href="contact.html">Contact</a>
     </nav>
     <button onclick="openConsultationModal()" class="w-full bg-primary text-white px-5 py-2.5 rounded-lg text-sm font-bold shadow-md hover:bg-blue-700 transition-all">
       Request Consultation
@@ -97,14 +100,14 @@
 <main class="flex-1">
 
 <!-- Hero Section -->
-<div class="bg-slate-900 py-16 md:py-24 px-6 md:px-20 relative overflow-hidden">
+<div class="bg-slate-900 py-16 md:py-24 px-4 sm:px-6 lg:px-10 relative overflow-hidden">
   <div class="absolute inset-0 opacity-20 pointer-events-none">
     <div class="absolute inset-0 bg-gradient-to-br from-primary to-transparent"></div>
   </div>
   <div class="max-w-6xl mx-auto relative z-10">
-    <h1 class="text-white text-4xl md:text-5xl font-black leading-tight tracking-tight mb-4">Integrated Engineering & Construction Services</h1>
-    <p class="text-slate-300 text-lg max-w-2xl mb-8">Delivering high-quality engineering, construction, and project management solutions across Nigeria's infrastructure and built environment sectors.</p>
-    <p class="text-slate-400 text-sm md:text-base max-w-3xl mb-8 leading-relaxed">Jammos Construction Nigeria Limited provides multidisciplinary engineering, procurement, and construction (EPC) services designed to meet the needs of public and private sector clients. With nearly two decades of experience, we combine technical expertise, disciplined project management, and modern construction practices to deliver safe, efficient, and sustainable projects across Nigeria.</p>
+    <h1 class="text-white text-3xl sm:text-4xl md:text-5xl font-black leading-tight tracking-tight mb-4">Integrated Engineering & Construction Services</h1>
+    <p class="text-slate-300 text-lg max-w-2xl mb-8">Delivering disciplined engineering, construction, and project delivery solutions across Nigeria's critical infrastructure and built environment sectors.</p>
+    <p class="text-slate-400 text-sm md:text-base max-w-3xl mb-8 leading-relaxed">Jammos Construction Nigeria Limited provides multidisciplinary engineering, procurement, and construction services tailored to the requirements of public and private sector clients. With nearly two decades of industry experience, we combine technical competence, structured project controls, safety-focused execution, and reliable delivery practices to support infrastructure, industrial, and commercial development projects across Nigeria.</p>
     <div class="flex gap-4 flex-col md:flex-row">
       <button onclick="openConsultationModal()" class="px-8 py-4 bg-accent text-white font-bold rounded-lg shadow-lg hover:brightness-110 active:scale-[0.98] transition-all uppercase tracking-wide text-sm md:text-base">Request Consultation</button>
       <a href="project gallery.html" class="px-8 py-4 bg-slate-700 hover:bg-slate-600 text-white font-bold rounded-lg transition-colors uppercase tracking-wide text-sm md:text-base text-center">View Projects</a>
@@ -113,11 +116,11 @@
 </div>
 
 <!-- Introduction Section -->
-<div class="bg-white dark:bg-slate-800 py-16 md:py-24 px-6 md:px-20">
+<div class="bg-white dark:bg-slate-800 py-16 md:py-24 px-4 sm:px-6 lg:px-10">
   <div class="max-w-6xl mx-auto">
     <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 dark:text-white mb-6">Comprehensive Construction & Engineering Capabilities</h2>
-    <p class="text-slate-600 dark:text-slate-400 text-base md:text-lg leading-relaxed mb-6">At Jammos Construction Nigeria Limited, we provide integrated engineering and construction solutions across multiple disciplines. Our team of experienced engineers, project managers, and technical specialists deliver projects using structured project controls, modern equipment, and international best practices.</p>
-    <p class="text-slate-600 dark:text-slate-400 text-base md:text-lg leading-relaxed mb-8">From civil infrastructure to industrial installations, we support our clients through every stage of the project lifecycle — from feasibility and design to procurement, execution, and commissioning.</p>
+    <p class="text-slate-600 dark:text-slate-400 text-base md:text-lg leading-relaxed mb-6">At Jammos Construction Nigeria Limited, we deliver integrated engineering and construction solutions across multiple technical disciplines. Our engineers, project managers, and site teams apply disciplined planning, effective coordination, and proven construction methodologies to execute projects in line with quality, safety, and performance requirements.</p>
+    <p class="text-slate-600 dark:text-slate-400 text-base md:text-lg leading-relaxed mb-8">From civil infrastructure and building works to industrial installations and telecommunications infrastructure, we support clients across the full project lifecycle, from concept development and procurement planning to site execution, commissioning, and handover.</p>
     
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
       <div class="bg-slate-50 dark:bg-slate-700/50 p-6 rounded-lg border border-slate-200 dark:border-slate-700">
@@ -125,35 +128,35 @@
           <span class="material-symbols-outlined text-primary text-2xl">check_circle</span>
           <h3 class="text-lg font-bold text-slate-900 dark:text-white">Experienced multidisciplinary engineering teams</h3>
         </div>
-        <p class="text-slate-600 dark:text-slate-400 text-sm">Specialists across civil, mechanical, and industrial disciplines with proven track records.</p>
+        <p class="text-slate-600 dark:text-slate-400 text-sm">Experienced technical personnel across civil, mechanical, industrial, and infrastructure delivery disciplines.</p>
       </div>
       <div class="bg-slate-50 dark:bg-slate-700/50 p-6 rounded-lg border border-slate-200 dark:border-slate-700">
         <div class="flex items-start gap-3 mb-4">
           <span class="material-symbols-outlined text-primary text-2xl">check_circle</span>
           <h3 class="text-lg font-bold text-slate-900 dark:text-white">Structured project management methodology</h3>
         </div>
-        <p class="text-slate-600 dark:text-slate-400 text-sm">Disciplined scheduling, budgeting, and quality assurance systems.</p>
+        <p class="text-slate-600 dark:text-slate-400 text-sm">Structured planning, scheduling, cost control, and quality management processes.</p>
       </div>
       <div class="bg-slate-50 dark:bg-slate-700/50 p-6 rounded-lg border border-slate-200 dark:border-slate-700">
         <div class="flex items-start gap-3 mb-4">
           <span class="material-symbols-outlined text-primary text-2xl">check_circle</span>
           <h3 class="text-lg font-bold text-slate-900 dark:text-white">Modern construction equipment and tools</h3>
         </div>
-        <p class="text-slate-600 dark:text-slate-400 text-sm">Investment in latest equipment for efficient and safe project execution.</p>
+        <p class="text-slate-600 dark:text-slate-400 text-sm">Appropriate tools and equipment deployed to support safe, efficient, and controlled execution.</p>
       </div>
       <div class="bg-slate-50 dark:bg-slate-700/50 p-6 rounded-lg border border-slate-200 dark:border-slate-700">
         <div class="flex items-start gap-3 mb-4">
           <span class="material-symbols-outlined text-primary text-2xl">check_circle</span>
           <h3 class="text-lg font-bold text-slate-900 dark:text-white">Compliance with regulatory and HSE standards</h3>
         </div>
-        <p class="text-slate-600 dark:text-slate-400 text-sm">Strict adherence to health, safety, and environmental regulations.</p>
+        <p class="text-slate-600 dark:text-slate-400 text-sm">Consistent alignment with HSE requirements, regulatory obligations, and site compliance standards.</p>
       </div>
     </div>
   </div>
 </div>
 
 <!-- Services Section -->
-<div class="bg-background-light dark:bg-background-dark py-16 md:py-24 px-6 md:px-20">
+<div class="bg-background-light dark:bg-background-dark py-16 md:py-24 px-4 sm:px-6 lg:px-10">
   <div class="max-w-6xl mx-auto">
     <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 dark:text-white mb-12 text-center">Our Comprehensive Service Offerings</h2>
     
@@ -164,24 +167,24 @@
           <span class="material-symbols-outlined text-primary text-4xl flex-shrink-0">construction</span>
           <div class="flex-1">
             <h3 class="text-xl md:text-2xl font-bold text-slate-900 dark:text-white">Civil & Building Engineering</h3>
-            <p class="text-slate-600 dark:text-slate-400 text-sm md:text-base mt-2">Design, construction, and management of civil and building projects across residential, commercial, and industrial sectors.</p>
+            <p class="text-slate-600 dark:text-slate-400 text-sm md:text-base mt-2">End-to-end civil and building engineering services for residential, commercial, institutional, and industrial developments.</p>
           </div>
           <span class="material-symbols-outlined text-slate-600 dark:text-slate-400 flex-shrink-0 service-icon">expand_more</span>
         </button>
         <div class="service-content hidden px-6 md:px-8 pb-6">
-          <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=600&h=400&fit=crop" alt="Building construction" class="w-full h-48 md:h-64 object-cover rounded-lg mb-6"/>
+          <img src="Asset/images/Photos 1 & 2 Laying of Sandcrate Hollow Pot in Trans-Amadi Rivers State/IMG_20140705_113301.jpg" alt="Building construction" class="w-full h-48 md:h-64 object-cover rounded-lg mb-6"/>
           <div class="grid md:grid-cols-2 gap-6">
             <div>
               <h4 class="font-bold text-slate-900 dark:text-white mb-3">Key Capabilities:</h4>
               <ul class="space-y-2 text-slate-600 dark:text-slate-400 text-sm">
-                <li class="flex gap-2"><span class="text-primary">•</span> Residential and multi-storey building construction</li>
-                <li class="flex gap-2"><span class="text-primary">•</span> Commercial office complexes and retail developments</li>
-                <li class="flex gap-2"><span class="text-primary">•</span> Educational and institutional facilities</li>
-                <li class="flex gap-2"><span class="text-primary">•</span> Industrial buildings and warehouses</li>
-                <li class="flex gap-2"><span class="text-primary">•</span> Renovation and refurbishment of existing structures</li>
-                <li class="flex gap-2"><span class="text-primary">•</span> Structural concrete works and foundations</li>
-                <li class="flex gap-2"><span class="text-primary">•</span> Drainage systems and stormwater management</li>
-                <li class="flex gap-2"><span class="text-primary">•</span> Road construction and site earthworks</li>
+                <li class="flex gap-2"><span class="text-primary">ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢</span> Residential and multi-storey building construction</li>
+                <li class="flex gap-2"><span class="text-primary">ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢</span> Commercial office complexes and retail developments</li>
+                <li class="flex gap-2"><span class="text-primary">ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢</span> Educational and institutional facilities</li>
+                <li class="flex gap-2"><span class="text-primary">ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢</span> Industrial buildings and warehouses</li>
+                <li class="flex gap-2"><span class="text-primary">ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢</span> Renovation and refurbishment of existing structures</li>
+                <li class="flex gap-2"><span class="text-primary">ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢</span> Structural concrete works and foundations</li>
+                <li class="flex gap-2"><span class="text-primary">ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢</span> Drainage systems and stormwater management</li>
+                <li class="flex gap-2"><span class="text-primary">ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢</span> Road construction and site earthworks</li>
               </ul>
             </div>
             <div class="flex flex-col justify-center">
@@ -197,7 +200,7 @@
           <span class="material-symbols-outlined text-primary text-4xl flex-shrink-0">precision_manufacturing</span>
           <div class="flex-1">
             <h3 class="text-xl md:text-2xl font-bold text-slate-900 dark:text-white">Mechanical & Industrial Engineering</h3>
-            <p class="text-slate-600 dark:text-slate-400 text-sm md:text-base mt-2">Specialized fabrication, installation, and commissioning services for manufacturing facilities and industrial plants.</p>
+            <p class="text-slate-600 dark:text-slate-400 text-sm md:text-base mt-2">Mechanical fabrication, installation, and commissioning solutions for industrial facilities, process systems, and plant infrastructure.</p>
           </div>
           <span class="material-symbols-outlined text-slate-600 dark:text-slate-400 flex-shrink-0 service-icon">expand_more</span>
         </button>
@@ -207,13 +210,13 @@
             <div>
               <h4 class="font-bold text-slate-900 dark:text-white mb-3">Key Capabilities:</h4>
               <ul class="space-y-2 text-slate-600 dark:text-slate-400 text-sm">
-                <li class="flex gap-2"><span class="text-primary">•</span> Mechanical fabrication and installation</li>
-                <li class="flex gap-2"><span class="text-primary">•</span> Structural steel fabrication and erection</li>
-                <li class="flex gap-2"><span class="text-primary">•</span> Industrial and process piping systems</li>
-                <li class="flex gap-2"><span class="text-primary">•</span> Storage tank construction and installation</li>
-                <li class="flex gap-2"><span class="text-primary">•</span> Equipment installation and alignment</li>
-                <li class="flex gap-2"><span class="text-primary">•</span> Plant maintenance and mechanical upgrades</li>
-                <li class="flex gap-2"><span class="text-primary">•</span> Industrial process infrastructure support</li>
+                <li class="flex gap-2"><span class="text-primary">ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢</span> Mechanical fabrication and installation</li>
+                <li class="flex gap-2"><span class="text-primary">ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢</span> Structural steel fabrication and erection</li>
+                <li class="flex gap-2"><span class="text-primary">ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢</span> Industrial and process piping systems</li>
+                <li class="flex gap-2"><span class="text-primary">ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢</span> Storage tank construction and installation</li>
+                <li class="flex gap-2"><span class="text-primary">ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢</span> Equipment installation and alignment</li>
+                <li class="flex gap-2"><span class="text-primary">ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢</span> Plant maintenance and mechanical upgrades</li>
+                <li class="flex gap-2"><span class="text-primary">ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢</span> Industrial process infrastructure support</li>
               </ul>
             </div>
             <div class="flex flex-col justify-center">
@@ -229,22 +232,22 @@
           <span class="material-symbols-outlined text-primary text-4xl flex-shrink-0">settings_input_antenna</span>
           <div class="flex-1">
             <h3 class="text-xl md:text-2xl font-bold text-slate-900 dark:text-white">Telecommunications Infrastructure</h3>
-            <p class="text-slate-600 dark:text-slate-400 text-sm md:text-base mt-2">Specialized civil and structural solutions for telecommunications infrastructure and tower construction.</p>
+            <p class="text-slate-600 dark:text-slate-400 text-sm md:text-base mt-2">Civil, structural, and site development solutions supporting telecommunications infrastructure and network expansion projects.</p>
           </div>
           <span class="material-symbols-outlined text-slate-600 dark:text-slate-400 flex-shrink-0 service-icon">expand_more</span>
         </button>
         <div class="service-content hidden px-6 md:px-8 pb-6">
-          <img src="https://images.unsplash.com/photo-1577720643145-6edb816c8f64?w=600&h=400&fit=crop" alt="Telecom tower" class="w-full h-48 md:h-64 object-cover rounded-lg mb-6"/>
+          <img src="Asset/images/telecommunication.png" alt="Telecom tower" class="w-full h-48 md:h-64 object-cover rounded-lg mb-6"/>
           <div class="grid md:grid-cols-2 gap-6">
             <div>
               <h4 class="font-bold text-slate-900 dark:text-white mb-3">Key Capabilities:</h4>
               <ul class="space-y-2 text-slate-600 dark:text-slate-400 text-sm">
-                <li class="flex gap-2"><span class="text-primary">•</span> Telecom tower construction and installation</li>
-                <li class="flex gap-2"><span class="text-primary">•</span> Base Transceiver Station (BTS) civil works</li>
-                <li class="flex gap-2"><span class="text-primary">•</span> Telecom site foundations and structural bases</li>
-                <li class="flex gap-2"><span class="text-primary">•</span> Access road construction for telecom sites</li>
-                <li class="flex gap-2"><span class="text-primary">•</span> Equipment shelters and platform installations</li>
-                <li class="flex gap-2"><span class="text-primary">•</span> Ancillary telecom infrastructure works</li>
+                <li class="flex gap-2"><span class="text-primary">ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢</span> Telecom tower construction and installation</li>
+                <li class="flex gap-2"><span class="text-primary">ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢</span> Base Transceiver Station (BTS) civil works</li>
+                <li class="flex gap-2"><span class="text-primary">ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢</span> Telecom site foundations and structural bases</li>
+                <li class="flex gap-2"><span class="text-primary">ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢</span> Access road construction for telecom sites</li>
+                <li class="flex gap-2"><span class="text-primary">ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢</span> Equipment shelters and platform installations</li>
+                <li class="flex gap-2"><span class="text-primary">ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢</span> Ancillary telecom infrastructure works</li>
               </ul>
             </div>
             <div class="flex flex-col justify-center">
@@ -260,23 +263,23 @@
           <span class="material-symbols-outlined text-primary text-4xl flex-shrink-0">engineering</span>
           <div class="flex-1">
             <h3 class="text-xl md:text-2xl font-bold text-slate-900 dark:text-white">Project Management & Professional Consultancy</h3>
-            <p class="text-slate-600 dark:text-slate-400 text-sm md:text-base mt-2">Expert technical and commercial advisory services to manage construction projects efficiently and minimize risk.</p>
+            <p class="text-slate-600 dark:text-slate-400 text-sm md:text-base mt-2">Professional project management and advisory services that strengthen project control, delivery confidence, and commercial oversight.</p>
           </div>
           <span class="material-symbols-outlined text-slate-600 dark:text-slate-400 flex-shrink-0 service-icon">expand_more</span>
         </button>
         <div class="service-content hidden px-6 md:px-8 pb-6">
-          <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&h=400&fit=crop" alt="Project planning" class="w-full h-48 md:h-64 object-cover rounded-lg mb-6"/>
+          <img src="Asset/images/pmp.png" alt="Project planning" class="w-full h-48 md:h-64 object-cover rounded-lg mb-6"/>
           <div class="grid md:grid-cols-2 gap-6">
             <div>
               <h4 class="font-bold text-slate-900 dark:text-white mb-3">Key Capabilities:</h4>
               <ul class="space-y-2 text-slate-600 dark:text-slate-400 text-sm">
-                <li class="flex gap-2"><span class="text-primary">•</span> Project and construction management</li>
-                <li class="flex gap-2"><span class="text-primary">•</span> Quantity surveying and commercial management</li>
-                <li class="flex gap-2"><span class="text-primary">•</span> Cost planning and budgeting</li>
-                <li class="flex gap-2"><span class="text-primary">•</span> Bills of Quantities (BOQs) preparation</li>
-                <li class="flex gap-2"><span class="text-primary">•</span> Procurement and contract administration</li>
-                <li class="flex gap-2"><span class="text-primary">•</span> Tender documentation and bid evaluation</li>
-                <li class="flex gap-2"><span class="text-primary">•</span> Claims preparation and dispute advisory</li>
+                <li class="flex gap-2"><span class="text-primary">ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢</span> Project and construction management</li>
+                <li class="flex gap-2"><span class="text-primary">ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢</span> Quantity surveying and commercial management</li>
+                <li class="flex gap-2"><span class="text-primary">ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢</span> Cost planning and budgeting</li>
+                <li class="flex gap-2"><span class="text-primary">ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢</span> Bills of Quantities (BOQs) preparation</li>
+                <li class="flex gap-2"><span class="text-primary">ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢</span> Procurement and contract administration</li>
+                <li class="flex gap-2"><span class="text-primary">ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢</span> Tender documentation and bid evaluation</li>
+                <li class="flex gap-2"><span class="text-primary">ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢</span> Claims preparation and dispute advisory</li>
               </ul>
             </div>
             <div class="flex flex-col justify-center">
@@ -292,22 +295,22 @@
           <span class="material-symbols-outlined text-primary text-4xl flex-shrink-0">account_tree</span>
           <div class="flex-1">
             <h3 class="text-xl md:text-2xl font-bold text-slate-900 dark:text-white">Engineering, Procurement & Construction (EPC)</h3>
-            <p class="text-slate-600 dark:text-slate-400 text-sm md:text-base mt-2">Complete turnkey solutions integrating engineering design, procurement, and construction under a single delivery structure.</p>
+            <p class="text-slate-600 dark:text-slate-400 text-sm md:text-base mt-2">Integrated EPC delivery solutions combining engineering coordination, procurement management, and construction execution within a single project framework.</p>
           </div>
           <span class="material-symbols-outlined text-slate-600 dark:text-slate-400 flex-shrink-0 service-icon">expand_more</span>
         </button>
         <div class="service-content hidden px-6 md:px-8 pb-6">
-          <img src="https://images.unsplash.com/photo-1541123603104-9ce1b76ecacb?w=600&h=400&fit=crop" alt="Large infrastructure" class="w-full h-48 md:h-64 object-cover rounded-lg mb-6"/>
+          <img src="Asset/images/collabo.png" alt="Large infrastructure" class="w-full h-48 md:h-64 object-cover rounded-lg mb-6"/>
           <div class="grid md:grid-cols-2 gap-6">
             <div>
               <h4 class="font-bold text-slate-900 dark:text-white mb-3">Key Capabilities:</h4>
               <ul class="space-y-2 text-slate-600 dark:text-slate-400 text-sm">
-                <li class="flex gap-2"><span class="text-primary">•</span> Turnkey infrastructure delivery</li>
-                <li class="flex gap-2"><span class="text-primary">•</span> Multidisciplinary engineering coordination</li>
-                <li class="flex gap-2"><span class="text-primary">•</span> Procurement of construction materials and equipment</li>
-                <li class="flex gap-2"><span class="text-primary">•</span> Integrated schedule and risk management</li>
-                <li class="flex gap-2"><span class="text-primary">•</span> Quality assurance and project monitoring</li>
-                <li class="flex gap-2"><span class="text-primary">•</span> Project commissioning and handover</li>
+                <li class="flex gap-2"><span class="text-primary">ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢</span> Turnkey infrastructure delivery</li>
+                <li class="flex gap-2"><span class="text-primary">ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢</span> Multidisciplinary engineering coordination</li>
+                <li class="flex gap-2"><span class="text-primary">ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢</span> Procurement of construction materials and equipment</li>
+                <li class="flex gap-2"><span class="text-primary">ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢</span> Integrated schedule and risk management</li>
+                <li class="flex gap-2"><span class="text-primary">ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢</span> Quality assurance and project monitoring</li>
+                <li class="flex gap-2"><span class="text-primary">ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢</span> Project commissioning and handover</li>
               </ul>
             </div>
             <div class="flex flex-col justify-center">
@@ -321,7 +324,7 @@
 </div>
 
 <!-- Why Choose Us Section -->
-<div class="bg-white dark:bg-slate-800 py-16 md:py-24 px-6 md:px-20">
+<div class="bg-white dark:bg-slate-800 py-16 md:py-24 px-4 sm:px-6 lg:px-10">
   <div class="max-w-6xl mx-auto">
     <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 dark:text-white mb-12 text-center">Why Clients Trust Jammos Construction</h2>
     
@@ -366,13 +369,13 @@
 </div>
 
 <!-- Final CTA Section -->
-<div class="bg-primary py-16 md:py-24 px-6 md:px-20">
+<div class="bg-primary py-16 md:py-24 px-4 sm:px-6 lg:px-10">
   <div class="max-w-4xl mx-auto text-center">
     <h2 class="text-3xl md:text-4xl font-extrabold text-white mb-6">Ready to Start Your Project?</h2>
     <p class="text-white text-lg leading-relaxed mb-8">Whether you are planning a new development, upgrading infrastructure, or executing a large-scale industrial project, Jammos Construction Nigeria Limited has the expertise to deliver results.</p>
     <div class="flex gap-4 flex-col md:flex-row justify-center">
       <button onclick="openConsultationModal()" class="px-8 py-4 bg-accent hover:brightness-110 text-white font-bold rounded-lg transition-all shadow-lg uppercase tracking-wide text-sm md:text-base">Request Consultation</button>
-      <a href="https://wa.me/2347065615182" target="_blank" class="px-8 py-4 bg-green-600 hover:bg-green-700 text-white font-bold rounded-lg transition-colors border border-green-700 uppercase tracking-wide text-sm md:text-base text-center flex items-center justify-center gap-2">
+      <a href="https://wa.me/2348185885425" target="_blank" class="px-8 py-4 bg-green-600 hover:bg-green-700 text-white font-bold rounded-lg transition-colors border border-green-700 uppercase tracking-wide text-sm md:text-base text-center flex items-center justify-center gap-2">
         <i class="fa fa-whatsapp" style="font-size:1.2rem;"></i>
         Contact on WhatsApp
       </a>
@@ -382,92 +385,60 @@
 
 </main>
 
-    <footer class="bg-navy-deep text-slate-400 py-20 border-t border-slate-800">
-        <div class="max-w-7xl mx-auto px-6 lg:px-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+        <footer class="bg-navy-deep text-slate-400 py-16 sm:py-20 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-12">
             <div>
-                <div class="flex items-center gap-3 mb-8">
-                    <div class="bg-primary p-2 rounded-lg text-white">
-                        <span class="material-symbols-outlined">architecture</span>
-                    </div>
-                    <h1 class="text-white text-xl font-extrabold uppercase tracking-tight">Jammos</h1>
+                <div class="flex items-center mb-8">
+                    <img src="Asset/images/jammos logo.png" alt="Jammos Construction Nigeria Limited" class="h-16 sm:h-20 w-auto object-contain" />
                 </div>
                 <p class="text-sm leading-relaxed mb-6">
-                    Providing top-tier EPC and engineering solutions in Nigeria since 2008. Building the foundations of
-                    tomorrow's economy with precision and integrity.
+                    Jammos Construction Nigeria Limited is a professional engineering and construction company providing civil, mechanical, and industrial infrastructure solutions across Nigeria. Our mission is to deliver safe, reliable, and high-quality projects that support national development.
                 </p>
-                <div class="flex gap-4">
-                    <a class="size-10 bg-white/5 rounded-full flex items-center justify-center hover:bg-primary transition-colors text-white"
-                        href="#">
-                        <span class="material-symbols-outlined text-lg">public</span>
-                    </a>
-                    <a class="size-10 bg-white/5 rounded-full flex items-center justify-center hover:bg-primary transition-colors text-white"
-                        href="#">
-                        <span class="material-symbols-outlined text-lg">share</span>
-                    </a>
-                </div>
             </div>
-            <div>
-                <h6 class="text-white font-bold mb-8 uppercase text-xs tracking-[0.2em]">Quick Links</h6>
-                <ul class="space-y-4 text-sm font-medium">
-                    <li><a class="hover:text-primary transition-colors" href="about us.html">About Jammos</a></li>
-                    <li><a class="hover:text-primary transition-colors" href="services.html">Our Services</a></li>
-                    <li><a class="hover:text-primary transition-colors" href="project gallery.html">Major Projects</a>
-                    </li>
-                    <li><a class="hover:text-primary transition-colors" href="#">Governance &amp; Ethics</a></li>
-                    <li><a class="hover:text-primary transition-colors" href="#">CSR Initiatives</a></li>
-                </ul>
-            </div>
-            <div>
-                <h6 class="text-white font-bold mb-8 uppercase text-xs tracking-[0.2em]">Services</h6>
-                <ul class="space-y-4 text-sm font-medium">
-                    <li><a class="hover:text-primary transition-colors" href="#">Civil Construction</a></li>
-                    <li><a class="hover:text-primary transition-colors" href="#">Mechanical Engineering</a></li>
-                    <li><a class="hover:text-primary transition-colors" href="#">Telecommunications</a></li>
-                    <li><a class="hover:text-primary transition-colors" href="#">EPC Management</a></li>
-                    <li><a class="hover:text-primary transition-colors" href="#">Structural Designs</a></li>
-                </ul>
-            </div>
-            <div>
+<div>
                 <h6 class="text-white font-bold mb-8 uppercase text-xs tracking-[0.2em]">Office Location</h6>
                 <div class="space-y-4">
                     <div class="flex gap-4">
                         <span class="material-symbols-outlined text-primary">location_on</span>
-                        <p class="text-sm">Main Office, Plot 452 Business District, Victoria Island, Lagos, Nigeria</p>
+                        <p class="text-sm">7, Fadeyi Street, Owode Estate, Ibeshe Road, Ikorodu, Lagos State, Nigeria</p>
                     </div>
                     <div class="flex gap-4">
                         <span class="material-symbols-outlined text-primary">phone_in_talk</span>
-                        <p class="text-sm">+234 (0) 800-JAMMOS-01</p>
+                        <p class="text-sm">Phone: <a class="hover:text-white transition-colors" href="tel:+2347064475221">+234 706 447 5221</a></p>
+                    </div>
+                    <div class="flex gap-4">
+                        <span class="material-symbols-outlined text-primary">chat</span>
+                        <p class="text-sm">WhatsApp: <a class="hover:text-white transition-colors" href="https://wa.me/2348185885425" target="_blank">+234 818 588 5425</a></p>
                     </div>
                     <div class="flex gap-4">
                         <span class="material-symbols-outlined text-primary">mail</span>
-                        <p class="text-sm">info@jammos-construction.com.ng</p>
+                        <p class="text-sm">Email: <a class="hover:text-white transition-colors break-all" href="mailto:jammosconstruct@gmail.com">jammosconstruct@gmail.com</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        <div
-            class="max-w-7xl mx-auto px-6 lg:px-10 pt-16 mt-16 border-t border-slate-800 flex flex-col md:flex-row justify-between items-center text-xs">
-            <p>© 2024 Jammos Construction Nigeria Limited. All Rights Reserved.</p>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 pt-12 sm:pt-16 mt-12 sm:mt-16 border-t border-slate-800 flex flex-col md:flex-row justify-between items-start md:items-center text-xs gap-4 sm:gap-5">
+            <p>&copy; 2024 Jammos Construction Nigeria Limited. All Rights Reserved.</p>
             <div class="flex gap-8 mt-4 md:mt-0">
-                <a class="hover:text-white transition-colors" href="#">Privacy Policy</a>
-                <a class="hover:text-white transition-colors" href="#">Terms of Service</a>
-                <a class="hover:text-white transition-colors" href="#">Compliance Portal</a>
+                <a class="hover:text-white transition-colors" href="privacy-policy.html">Privacy Policy</a>
+                <a class="hover:text-white transition-colors" href="terms-of-service.html">Terms of Service</a>
+                <a class="hover:text-white transition-colors" href="compliance.html">Compliance Portal</a>
             </div>
         </div>
     </footer>
 
 <!-- floating whatsapp button -->
-<a href="https://wa.me/2347065615182" target="_blank" class="flex items-center justify-center fixed bottom-6 right-6 p-4 rounded-full shadow-xl z-40">
+<a href="https://wa.me/2348185885425" target="_blank" class="flex items-center justify-center fixed bottom-6 right-6 p-4 rounded-full shadow-xl z-40">
   <i class="fa fa-whatsapp" style="font-size:3rem; color:green"></i>
 </a>
 
 <!-- Global Consultation Modal -->
-<div id="consultation-modal" class="hidden fixed inset-0 z-[100] flex items-center justify-center p-4">
+<div id="consultation-modal" class="hidden fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6 lg:p-8">
   <!-- Overlay -->
   <div id="modal-overlay" class="absolute inset-0 bg-black/60 backdrop-blur-sm"></div>
   
   <!-- Modal Card -->
-  <div class="relative w-full max-w-3xl max-h-[90vh] overflow-y-auto bg-white dark:bg-slate-800 rounded-xl shadow-2xl border border-slate-200 dark:border-slate-700">
+  <div class="relative w-full max-w-3xl max-h-[92vh] sm:max-h-[90vh] overflow-y-auto bg-white dark:bg-slate-800 rounded-xl shadow-2xl border border-slate-200 dark:border-slate-700">
     <!-- Modal Header -->
     <div class="sticky top-0 bg-white dark:bg-slate-800 border-b border-slate-200 dark:border-slate-700 px-8 py-6 flex items-start justify-between">
       <div>
@@ -698,7 +669,7 @@
     
     // URL encode and open WhatsApp
     const encodedMessage = encodeURIComponent(whatsappMessage);
-    const whatsappUrl = `https://wa.me/2347065615182?text=${encodedMessage}`;
+    const whatsappUrl = `https://wa.me/2348185885425?text=${encodedMessage}`;
     window.open(whatsappUrl, '_blank');
   }
 
@@ -713,3 +684,5 @@
 </div>
 </body>
 </html>
+
+

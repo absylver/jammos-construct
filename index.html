@@ -1,16 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="utf-8" />
-    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="apple-touch-icon" sizes="180x180" href="Asset/favicon/apple-touch-icon.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="Asset/favicon/favicon-32x32.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="Asset/favicon/favicon-16x16.png" />
+<link rel="shortcut icon" href="Asset/favicon/favicon.ico" />
+<link rel="manifest" href="Asset/favicon/site.webmanifest" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap"
-        rel="stylesheet" />
-    <link
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
-        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet" />
     <script id="tailwind-config">
         tailwind.config = {
             darkMode: "class",
@@ -27,7 +28,12 @@
                     fontFamily: {
                         "display": ["Inter", "sans-serif"]
                     },
-                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
                 },
             },
         }
@@ -35,57 +41,97 @@
     <style type="text/tailwindcss">
         body { font-family: 'Inter', sans-serif; }
         .glass-header { backdrop-filter: blur(12px); background-color: rgba(10, 25, 47, 0.95); }
+        .section-shell { @apply px-4 sm:px-6 lg:px-10; }
+        .section-space { @apply py-14 sm:py-16 md:py-24; }
+        .btn-lift { @apply transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-xl; }
+        .surface-card { @apply rounded-2xl border border-slate-200/80 bg-white shadow-sm shadow-slate-900/5; }
+        .dark-surface-card { @apply rounded-2xl border border-white/10 bg-white/5 shadow-lg shadow-black/10 backdrop-blur-sm; }
+        .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.7s ease, transform 0.7s ease; }
+        .reveal.is-visible { opacity: 1; transform: translateY(0); }
+        .reveal-left { opacity: 0; transform: translateX(-32px); transition: opacity 0.7s ease, transform 0.7s ease; }
+        .reveal-left.is-visible { opacity: 1; transform: translateX(0); }
+        .reveal-right { opacity: 0; transform: translateX(32px); transition: opacity 0.7s ease, transform 0.7s ease; }
+        .reveal-right.is-visible { opacity: 1; transform: translateX(0); }
+        .reveal-delay-1 { transition-delay: 0.08s; }
+        .reveal-delay-2 { transition-delay: 0.16s; }
+        .reveal-delay-3 { transition-delay: 0.24s; }
+        .hero-pan { animation: hero-pan 20s ease-in-out infinite alternate; transform-origin: center; }
+        .hero-slide {
+            opacity: 0;
+            animation: hero-fade 21s ease-in-out infinite;
+            will-change: opacity, transform;
+        }
+        .hero-slide-1 { animation-delay: 0s; }
+        .hero-slide-2 { animation-delay: 7s; }
+        .hero-slide-3 { animation-delay: 14s; }
+        .blueprint-grid {
+            background-image:
+                linear-gradient(rgba(255,255,255,0.08) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.08) 1px, transparent 1px);
+            background-size: 42px 42px;
+        }
+        .logo-marquee { overflow: hidden; position: relative; }
+        .logo-track {
+            display: flex;
+            width: max-content;
+            animation: logo-scroll 24s linear infinite;
+        }
+        @keyframes logo-scroll {
+            from { transform: translateX(0); }
+            to { transform: translateX(-50%); }
+        }
+        @keyframes hero-pan {
+            from { transform: scale(1); }
+            to { transform: scale(1.08); }
+        }
+        @keyframes hero-fade {
+            0%, 28% { opacity: 0; }
+            4%, 24% { opacity: 1; }
+            33.333%, 100% { opacity: 0; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .reveal, .reveal-left, .reveal-right, .reveal.is-visible, .reveal-left.is-visible, .reveal-right.is-visible {
+                opacity: 1;
+                transform: none;
+                transition: none;
+            }
+            .hero-pan, .hero-slide { animation: none; }
+            .hero-slide { opacity: 0; }
+            .hero-slide-1 { opacity: 1; }
+            .logo-track { animation: none; }
+        }
     </style>
 </head>
-
-<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100">
+<body class="bg-background-light font-display text-slate-900 overflow-x-hidden">
     <header class="glass-header sticky top-0 z-50 border-b border-slate-700/50">
-        <div class="max-w-7xl mx-auto px-6 lg:px-10">
-            <!-- Top row: logo + nav + button -->
-            <div class="h-20 flex items-center justify-between">
-                <div class="flex items-center gap-3">
-                    <div class="bg-primary p-2 rounded-lg text-white">
-                        <span class="material-symbols-outlined text-2xl">architecture</span>
-                    </div>
-                    <h1 class="text-white text-lg md:text-xl font-extrabold tracking-tight uppercase">Jammos <span
-                            class="text-primary">Construction</span></h1>
-                </div>
-                <!-- Desktop nav -->
-                <nav
-                    class="hidden md:flex items-center gap-8 text-sm font-semibold text-slate-300 flex-1 justify-center">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
+            <div class="h-20 sm:h-24 md:h-20 flex items-center justify-between gap-4">
+                <a href="index.html" class="flex items-center min-w-0">
+                    <img src="Asset/images/jammos logo.png" alt="Jammos Construction Nigeria Limited" class="h-16 sm:h-20 md:h-16 lg:h-18 w-auto object-contain" />
+                </a>
+                <nav class="hidden md:flex items-center gap-8 text-base font-semibold text-slate-300 flex-1 justify-center">
                     <a class="hover:text-primary transition-colors" href="index.html">Home</a>
                     <a class="hover:text-primary transition-colors" href="about us.html">About</a>
                     <a class="hover:text-primary transition-colors" href="services.html">Services</a>
                     <a class="hover:text-primary transition-colors" href="project gallery.html">Projects</a>
                     <a class="hover:text-primary transition-colors" href="contact.html">Contact</a>
                 </nav>
-                <!-- Desktop button + mobile burger -->
                 <div class="flex items-center gap-4">
-                    <button onclick="openConsultationModal()"
-                        class="hidden md:block bg-primary hover:bg-primary/90 text-white px-6 py-2.5 rounded-lg text-sm font-bold transition-all shadow-lg shadow-primary/20">
-                        Request Consultation
-                    </button>
+                    <button onclick="openConsultationModal()" class="hidden md:inline-flex items-center justify-center bg-primary hover:bg-primary/90 text-white px-6 py-2.5 rounded-lg text-sm font-bold transition-all shadow-lg shadow-primary/20">Request Consultation</button>
                     <button id="mobile-menu-btn" class="md:hidden text-white p-2">
-                        <span class="material-symbols-outlined text-2xl">menu</span>
+                        <span class="material-symbols-outlined text-[2rem]">menu</span>
                     </button>
                 </div>
             </div>
-            <!-- Mobile nav + button (hidden by default) -->
-            <div id="mobile-nav" class="hidden md:hidden pb-4 pt-2 border-t border-slate-700/30">
+            <div id="mobile-nav" class="hidden md:hidden pb-5 pt-3 border-t border-slate-700/30">
                 <nav class="flex flex-col gap-2 text-sm font-semibold text-slate-300 mb-4">
                     <a class="w-full text-center py-2.5 hover:text-primary transition-colors" href="index.html">Home</a>
-                    <a class="w-full text-center py-2.5 hover:text-primary transition-colors"
-                        href="about us.html">About</a>
+                    <a class="w-full text-center py-2.5 hover:text-primary transition-colors" href="about us.html">About</a>
                     <a class="w-full text-center py-2.5 hover:text-primary transition-colors" href="services.html">Services</a>
-                    <a class="w-full text-center py-2.5 hover:text-primary transition-colors"
-                        href="project gallery.html">Projects</a>
-                    <a class="w-full text-center py-2.5 hover:text-primary transition-colors"
-                        href="contact.html">Contact</a>
+                    <a class="w-full text-center py-2.5 hover:text-primary transition-colors" href="project gallery.html">Projects</a>
+                    <a class="w-full text-center py-2.5 hover:text-primary transition-colors" href="contact.html">Contact</a>
                 </nav>
-                <button onclick="openConsultationModal()"
-                    class="w-full bg-primary hover:bg-primary/90 text-white px-6 py-2.5 rounded-lg text-sm font-bold transition-all shadow-lg shadow-primary/20">
-                    Request Consultation
-                </button>
+                <button onclick="openConsultationModal()" class="w-full bg-primary hover:bg-primary/90 text-white px-6 py-2.5 rounded-lg text-sm font-bold transition-all shadow-lg shadow-primary/20">Request Consultation</button>
             </div>
         </div>
     </header>
@@ -94,442 +140,458 @@
         document.getElementById('mobile-menu-btn')?.addEventListener('click', function () {
             document.getElementById('mobile-nav').classList.toggle('hidden');
         });
+
+        function scrollToForm() {
+            const el = document.getElementById('consultation-form');
+            if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            else window.location.href = 'contact.html#consultation-form';
+        }
     </script>
-    <section class="relative h-[85vh] w-full flex items-center overflow-hidden">
-        <div class="absolute inset-0 bg-navy-deep/60 z-10"></div>
-        <div class="absolute inset-0 bg-cover bg-center"
-            data-alt="High-quality industrial construction site with heavy machinery"
-            style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDE9SvDebh5EvqCVXMy9TMp5fVBLlZuT3KP6zSn7u-myaj1h1SgQtIBjcXPToP8yFcXNTZ0zcCrGn6meA2qQOAN_3EZkhbHwAwuJvggTAmQXL58RchitIIiXpqHomdf1PywFhrleMl9KNvzx4WRrRue1l00ShvMVuPFSJVxkXcDFjocybi_w8ptE8BnOTd3tZfEF_imiTMbCSfcvRPy62tNG3RRrWiqYyddEF6WLqV66imKddplDfgt-lAopQUf540zOWEQgPnhC8o');">
-        </div>
-        <div class="max-w-7xl mx-auto px-6 lg:px-10 relative z-20 w-full">
-                        <script>
-                            function scrollToForm() {
-                                const el = document.getElementById('consultation-form');
-                                if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                                else window.location.href = 'contact.html#consultation-form';
-                            }
-                        </script>
-            <div class="max-w-3xl">
-                <span
-                    class="inline-block px-4 py-1.5 rounded-full bg-accent/20 border border-accent/30 text-accent text-sm font-bold mb-6">
-                    Pioneering Nigeria's Infrastructure
-                </span>
-                <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-black text-white leading-[1.1] mb-8">
-                    Engineering Excellence. <br />
-                    <span class="text-accent">Structured Delivery.</span><br />
-                    Sustainable Impact.
-                </h1>
-                <p
-                    class="text-base sm:text-lg text-slate-300 mb-10 leading-relaxed max-w-2xl border-l-4 border-accent pl-6">
-                    Leading EPC firm delivering world-class infrastructure and industrial solutions across Nigeria. We
-                    build with integrity, innovation, and a commitment to national growth.
-                </p>
-                <div class="flex flex-col sm:flex-row gap-4">
-                    <button
-                        class="w-full sm:w-auto bg-accent text-white px-8 py-4 rounded-lg font-bold text-base sm:text-lg hover:bg-orange-600 transition-all flex items-center justify-center sm:justify-start gap-2">
-                        <a href="services.html" class="w-full md:w-auto cursor-pointer inline-flex items-center justify-center">View Our Services</a>
-                        <span class="material-symbols-outlined">arrow_forward</span>
-                    </button>
-                    <a href="project gallery.html"
-                        class="w-full sm:w-auto bg-white/10 backdrop-blur-md text-white border border-white/20 px-8 py-4 rounded-lg font-bold text-base sm:text-lg hover:bg-white/20 transition-all text-center">
-                        Recent Projects
+
+    <main>
+        <!-- Hero Section -->
+        <section class="relative isolate overflow-hidden bg-navy-deep">
+            <div class="absolute inset-0">
+                <div class="absolute inset-0 hero-slide hero-slide-1 hero-pan bg-cover bg-center" data-alt="Large-scale infrastructure construction site with concrete works and heavy engineering equipment" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDE9SvDebh5EvqCVXMy9TMp5fVBLlZuT3KP6zSn7u-myaj1h1SgQtIBjcXPToP8yFcXNTZ0zcCrGn6meA2qQOAN_3EZkhbHwAwuJvggTAmQXL58RchitIIiXpqHomdf1PywFhrleMl9KNvzx4WRrRue1l00ShvMVuPFSJVxkXcDFjocybi_w8ptE8BnOTd3tZfEF_imiTMbCSfcvRPy62tNG3RRrWiqYyddEF6WLqV66imKddplDfgt-lAopQUf540zOWEQgPnhC8o');"></div>
+                <div class="absolute inset-0 hero-slide hero-slide-2 hero-pan bg-cover bg-center" data-alt="Residential building renovation project showcasing refurbishment and finishing works" style="background-image: url('Asset/images/Residential Building Renovation/IMG_20190817_175301.jpg');"></div>
+                <div class="absolute inset-0 hero-slide hero-slide-3 hero-pan bg-cover bg-center" data-alt="Sandcrete hollow pot slab construction project in progress" style="background-image: url('Asset/images/Sandcrete Hollow Pot Slab Installation/IMG_20140702_112431.jpg');"></div>
+            </div>
+            <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(15,73,189,0.22),_transparent_36%),linear-gradient(135deg,_rgba(10,25,47,0.68),_rgba(10,25,47,0.82))]"></div>
+            <div class="absolute inset-0 blueprint-grid opacity-15"></div>
+            <div class="relative z-10 max-w-7xl mx-auto section-shell min-h-[calc(100vh-5rem)] py-16 sm:py-20 lg:py-24 flex items-center">
+                <div class="grid grid-cols-1 lg:grid-cols-[minmax(0,1.2fr)_minmax(320px,0.8fr)] gap-10 lg:gap-14 items-end w-full">
+                    <div class="max-w-3xl">
+                        <div class="reveal" data-aos="fade-up">
+                            <span class="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/8 px-4 py-2 text-xs sm:text-sm font-semibold tracking-[0.24em] uppercase text-slate-200">
+                                <span class="size-2 rounded-full bg-accent"></span>
+                                Pioneering Infrastructure Delivery in Nigeria
+                            </span>
+                        </div>
+                        <h1 class="reveal reveal-delay-1 mt-6 max-w-5xl text-4xl sm:text-5xl md:text-6xl xl:text-7xl font-black leading-[0.95] tracking-tight text-white" data-aos="fade-up">Building the Future with Engineering Excellence</h1>
+                        <p class="reveal reveal-delay-2 mt-6 max-w-3xl text-base sm:text-lg md:text-xl leading-relaxed text-slate-300" data-aos="fade-up">Jammos Construction Nigeria Limited delivers integrated engineering, procurement, and construction solutions across civil infrastructure, industrial systems, telecommunications, and complex project environments across Nigeria.</p>
+                        <div class="reveal reveal-delay-3 mt-8 flex flex-col sm:flex-row gap-4" data-aos="fade-up">
+                            <button onclick="openConsultationModal()" class="btn-lift inline-flex items-center justify-center gap-2 rounded-xl bg-primary px-6 sm:px-7 py-4 text-sm sm:text-base font-bold text-white shadow-lg shadow-primary/25 hover:bg-primary/90">Request Consultation <span class="material-symbols-outlined text-xl">arrow_forward</span></button>
+                            <a href="project gallery.html" class="btn-lift inline-flex items-center justify-center gap-2 rounded-xl border border-white/15 bg-white/8 px-6 sm:px-7 py-4 text-sm sm:text-base font-bold text-white hover:bg-white/14">View Projects <span class="material-symbols-outlined text-xl">north_east</span></a>
+                        </div>
+                    </div>
+                    <div class="reveal-right dark-surface-card p-6 sm:p-8 lg:p-10" data-aos="fade-left">
+                        <div class="flex items-center justify-between gap-4 border-b border-white/10 pb-5">
+                            <div>
+                                <p class="text-xs font-semibold uppercase tracking-[0.24em] text-slate-400">Operational Focus</p>
+                                <h2 class="mt-2 text-2xl font-bold text-white">Critical Project Delivery</h2>
+                            </div>
+                            <div class="flex size-14 items-center justify-center rounded-2xl border border-white/10 bg-white/6 text-accent">
+                                <span class="material-symbols-outlined text-3xl">domain</span>
+                            </div>
+                        </div>
+                        <div class="mt-6 grid grid-cols-2 gap-4 text-sm text-slate-300">
+                            <div class="rounded-2xl border border-white/10 bg-white/6 p-4">
+                                <p class="text-xs uppercase tracking-[0.18em] text-slate-500">Capability</p>
+                                <p class="mt-2 font-semibold text-white">Civil, Industrial, Telecom, EPC</p>
+                            </div>
+                            <div class="rounded-2xl border border-white/10 bg-white/6 p-4">
+                                <p class="text-xs uppercase tracking-[0.18em] text-slate-500">Delivery Lens</p>
+                                <p class="mt-2 font-semibold text-white">Quality, Safety, Structured Execution</p>
+                            </div>
+                        </div>
+                        <div class="mt-6 space-y-4">
+                            <div class="flex items-start gap-3">
+                                <span class="material-symbols-outlined text-accent">verified</span>
+                                <p class="text-sm leading-relaxed text-slate-300">Positioned for demanding infrastructure and engineering assignments where reliability matters.</p>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <span class="material-symbols-outlined text-accent">engineering</span>
+                                <p class="text-sm leading-relaxed text-slate-300">Designed to support project inquiries, technical consultations, and serious delivery conversations.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Company Trust Strip -->
+        <section class="relative -mt-10 sm:-mt-12 z-20">
+            <div class="max-w-7xl mx-auto section-shell">
+                <div class="surface-card overflow-hidden rounded-[28px] border-slate-200/80 bg-white/95 backdrop-blur">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4">
+                        <div class="reveal border-b sm:border-r xl:border-b-0 border-slate-200 px-6 py-6 sm:px-8" data-aos="fade-up">
+                            <p class="text-xs uppercase tracking-[0.2em] text-slate-400">Established in</p>
+                            <p class="mt-3 text-3xl sm:text-4xl font-black text-slate-950" data-counter="2006">0</p>
+                        </div>
+                        <div class="reveal reveal-delay-1 border-b xl:border-b-0 xl:border-r border-slate-200 px-6 py-6 sm:px-8" data-aos="fade-up">
+                            <p class="text-xs uppercase tracking-[0.2em] text-slate-400">Experience</p>
+                            <p class="mt-3 text-3xl sm:text-4xl font-black text-slate-950" data-counter="20">0</p>
+                            <p class="mt-2 text-sm font-semibold text-slate-600">Years Industry Experience</p>
+                        </div>
+                        <div class="reveal reveal-delay-2 sm:border-r border-slate-200 px-6 py-6 sm:px-8" data-aos="fade-up">
+                            <p class="text-xs uppercase tracking-[0.2em] text-slate-400">Capability</p>
+                            <h3 class="mt-3 text-2xl font-black text-slate-950">Integrated EPC</h3>
+                            <p class="mt-2 text-sm font-semibold text-slate-600"> Capability</p>
+                        </div>
+                        <div class="reveal reveal-delay-3 px-6 py-6 sm:px-8" data-aos="fade-up">
+                            <p class="text-xs uppercase tracking-[0.2em] text-slate-400">Reach</p>
+                            <h3 class="mt-3 text-2xl font-black text-slate-950">Nationwide</h3>
+                            <p class="mt-2 text-sm font-semibold text-slate-600">Infrastructure Delivery</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+        <!-- About Preview Section -->
+        <section class="section-space max-w-7xl mx-auto section-shell">
+            <div class="grid grid-cols-1 lg:grid-cols-[minmax(0,0.95fr)_minmax(320px,1.05fr)] gap-12 lg:gap-16 items-center">
+                <div class="reveal-left" data-aos="fade-right">
+                    <p class="text-sm font-bold uppercase tracking-[0.22em] text-primary">About Jammos</p>
+                    <h2 class="mt-4 text-3xl sm:text-4xl lg:text-3xl sm:text-4xl md:text-5xl font-black leading-tight text-slate-950">Engineering Excellence Backed by Experience</h2>
+                    <p class="mt-6 max-w-2xl text-base sm:text-lg leading-relaxed text-slate-600">Jammos Construction Nigeria Limited is a multidisciplinary engineering and construction company delivering reliable infrastructure solutions across civil works, industrial systems, telecommunications, and project execution. We combine technical expertise, disciplined project management, and modern construction technologies to deliver high-performance infrastructure projects.</p>
+                    <div class="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div class="surface-card p-5"><p class="text-xs uppercase tracking-[0.18em] text-slate-400">Project Discipline</p><p class="mt-2 font-semibold text-slate-900">Structured planning, execution, and delivery controls.</p></div>
+                        <div class="surface-card p-5"><p class="text-xs uppercase tracking-[0.18em] text-slate-400">Technical Focus</p><p class="mt-2 font-semibold text-slate-900">Built for infrastructure, industrial, and multi-sector delivery.</p></div>
+                    </div>
+                    <a href="about us.html" class="btn-lift mt-8 inline-flex items-center gap-2 rounded-xl border border-primary bg-white px-6 py-3.5 text-sm font-bold text-primary hover:bg-primary hover:text-white">About Us <span class="material-symbols-outlined text-xl">north_east</span></a>
+                </div>
+                <div class="reveal-right" data-aos="fade-left">
+                    <div class="relative overflow-hidden rounded-[32px] border border-slate-200 bg-slate-950 p-6 sm:p-8 shadow-2xl shadow-slate-900/10">
+                        <div class="absolute inset-0 bg-[linear-gradient(135deg,_rgba(15,73,189,0.18),_transparent_40%),radial-gradient(circle_at_top_left,_rgba(230,126,34,0.15),_transparent_32%)]"></div>
+                        <div class="relative grid gap-6">
+                            <div class="overflow-hidden rounded-[24px] border border-white/10">
+                                <img class="h-75 w-full object-cover transition-transform duration-700 hover:scale-105" data-alt="Construction and engineering leadership reviewing project plans on site" src="Asset/images/engineer review.png"/>
+                            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                                <div class="dark-surface-card p-4"><p class="text-xs uppercase tracking-[0.18em] text-slate-500">Civil Works</p><p class="mt-2 text-sm font-semibold text-white">Roads, drainage, structural and site infrastructure delivery.</p></div>
+                                <div class="dark-surface-card p-4"><p class="text-xs uppercase tracking-[0.18em] text-slate-500">Industrial Systems</p><p class="mt-2 text-sm font-semibold text-white">Mechanical systems and industrial installation support.</p></div>
+                                <div class="dark-surface-card p-4"><p class="text-xs uppercase tracking-[0.18em] text-slate-500">Execution</p><p class="mt-2 text-sm font-semibold text-white">Disciplined controls across procurement and project delivery.</p></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Overview Section -->
+        <section class="section-space bg-slate-100/90">
+            <div class="max-w-7xl mx-auto section-shell">
+                <div class="max-w-3xl reveal" data-aos="fade-up">
+                    <p class="text-sm font-bold uppercase tracking-[0.22em] text-primary">Services Overview</p>
+                    <h2 class="mt-4 text-3xl sm:text-4xl lg:text-3xl sm:text-4xl md:text-5xl font-black leading-tight text-slate-950">Integrated Construction &amp; Engineering Services</h2>
+                    <p class="mt-5 text-base sm:text-lg leading-relaxed text-slate-600">We provide end-to-end engineering and construction solutions tailored to the demands of infrastructure, industrial, and commercial development projects.</p>
+                </div>
+                <div class="mt-10 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-5 gap-5">
+                    <a href="services.html" class="reveal reveal-delay-1 surface-card group p-6 hover:-translate-y-1 hover:shadow-xl transition-all" data-aos="fade-up">
+                        <div class="flex size-14 items-center justify-center rounded-2xl bg-primary/10 text-primary transition-transform duration-300 group-hover:scale-105 group-hover:bg-primary group-hover:text-white"><span class="material-symbols-outlined text-3xl">construction</span></div>
+                        <h3 class="mt-6 text-xl font-bold text-slate-950">Civil Engineering Works</h3>
+                        <p class="mt-3 text-sm leading-relaxed text-slate-600">Execution of roadworks, drainage, concrete, structural, and site development packages for demanding infrastructure projects.</p>
+                    </a>
+                    <a href="services.html" class="reveal reveal-delay-2 surface-card group p-6 hover:-translate-y-1 hover:shadow-xl transition-all" data-aos="fade-up">
+                        <div class="flex size-14 items-center justify-center rounded-2xl bg-primary/10 text-primary transition-transform duration-300 group-hover:scale-105 group-hover:bg-primary group-hover:text-white"><span class="material-symbols-outlined text-3xl">precision_manufacturing</span></div>
+                        <h3 class="mt-6 text-xl font-bold text-slate-950">Mechanical &amp; Industrial Systems</h3>
+                        <p class="mt-3 text-sm leading-relaxed text-slate-600">Installation support for industrial piping, plant systems, mechanical infrastructure, and performance-driven facility upgrades.</p>
+                    </a>
+                    <a href="services.html" class="reveal reveal-delay-3 surface-card group p-6 hover:-translate-y-1 hover:shadow-xl transition-all" data-aos="fade-up">
+                        <div class="flex size-14 items-center justify-center rounded-2xl bg-primary/10 text-primary transition-transform duration-300 group-hover:scale-105 group-hover:bg-primary group-hover:text-white"><span class="material-symbols-outlined text-3xl">foundation</span></div>
+                        <h3 class="mt-6 text-xl font-bold text-slate-950">EPC Project Delivery</h3>
+                        <p class="mt-3 text-sm leading-relaxed text-slate-600">Coordinated engineering, procurement, and construction execution built to support clear accountability and delivery control.</p>
+                    </a>
+                    <a href="services.html" class="reveal surface-card group p-6 hover:-translate-y-1 hover:shadow-xl transition-all" data-aos="fade-up">
+                        <div class="flex size-14 items-center justify-center rounded-2xl bg-primary/10 text-primary transition-transform duration-300 group-hover:scale-105 group-hover:bg-primary group-hover:text-white"><span class="material-symbols-outlined text-3xl">settings_input_antenna</span></div>
+                        <h3 class="mt-6 text-xl font-bold text-slate-950">Telecom Infrastructure</h3>
+                        <p class="mt-3 text-sm leading-relaxed text-slate-600">Infrastructure support for network deployment, telecom sites, towers, and related execution requirements across locations.</p>
+                    </a>
+                    <a href="services.html" class="reveal reveal-delay-1 surface-card group p-6 hover:-translate-y-1 hover:shadow-xl transition-all" data-aos="fade-up">
+                        <div class="flex size-14 items-center justify-center rounded-2xl bg-primary/10 text-primary transition-transform duration-300 group-hover:scale-105 group-hover:bg-primary group-hover:text-white"><span class="material-symbols-outlined text-3xl">assignment_turned_in</span></div>
+                        <h3 class="mt-6 text-xl font-bold text-slate-950">Project Management &amp; Technical Execution</h3>
+                        <p class="mt-3 text-sm leading-relaxed text-slate-600">Disciplined oversight, coordination, reporting, and technical follow-through required for complex project delivery environments.</p>
                     </a>
                 </div>
             </div>
-        </div>
-    </section>
-    <div class="relative z-30 mt-8 sm:mt-12 md:mt-16 max-w-7xl mx-auto px-6">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-1">
-            <div
-                class="bg-white dark:bg-background-dark p-8 border border-slate-200 dark:border-slate-800 shadow-xl flex items-center gap-6 rounded-l-xl">
-                <span class="material-symbols-outlined text-4xl text-primary">verified</span>
-                <div>
-                    <h4 class="text-xs uppercase tracking-widest font-bold text-slate-500 mb-1">Registration</h4>
-                    <p class="text-xl font-extrabold">CAC Certified</p>
+        </section>
+
+        <!-- Construction Value Chain Section -->
+        <section class="section-space max-w-7xl mx-auto section-shell">
+            <div class="max-w-3xl reveal" data-aos="fade-up">
+                <p class="text-sm font-bold uppercase tracking-[0.22em] text-primary">Construction Value Chain</p>
+                <h2 class="mt-4 text-3xl sm:text-4xl lg:text-3xl sm:text-4xl md:text-5xl font-black text-slate-950">Supporting the Entire Construction Value Chain</h2>
+            </div>
+            <div class="mt-10 grid grid-cols-1 md:grid-cols-5 gap-5">
+                <div class="reveal surface-card p-6 relative" data-aos="fade-up"><span class="absolute left-6 top-0 h-1 w-16 rounded-full bg-primary"></span><p class="text-xs uppercase tracking-[0.2em] text-slate-400">01</p><h3 class="mt-4 text-lg font-bold text-slate-950">Engineering &amp; Design</h3><p class="mt-3 text-sm leading-relaxed text-slate-600">Project planning support, technical development, and design coordination for build-ready execution.</p></div>
+                <div class="reveal reveal-delay-1 surface-card p-6 relative" data-aos="fade-up"><span class="absolute left-6 top-0 h-1 w-16 rounded-full bg-primary"></span><p class="text-xs uppercase tracking-[0.2em] text-slate-400">02</p><h3 class="mt-4 text-lg font-bold text-slate-950">Procurement &amp; Materials Supply</h3><p class="mt-3 text-sm leading-relaxed text-slate-600">Technology-enabled sourcing, supply coordination, and access to materials, tools, equipment, and support services.</p></div>
+                <div class="reveal reveal-delay-2 surface-card p-6 relative" data-aos="fade-up"><span class="absolute left-6 top-0 h-1 w-16 rounded-full bg-primary"></span><p class="text-xs uppercase tracking-[0.2em] text-slate-400">03</p><h3 class="mt-4 text-lg font-bold text-slate-950">Construction &amp; Installation</h3><p class="mt-3 text-sm leading-relaxed text-slate-600">Field execution across civil, building, mechanical, industrial, and telecommunications infrastructure scopes.</p></div>
+                <div class="reveal reveal-delay-3 surface-card p-6 relative" data-aos="fade-up"><span class="absolute left-6 top-0 h-1 w-16 rounded-full bg-primary"></span><p class="text-xs uppercase tracking-[0.2em] text-slate-400">04</p><h3 class="mt-4 text-lg font-bold text-slate-950">Project Management</h3><p class="mt-3 text-sm leading-relaxed text-slate-600">Delivery oversight, stakeholder reporting, schedule control, and disciplined execution management.</p></div>
+                <div class="reveal surface-card p-6 relative" data-aos="fade-up"><span class="absolute left-6 top-0 h-1 w-16 rounded-full bg-primary"></span><p class="text-xs uppercase tracking-[0.2em] text-slate-400">05</p><h3 class="mt-4 text-lg font-bold text-slate-950">Post-Project Support</h3><p class="mt-3 text-sm leading-relaxed text-slate-600">Operational support, technical advisory, and continuity planning beyond project handover.</p></div>
+            </div>
+        </section>
+
+        <!-- Industries Served Section -->
+        <section class="section-space bg-slate-100/90">
+            <div class="max-w-7xl mx-auto section-shell">
+                <div class="max-w-3xl reveal" data-aos="fade-up">
+                    <p class="text-sm font-bold uppercase tracking-[0.22em] text-primary">Industries We Serve</p>
+                    <h2 class="mt-4 text-3xl sm:text-4xl lg:text-3xl sm:text-4xl md:text-5xl font-black text-slate-950">Industries We Serve</h2>
+                </div>
+                <div class="mt-10 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-5">
+                    <div class="reveal surface-card p-6" data-aos="fade-up"><h3 class="text-xl font-bold text-slate-950">Oil &amp; Gas</h3><p class="mt-3 text-sm leading-relaxed text-slate-600">Infrastructure and industrial support for technically demanding energy environments.</p></div>
+                    <div class="reveal reveal-delay-1 surface-card p-6" data-aos="fade-up"><h3 class="text-xl font-bold text-slate-950">Telecommunications</h3><p class="mt-3 text-sm leading-relaxed text-slate-600">Telecom infrastructure deployment, network support systems, and site works.</p></div>
+                    <div class="reveal reveal-delay-2 surface-card p-6" data-aos="fade-up"><h3 class="text-xl font-bold text-slate-950">Transportation Infrastructure</h3><p class="mt-3 text-sm leading-relaxed text-slate-600">Roads, bridges, corridor improvements, and mobility-enabling public infrastructure.</p></div>
+                    <div class="reveal surface-card p-6" data-aos="fade-up"><h3 class="text-xl font-bold text-slate-950">Urban Development</h3><p class="mt-3 text-sm leading-relaxed text-slate-600">Building, drainage, utility, and support infrastructure for growing urban environments.</p></div>
+                    <div class="reveal reveal-delay-1 surface-card p-6" data-aos="fade-up"><h3 class="text-xl font-bold text-slate-950">Industrial Facilities</h3><p class="mt-3 text-sm leading-relaxed text-slate-600">Plant systems, industrial construction, and facility-linked engineering execution.</p></div>
+                    <div class="reveal reveal-delay-2 surface-card p-6" data-aos="fade-up"><h3 class="text-xl font-bold text-slate-950">Government Infrastructure</h3><p class="mt-3 text-sm leading-relaxed text-slate-600">Public-sector delivery support for essential infrastructure and institutional projects.</p></div>
                 </div>
             </div>
-            <div
-                class="bg-white dark:bg-background-dark p-8 border border-slate-200 dark:border-slate-800 shadow-xl flex items-center gap-6">
-                <span class="material-symbols-outlined text-4xl text-accent">safety_check</span>
-                <div>
-                    <h4 class="text-xs uppercase tracking-widest font-bold text-slate-500 mb-1">Compliance</h4>
-                    <p class="text-xl font-extrabold">HSE Compliant</p>
+        </section>
+
+        <!-- Featured Projects Section -->
+        <section class="section-space max-w-7xl mx-auto section-shell">
+            <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6">
+                <div class="max-w-3xl reveal" data-aos="fade-up">
+                    <p class="text-sm font-bold uppercase tracking-[0.22em] text-primary">Featured Projects</p>
+                    <h2 class="mt-4 text-3xl sm:text-4xl lg:text-3xl sm:text-4xl md:text-5xl font-black text-slate-950">Projects That Reflect Our Capability</h2>
+                    <p class="mt-5 text-base sm:text-lg leading-relaxed text-slate-600">Our portfolio reflects completed structural construction, commercial market development, and renovation projects delivered with practical engineering expertise and disciplined execution.</p>
+                </div>
+                <a href="project gallery.html" class="btn-lift inline-flex items-center gap-2 rounded-xl border border-slate-300 bg-white px-5 py-3 text-sm font-bold text-slate-900 hover:border-primary hover:text-primary">Explore All Projects <span class="material-symbols-outlined text-xl">arrow_forward</span></a>
+            </div>
+            <div class="mt-10 grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8">
+                <a href="project gallery/sandcrete-hollow-pot-slab-installation.html" class="project-card reveal group relative overflow-hidden rounded-[28px] h-[24rem] shadow-xl shadow-slate-900/10" data-aos="fade-up" data-gallery='["Asset/images/Sandcrete Hollow Pot Slab Installation/IMG_20140702_112431.jpg","Asset/images/Sandcrete Hollow Pot Slab Installation/IMG_20140705_113301.jpg"]'>
+                    <img class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Sandcrete Hollow Pot Slab Installation project in Trans-Amadi, Rivers State" src="Asset/images/Sandcrete Hollow Pot Slab Installation/IMG_20140702_112431.jpg" />
+                    <div class="absolute inset-0 bg-gradient-to-t from-navy-deep via-navy-deep/65 to-transparent"></div>
+                    <div class="absolute inset-x-0 bottom-0 p-7 text-white">
+                        <p class="text-xs font-semibold uppercase tracking-[0.22em] text-slate-300">Structural Construction</p>
+                        <h3 class="mt-3 text-2xl font-bold">Sandcrete Hollow Pot Slab Installation</h3>
+                        <p class="mt-3 text-sm leading-relaxed text-slate-300">Structural slab construction using sandcrete hollow pot systems designed to improve efficiency while reducing material load.</p>
+                    </div>
+                </a>
+                <a href="project gallery/construction-of-modern-open-market-shops.html" class="project-card reveal reveal-delay-1 group relative overflow-hidden rounded-[28px] h-[24rem] shadow-xl shadow-slate-900/10" data-aos="fade-up" data-gallery='["Asset/images/Construction of Modern Open Market Shops/IMG-20190416-WA0002.jpg","Asset/images/Construction of Modern Open Market Shops/IMG-20190416-WA0004.jpg","Asset/images/Construction of Modern Open Market Shops/IMG_20190418_171313.jpg","Asset/images/Construction of Modern Open Market Shops/IMG_20190421_175523.jpg"]'>
+                    <img class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Construction of Modern Open Market Shops project in Igboho, Oyo State" src="Asset/images/Construction of Modern Open Market Shops/IMG-20190416-WA0002.jpg" />
+                    <div class="absolute inset-0 bg-gradient-to-t from-navy-deep via-navy-deep/65 to-transparent"></div>
+                    <div class="absolute inset-x-0 bottom-0 p-7 text-white">
+                        <p class="text-xs font-semibold uppercase tracking-[0.22em] text-slate-300">Commercial Construction</p>
+                        <h3 class="mt-3 text-2xl font-bold">Construction of Modern Open Market Shops</h3>
+                        <p class="mt-3 text-sm leading-relaxed text-slate-300">Development of modern open commercial shop structures designed to support organized market trading and local economic activity.</p>
+                    </div>
+                </a>
+                <a href="project gallery/renovation-of-residential-building.html" class="project-card reveal reveal-delay-2 group relative overflow-hidden rounded-[28px] h-[24rem] shadow-xl shadow-slate-900/10" data-aos="fade-up" data-gallery='["Asset/images/Residential Building Renovation/IMG_20190817_175301.jpg","Asset/images/Residential Building Renovation/IMG_20190817_175354.jpg","Asset/images/Residential Building Renovation/IMG_20190817_175422.jpg"]'>
+                    <img class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Renovation of Residential Building in Kwara State" src="Asset/images/Residential Building Renovation/IMG_20190817_175301.jpg" />
+                    <div class="absolute inset-0 bg-gradient-to-t from-navy-deep via-navy-deep/65 to-transparent"></div>
+                    <div class="absolute inset-x-0 bottom-0 p-7 text-white">
+                        <p class="text-xs font-semibold uppercase tracking-[0.22em] text-slate-300">Building Renovation</p>
+                        <h3 class="mt-3 text-2xl font-bold">Renovation of Residential Building</h3>
+                        <p class="mt-3 text-sm leading-relaxed text-slate-300">Residential refurbishment and structural renewal executed to improve integrity, functionality, and living standards.</p>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <!-- Why Choose Jammos Section -->
+        <section class="section-space bg-navy-deep text-white overflow-hidden relative">
+            <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(15,73,189,0.22),_transparent_34%)]"></div>
+            <div class="relative max-w-7xl mx-auto section-shell">
+                <div class="max-w-3xl reveal" data-aos="fade-up">
+                    <p class="text-sm font-bold uppercase tracking-[0.22em] text-accent">Why Jammos</p>
+                    <h2 class="mt-4 text-3xl sm:text-4xl lg:text-3xl sm:text-4xl md:text-5xl font-black">Why Jammos Construction</h2>
+                    <p class="mt-5 text-base sm:text-lg leading-relaxed text-slate-300">We approach every project with precision, accountability, and a deep understanding of engineering standards required for long-term performance.</p>
+                </div>
+                <div class="mt-10 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-5 gap-5">
+                    <div class="reveal dark-surface-card group p-6 hover:border-accent/50 transition-all" data-aos="fade-up"><div class="mb-5 h-1.5 w-12 rounded-full bg-accent transition-all duration-300 group-hover:w-16"></div><h3 class="text-xl font-bold">Proven Industry Experience</h3><p class="mt-3 text-sm leading-relaxed text-slate-300">Nearly two decades of engineering and construction experience across demanding project environments.</p></div>
+                    <div class="reveal reveal-delay-1 dark-surface-card group p-6 hover:border-accent/50 transition-all" data-aos="fade-up"><div class="mb-5 h-1.5 w-12 rounded-full bg-accent transition-all duration-300 group-hover:w-16"></div><h3 class="text-xl font-bold">Integrated Engineering &amp; EPC Capabilities</h3><p class="mt-3 text-sm leading-relaxed text-slate-300">Coordinated planning, procurement, engineering, and execution support under one delivery framework.</p></div>
+                    <div class="reveal reveal-delay-2 dark-surface-card group p-6 hover:border-accent/50 transition-all" data-aos="fade-up"><div class="mb-5 h-1.5 w-12 rounded-full bg-accent transition-all duration-300 group-hover:w-16"></div><h3 class="text-xl font-bold">Technology-Driven Construction Support</h3><p class="mt-3 text-sm leading-relaxed text-slate-300">Digital support through a construction e-commerce platform for materials, equipment, tools, and consultancy.</p></div>
+                    <div class="reveal reveal-delay-3 dark-surface-card group p-6 hover:border-accent/50 transition-all" data-aos="fade-up"><div class="mb-5 h-1.5 w-12 rounded-full bg-accent transition-all duration-300 group-hover:w-16"></div><h3 class="text-xl font-bold">Strong Safety and Compliance Culture</h3><p class="mt-3 text-sm leading-relaxed text-slate-300">A disciplined operating culture shaped by HSE expectations, quality standards, and accountability.</p></div>
+                    <div class="reveal dark-surface-card group p-6 hover:border-accent/50 transition-all" data-aos="fade-up"><div class="mb-5 h-1.5 w-12 rounded-full bg-accent transition-all duration-300 group-hover:w-16"></div><h3 class="text-xl font-bold">Reliable Delivery and Skilled Workforce</h3><p class="mt-3 text-sm leading-relaxed text-slate-300">Execution supported by capable teams, structured planning, and dependable site coordination.</p></div>
                 </div>
             </div>
-            <div
-                class="bg-white dark:bg-background-dark p-8 border border-slate-200 dark:border-slate-800 shadow-xl flex items-center gap-6 rounded-r-xl">
-                <span class="material-symbols-outlined text-4xl text-primary">history_edu</span>
-                <div>
-                    <h4 class="text-xs uppercase tracking-widest font-bold text-slate-500 mb-1">Experience</h4>
-                    <p class="text-xl font-extrabold">15+ Years Mastery</p>
+        </section>
+
+        <!-- Corporate Philosophy Section -->
+        <section class="section-space max-w-7xl mx-auto section-shell">
+            <div class="max-w-3xl reveal" data-aos="fade-up">
+                <p class="text-sm font-bold uppercase tracking-[0.22em] text-primary">Corporate Philosophy</p>
+                <h2 class="mt-4 text-3xl sm:text-4xl lg:text-3xl sm:text-4xl md:text-5xl font-black text-slate-950">Our Corporate Philosophy</h2>
+            </div>
+            <div class="mt-10 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-5">
+                <div class="reveal surface-card p-6" data-aos="fade-up"><h3 class="text-xl font-bold text-slate-950">Construction Excellence</h3><p class="mt-3 text-sm leading-relaxed text-slate-600">A commitment to quality execution, precision, and dependable engineering outcomes.</p></div>
+                <div class="reveal reveal-delay-1 surface-card p-6" data-aos="fade-up"><h3 class="text-xl font-bold text-slate-950">Operational Efficiency</h3><p class="mt-3 text-sm leading-relaxed text-slate-600">Structured workflows, disciplined planning, and clear execution controls.</p></div>
+                <div class="reveal reveal-delay-2 surface-card p-6" data-aos="fade-up"><h3 class="text-xl font-bold text-slate-950">Resource Optimization</h3><p class="mt-3 text-sm leading-relaxed text-slate-600">Smart deployment of materials, equipment, workforce, and project resources.</p></div>
+                <div class="reveal reveal-delay-3 surface-card p-6" data-aos="fade-up"><h3 class="text-xl font-bold text-slate-950">Long-Term Strategic Growth</h3><p class="mt-3 text-sm leading-relaxed text-slate-600">Building delivery capacity, innovation capability, and sustainable long-term value.</p></div>
+            </div>
+        </section>
+
+        <!-- Safety & Compliance Section -->
+        <section class="section-space bg-slate-100/90">
+            <div class="max-w-7xl mx-auto section-shell">
+                <div class="grid grid-cols-1 lg:grid-cols-[minmax(0,0.9fr)_minmax(320px,1.1fr)] gap-8 lg:gap-12 items-start">
+                    <div class="reveal-left" data-aos="fade-right">
+                        <p class="text-sm font-bold uppercase tracking-[0.22em] text-primary">Safety &amp; Compliance</p>
+                        <h2 class="mt-4 text-3xl sm:text-4xl lg:text-3xl sm:text-4xl md:text-5xl font-black text-slate-950">Safety, Compliance &amp; Responsible Engineering</h2>
+                        <p class="mt-5 text-base sm:text-lg leading-relaxed text-slate-600">Our operating model is shaped by HSE compliance, engineering standards, regulatory alignment, and ethical governance. We approach delivery with the controls required to support safe, reliable, and responsible project execution.</p>
+                    </div>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                        <div class="reveal surface-card p-6" data-aos="fade-up"><h3 class="text-lg font-bold text-slate-950">HSE Compliance</h3><p class="mt-3 text-sm leading-relaxed text-slate-600">Safety planning, site discipline, and operational controls designed around HSE expectations.</p></div>
+                        <div class="reveal reveal-delay-1 surface-card p-6" data-aos="fade-up"><h3 class="text-lg font-bold text-slate-950">Engineering Standards</h3><p class="mt-3 text-sm leading-relaxed text-slate-600">Execution guided by technical requirements and performance-driven engineering practice.</p></div>
+                        <div class="reveal reveal-delay-2 surface-card p-6" data-aos="fade-up"><h3 class="text-lg font-bold text-slate-950">Regulatory Compliance</h3><p class="mt-3 text-sm leading-relaxed text-slate-600">Project activities aligned to required standards, approvals, and compliance expectations.</p></div>
+                        <div class="reveal reveal-delay-3 surface-card p-6" data-aos="fade-up"><h3 class="text-lg font-bold text-slate-950">Ethical Governance</h3><p class="mt-3 text-sm leading-relaxed text-slate-600">Responsible decision-making supported by accountability, transparency, and professional conduct.</p></div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
-    <section class="py-24 max-w-7xl mx-auto px-6 lg:px-10">
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
-            <div class="relative">
-                <div class="aspect-square bg-slate-200 rounded-2xl overflow-hidden relative">
-                    <img class="w-full h-full object-cover"
-                        data-alt="Civil engineer reviewing blueprints on a construction site"
-                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuAYqDHk4EytmVTJ-UwY-gqcqGAei0hY9IvWZl6SMUBjWijDQPOYqQPfZyJzyulCKhjInszpWu_4hIV-cxeb09zIQ9lbH-vBAZQxuFoJUyhlMf5-u9cA7ii0Ve_HyziQrRAQlibY67QmbyKHHCA2_JVWRg_02urytvZ8UkdNhW55qkDscDdMN29fztR2sSuJaocUQeg5AdjmMZTwuHsvTQ1aewQGbzin_9NxwJeU7uAdvAOoAUFMxW9nJyHt-3LrE2njg4u_oEenZ2o" />
+        </section>
+
+        <!-- Stats Section -->
+        <section class="section-space max-w-7xl mx-auto section-shell">
+            <div class="surface-card overflow-hidden rounded-[32px] p-6 sm:p-8 lg:p-10">
+                <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6">
+                    <div class="max-w-2xl reveal" data-aos="fade-up">
+                        <p class="text-sm font-bold uppercase tracking-[0.22em] text-primary">Built on Performance</p>
+                        <h2 class="mt-4 text-3xl sm:text-4xl font-black text-slate-950">Built on Performance</h2>
+                    </div>
+                    <p class="reveal text-sm sm:text-base leading-relaxed text-slate-600 max-w-xl" data-aos="fade-up">Strong delivery depends on capability, reach, and consistent technical standards. These markers are presented to support future updates as the company profile evolves.</p>
                 </div>
-                <div class="absolute -bottom-10 -right-10 bg-primary p-10 rounded-2xl text-white hidden md:block">
-                    <p class="text-5xl font-black mb-2">250+</p>
-                    <p class="text-sm font-bold uppercase tracking-wider opacity-80">Completed Projects</p>
+                <div class="mt-10 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-5">
+<div class="reveal rounded-2xl border border-slate-200 bg-slate-50 p-6" data-aos="fade-up"><p class="text-4xl sm:text-5xl font-black text-slate-950" data-counter="20">0</p><p class="mt-3 text-xs uppercase tracking-[0.2em] text-slate-400">Years Experience</p></div>
+<div class="reveal reveal-delay-1 rounded-2xl border border-slate-200 bg-slate-50 p-6" data-aos="fade-up"><p class="text-4xl sm:text-5xl font-black text-slate-950">Multi</p><p class="mt-3 text-xs uppercase tracking-[0.2em] text-slate-400">Sector Capability</p></div>
+                    <div class="reveal reveal-delay-2 rounded-2xl border border-slate-200 bg-slate-50 p-6" data-aos="fade-up"><p class="text-4xl sm:text-4xl font-black text-slate-950">Nationwide</p><p class="mt-3 text-xs uppercase tracking-[0.2em] text-slate-400">Project Delivery</p></div>
+                    <div class="reveal reveal-delay-3 rounded-2xl border border-slate-200 bg-slate-50 p-6" data-aos="fade-up"><p class="text-4xl sm:text-4xl font-black text-slate-950">Integrated</p><p class="mt-3 text-xs uppercase tracking-[0.2em] text-slate-400">Engineering &amp; Construction Expertise</p></div>
                 </div>
             </div>
+        </section>
+
+        <!-- Client Logos Section -->
+        <section class="section-space bg-slate-100/90">
+            <div class="max-w-7xl mx-auto section-shell">
+                <div class="max-w-3xl reveal" data-aos="fade-up">
+                    <p class="text-sm font-bold uppercase tracking-[0.22em] text-primary">Trusted by Industry Partners</p>
+                    <h2 class="mt-4 text-3xl sm:text-4xl font-black text-slate-950">Trusted by Industry Partners</h2>
+                </div>
+                <div class="logo-marquee mt-10 surface-card px-4 py-5 sm:px-6">
+                    <div class="logo-track gap-4 sm:gap-6">
+                        <div class="rounded-xl border border-slate-200 bg-slate-50 px-8 py-4 text-sm font-bold uppercase tracking-[0.18em] text-slate-500">Federal Works</div>
+                        <div class="rounded-xl border border-slate-200 bg-slate-50 px-8 py-4 text-sm font-bold uppercase tracking-[0.18em] text-slate-500">Energy Partners</div>
+                        <div class="rounded-xl border border-slate-200 bg-slate-50 px-8 py-4 text-sm font-bold uppercase tracking-[0.18em] text-slate-500">Telecom Operators</div>
+                        <div class="rounded-xl border border-slate-200 bg-slate-50 px-8 py-4 text-sm font-bold uppercase tracking-[0.18em] text-slate-500">Industrial Clients</div>
+                        <div class="rounded-xl border border-slate-200 bg-slate-50 px-8 py-4 text-sm font-bold uppercase tracking-[0.18em] text-slate-500">Public Agencies</div>
+                        <div class="rounded-xl border border-slate-200 bg-slate-50 px-8 py-4 text-sm font-bold uppercase tracking-[0.18em] text-slate-500">Infrastructure Partners</div>
+                        <div class="rounded-xl border border-slate-200 bg-slate-50 px-8 py-4 text-sm font-bold uppercase tracking-[0.18em] text-slate-500">Federal Works</div>
+                        <div class="rounded-xl border border-slate-200 bg-slate-50 px-8 py-4 text-sm font-bold uppercase tracking-[0.18em] text-slate-500">Energy Partners</div>
+                        <div class="rounded-xl border border-slate-200 bg-slate-50 px-8 py-4 text-sm font-bold uppercase tracking-[0.18em] text-slate-500">Telecom Operators</div>
+                        <div class="rounded-xl border border-slate-200 bg-slate-50 px-8 py-4 text-sm font-bold uppercase tracking-[0.18em] text-slate-500">Industrial Clients</div>
+                        <div class="rounded-xl border border-slate-200 bg-slate-50 px-8 py-4 text-sm font-bold uppercase tracking-[0.18em] text-slate-500">Public Agencies</div>
+                        <div class="rounded-xl border border-slate-200 bg-slate-50 px-8 py-4 text-sm font-bold uppercase tracking-[0.18em] text-slate-500">Infrastructure Partners</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Final CTA Section -->
+        <section class="section-space">
+            <div class="max-w-7xl mx-auto section-shell">
+                <div class="reveal relative overflow-hidden rounded-[32px] bg-navy-deep px-4 sm:px-6 lg:px-10 py-10 sm:py-12 sm:px-10 sm:py-14 lg:px-14 lg:py-16 text-white shadow-2xl shadow-slate-900/20" data-aos="fade-up">
+                    <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(15,73,189,0.32),_transparent_32%),radial-gradient(circle_at_bottom_right,_rgba(230,126,34,0.18),_transparent_28%)]"></div>
+                    <div class="relative flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8">
+                        <div class="max-w-3xl">
+                            <p class="text-sm font-bold uppercase tracking-[0.22em] text-accent">Next Project</p>
+                            <h2 class="mt-4 text-3xl sm:text-4xl lg:text-3xl sm:text-4xl md:text-5xl font-black leading-tight">Start Your Next Infrastructure Project With Us</h2>
+                            <p class="mt-5 text-base sm:text-lg leading-relaxed text-slate-300">Whether you are planning civil infrastructure, telecommunications expansion, or industrial development, Jammos Construction delivers reliable engineering and construction solutions built for performance and longevity.</p>
+                        </div>
+                        <div class="flex-shrink-0 flex flex-col sm:flex-row gap-4">
+                            <button onclick="openConsultationModal()" class="btn-lift inline-flex items-center justify-center gap-2 rounded-xl bg-accent px-7 py-4 text-sm sm:text-base font-bold text-white hover:bg-orange-600">
+                                Request Consultation
+                                <span class="material-symbols-outlined text-xl">call_made</span>
+                            </button>
+                            <a href="contact.html" class="btn-lift inline-flex items-center justify-center gap-2 rounded-xl border border-white/15 bg-white/8 px-6 sm:px-7 py-4 text-sm sm:text-base font-bold text-white hover:bg-white/14">
+                                Contact Our Team
+                                <span class="material-symbols-outlined text-xl">mail</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+        <footer class="bg-navy-deep text-slate-400 py-16 sm:py-20 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-12">
             <div>
-                <h2 class="text-primary font-bold tracking-widest uppercase text-sm mb-4">About Jammos Construction</h2>
-                <h3 class="text-2xl sm:text-3xl md:text-4xl font-extrabold mb-6 leading-tight">Nigeria's Partner in
-                    Strategic Infrastructure</h3>
-                <p class="text-slate-600 dark:text-slate-400 text-lg leading-relaxed mb-8">
-                    Jammos Construction Nigeria Limited is a premier engineering and EPC firm dedicated to structural
-                    integrity and sustainable development. We combine technical expertise with ethical governance to
-                    deliver complex projects across multiple sectors.
-                </p>
-                <ul class="space-y-4 mb-10">
-                    <li class="flex items-center gap-3">
-                        <span class="material-symbols-outlined text-primary bg-primary/10 p-1 rounded-full">check</span>
-                        <span class="font-semibold">Unmatched Safety &amp; HSE Standards</span>
-                    </li>
-                    <li class="flex items-center gap-3">
-                        <span class="material-symbols-outlined text-primary bg-primary/10 p-1 rounded-full">check</span>
-                        <span class="font-semibold">Advanced Project Management Methodologies</span>
-                    </li>
-                    <li class="flex items-center gap-3">
-                        <span class="material-symbols-outlined text-primary bg-primary/10 p-1 rounded-full">check</span>
-                        <span class="font-semibold">Local Content and Community Sustainability</span>
-                    </li>
-                </ul>
-                <a href="about us.html"
-                    class="inline-block border-2 border-primary text-primary hover:bg-primary hover:text-white px-8 py-3 rounded-lg font-bold transition-all">
-                    Discover Our Story
-                </a>
-            </div>
-        </div>
-    </section>
-    <section class="py-24 bg-slate-100 dark:bg-background-dark/50">
-        <div class="max-w-7xl mx-auto px-6 lg:px-10 text-center mb-16">
-            <h2 class="text-primary font-bold tracking-widest uppercase text-sm mb-4">Our Expertise</h2>
-            <h3 class="text-2xl sm:text-3xl md:text-4xl font-extrabold mb-4">Integrated Engineering Solutions</h3>
-            <p class="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">Providing a full spectrum of engineering,
-                procurement, and construction services tailored for large-scale industrial growth.</p>
-        </div>
-        <div class="max-w-7xl mx-auto px-6 lg:px-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div
-                class="bg-white dark:bg-background-dark p-8 rounded-xl border border-slate-200 dark:border-slate-800 hover:border-primary transition-all group">
-                <div
-                    class="size-14 bg-primary/10 rounded-lg flex items-center justify-center text-primary mb-6 group-hover:bg-primary group-hover:text-white transition-colors">
-                    <span class="material-symbols-outlined text-3xl">home_work</span>
-                </div>
-                <h4 class="text-xl font-bold mb-3">Civil Engineering</h4>
-                <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed mb-6">Structural designs, road
-                    construction, and urban infrastructure development with precision.</p>
-                <a class="text-primary font-bold text-sm flex items-center gap-2 group-hover:gap-4 transition-all"
-                    href="#">
-                    Learn More <span class="material-symbols-outlined text-lg">arrow_forward</span>
-                </a>
-            </div>
-            <div
-                class="bg-white dark:bg-background-dark p-8 rounded-xl border border-slate-200 dark:border-slate-800 hover:border-primary transition-all group">
-                <div
-                    class="size-14 bg-primary/10 rounded-lg flex items-center justify-center text-primary mb-6 group-hover:bg-primary group-hover:text-white transition-colors">
-                    <span class="material-symbols-outlined text-3xl">precision_manufacturing</span>
-                </div>
-                <h4 class="text-xl font-bold mb-3">Mechanical</h4>
-                <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed mb-6">Advanced HVAC, piping
-                    systems, and industrial machinery installation and maintenance.</p>
-                <a class="text-primary font-bold text-sm flex items-center gap-2 group-hover:gap-4 transition-all"
-                    href="#">
-                    Learn More <span class="material-symbols-outlined text-lg">arrow_forward</span>
-                </a>
-            </div>
-            <div
-                class="bg-white dark:bg-background-dark p-8 rounded-xl border border-slate-200 dark:border-slate-800 hover:border-primary transition-all group">
-                <div
-                    class="size-14 bg-primary/10 rounded-lg flex items-center justify-center text-primary mb-6 group-hover:bg-primary group-hover:text-white transition-colors">
-                    <span class="material-symbols-outlined text-3xl">settings_input_antenna</span>
-                </div>
-                <h4 class="text-xl font-bold mb-3">Telecom Infra</h4>
-                <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed mb-6">Design and deployment of
-                    robust telecommunication towers and fiber networks.</p>
-                <a class="text-primary font-bold text-sm flex items-center gap-2 group-hover:gap-4 transition-all"
-                    href="#">
-                    Learn More <span class="material-symbols-outlined text-lg">arrow_forward</span>
-                </a>
-            </div>
-            <div
-                class="bg-white dark:bg-background-dark p-8 rounded-xl border border-slate-200 dark:border-slate-800 hover:border-primary transition-all group">
-                <div
-                    class="size-14 bg-primary/10 rounded-lg flex items-center justify-center text-primary mb-6 group-hover:bg-primary group-hover:text-white transition-colors">
-                    <span class="material-symbols-outlined text-3xl">foundation</span>
-                </div>
-                <h4 class="text-xl font-bold mb-3">EPC Projects</h4>
-                <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed mb-6">Turnkey solutions covering
-                    design, procurement, and construction for complex sites.</p>
-                <a class="text-primary font-bold text-sm flex items-center gap-2 group-hover:gap-4 transition-all"
-                    href="#">
-                    Learn More <span class="material-symbols-outlined text-lg">arrow_forward</span>
-                </a>
-            </div>
-        </div>
-    </section>
-    <section class="py-12 sm:py-16 md:py-24 bg-navy-deep text-white overflow-hidden relative">
-        <div class="absolute right-0 top-0 opacity-10">
-            <span class="material-symbols-outlined text-[400px]">engineering</span>
-        </div>
-        <div class="max-w-7xl mx-auto px-6 lg:px-10 flex flex-col lg:flex-row gap-16 items-center">
-            <div class="flex-1">
-                <h2 class="text-accent font-bold tracking-widest uppercase text-sm mb-4">Why Partner With Us</h2>
-                <h3 class="text-2xl sm:text-3xl md:text-4xl font-extrabold mb-8">Unwavering Commitment to Quality and
-                    Integrity</h3>
-                <div class="space-y-8">
-                    <div class="flex gap-6">
-                        <div
-                            class="size-12 rounded-full bg-accent/20 border border-accent/40 flex items-center justify-center flex-shrink-0">
-                            <span class="material-symbols-outlined text-accent">handshake</span>
-                        </div>
-                        <div>
-                            <h5 class="text-xl font-bold mb-2">Ethical Partnerships</h5>
-                            <p class="text-slate-400">We believe in transparent dealings and long-term relationships
-                                built on mutual trust and project success.</p>
-                        </div>
-                    </div>
-                    <div class="flex gap-6">
-                        <div
-                            class="size-12 rounded-full bg-accent/20 border border-accent/40 flex items-center justify-center flex-shrink-0">
-                            <span class="material-symbols-outlined text-accent">workspace_premium</span>
-                        </div>
-                        <div>
-                            <h5 class="text-xl font-bold mb-2">Global Standards</h5>
-                            <p class="text-slate-400">Our methodologies align with international ISO standards for
-                                quality management and environmental safety.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="flex-1 bg-white/5 p-12 rounded-3xl backdrop-blur-sm border border-white/10">
-                <div class="text-center mb-10">
-                    <h4 class="text-2xl font-bold">Start a Discussion</h4>
-                    <p class="text-slate-400 mt-2">Speak with our technical experts today</p>
-                </div>
-                <form class="space-y-4">
-                    <input class="w-full bg-white/10 border-white/20 rounded-lg p-3 focus:border-accent outline-none"
-                        placeholder="Full Name" type="text" />
-                    <input class="w-full bg-white/10 border-white/20 rounded-lg p-3 focus:border-accent outline-none"
-                        placeholder="Business Email" type="email" />
-                    <select
-                        class="w-full bg-white/10 border-white/20 rounded-lg p-3 focus:border-accent outline-none text-slate-400">
-                        <option>Interested in EPC</option>
-                        <option>Civil Engineering</option>
-                        <option>General Consultancy</option>
-                    </select>
-                    <button
-                        class="w-full bg-accent text-white font-bold py-4 rounded-lg hover:bg-accent/90 transition-all">Submit
-                        Request</button>
-                </form>
-            </div>
-        </div>
-    </section>
-    <section class="py-12 sm:py-16 md:py-24 mt-8 sm:mt-12 md:mt-16 max-w-7xl mx-auto px-6 lg:px-10">
-        <div
-            class="bg-slate-50 dark:bg-background-dark/30 rounded-3xl p-10 lg:p-16 border border-slate-200 dark:border-slate-800">
-            <div class="flex flex-col md:flex-row gap-12 items-center">
-                <div class="md:w-1/3">
-                    <div class="bg-primary/5 p-8 rounded-2xl border-2 border-dashed border-primary/20">
-                        <span class="material-symbols-outlined text-6xl text-primary mb-4">gavel</span>
-                        <h4 class="text-2xl font-extrabold mb-2">Governance</h4>
-                        <p class="text-slate-600 dark:text-slate-400">Our operational framework ensures zero-tolerance
-                            for unethical practices and maintains absolute regulatory compliance.</p>
-                    </div>
-                </div>
-                <div class="md:w-2/3 grid grid-cols-1 sm:grid-cols-2 gap-8">
-                    <div>
-                        <h5 class="font-bold flex items-center gap-2 text-primary mb-3">
-                            <span class="material-symbols-outlined">verified_user</span>
-                            Anti-Corruption
-                        </h5>
-                        <p class="text-sm text-slate-500">Rigorous internal audits and transparent financial reporting
-                            systems across all project lifecycles.</p>
-                    </div>
-                    <div>
-                        <h5 class="font-bold flex items-center gap-2 text-primary mb-3">
-                            <span class="material-symbols-outlined">eco</span>
-                            ESG Standards
-                        </h5>
-                        <p class="text-sm text-slate-500">Environmental, Social, and Governance integration in every
-                            decision we make for Nigeria's future.</p>
-                    </div>
-                    <div>
-                        <h5 class="font-bold flex items-center gap-2 text-primary mb-3">
-                            <span class="material-symbols-outlined">health_and_safety</span>
-                            Safe Working Environments
-                        </h5>
-                        <p class="text-sm text-slate-500">Priority on employee well-being through strict adherence to
-                            safety protocols and regular training.</p>
-                    </div>
-                    <div>
-                        <h5 class="font-bold flex items-center gap-2 text-primary mb-3">
-                            <span class="material-symbols-outlined">local_shipping</span>
-                            Supply Chain Ethics
-                        </h5>
-                        <p class="text-sm text-slate-500">Ensuring all vendors and subcontractors adhere to our strict
-                            ethical and quality guidelines.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section class="py-12 sm:py-16 md:py-24 bg-slate-100 dark:bg-background-dark/50">
-        <div
-            class="max-w-7xl mx-auto px-6 lg:px-10 mb-8 sm:mb-10 md:mb-12 flex flex-col sm:flex-row justify-between items-start sm:items-end gap-4">
-            <div>
-                <h2 class="text-primary font-bold tracking-widest uppercase text-sm mb-4">Portfolio</h2>
-                <h3 class="text-2xl sm:text-3xl md:text-4xl font-extrabold">Landmark Projects</h3>
-            </div>
-            <a href="project gallery.html"
-                class="text-primary font-bold flex items-center gap-2 border-b-2 border-primary pb-1 hover:opacity-80 transition-opacity">View
-                Full Portfolio</a>
-        </div>
-        <div class="max-w-7xl mx-auto px-6 lg:px-10 grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div class="project-card group relative overflow-hidden rounded-2xl h-80"
-                data-gallery='["https://lh3.googleusercontent.com/aida-public/AB6AXuCAekDZGXD58xO9E9wAiriNt8VFW5whLj02fnSyg8NazWb_RuHZFJQl0vP2PT6X7P7Nxvqp4XFuH_SOO3DIzR-09Zc7VXaUakclYGFmnlgzZ1MsnK0h6VgwOv3BRhN9N9ymtigWb393880YEWEau_VnFXdGmQGcSMDRVGtwFfp0iff9uONgevIlQTnvUJ143101jFpYi63x-Vzju2QhDJg0iJu0B_w-NC8XhHyJcUofupPRkyBJGtG5CsebUbMEiWqQ1FowpP4vfCk","https://picsum.photos/seed/bridge2/1200/800","https://picsum.photos/seed/bridge3/1200/800"]'>
-                <img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                    data-alt="Modern office complex structural construction project"
-                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuCAekDZGXD58xO9E9wAiriNt8VFW5whLj02fnSyg8NazWb_RuHZFJQl0vP2PT6X7P7Nxvqp4XFuH_SOO3DIzR-09Zc7VXaUakclYGFmnlgzZ1MsnK0h6VgwOv3BRhN9N9ymtigWb393880YEWEau_VnFXdGmQGcSMDRVGtwFfp0iff9uONgevIlQTnvUJ143101jFpYi63x-Vzju2QhDJg0iJu0B_w-NC8XhHyJcUofupPRkyBJGtG5CsebUbMEiWqQ1FowpP4vfCk" />
-                <div class="absolute inset-0 bg-gradient-to-t from-navy-deep to-transparent opacity-90"></div>
-                <div class="absolute bottom-0 left-0 p-8 text-white">
-                    <span
-                        class="text-xs uppercase bg-primary px-3 py-1 rounded-full mb-3 inline-block">Industrial</span>
-                    <h5 class="text-xl font-bold">Lagos Business Hub</h5>
-                    <p class="text-slate-300 text-sm mt-2">Structural Foundation &amp; EPC</p>
-                </div>
-            </div>
-            <div class="project-card group relative overflow-hidden rounded-2xl h-80"
-                data-gallery='["https://lh3.googleusercontent.com/aida-public/AB6AXuA_7VbMxTecpN1ZYGtnY14bMJtnl9c_dli6TqYQMs44a9Xc_UMB-LnHxumqXaxDw_5dtp-taKFARegzBQeQDmzHe0PqLhZQ6EHPQ73ibiP5lh4Gph2FTnGMcV3NwX2m8GUUBZzz2rVrCJT4Sup9H3kXwafBHuVWdWuCvHmgF2j1CslcbDF9XRWuPmkso8DfJgHZW3my_4IGZD5IlQcmDUyh24aU-_lvlu_jXTfzbJ2SFL9LCbBRSTEn4IxHZe4X1RTvY86_N7hxng0","https://picsum.photos/seed/civil2/1200/800","https://picsum.photos/seed/civil3/1200/800"]'>
-                <img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                    data-alt="Highway interchange and road construction engineering"
-                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuA_7VbMxTecpN1ZYGtnY14bMJtnl9c_dli6TqYQMs44a9Xc_UMB-LnHxumqXaxDw_5dtp-taKFARegzBQeQDmzHe0PqLhZQ6EHPQ73ibiP5lh4Gph2FTnGMcV3NwX2m8GUUBZzz2rVrCJT4Sup9H3kXwafBHuVWdWuCvHmgF2j1CslcbDF9XRWuPmkso8DfJgHZW3my_4IGZD5IlQcmDUyh24aU-_lvlu_jXTfzbJ2SFL9LCbBRSTEn4IxHZe4X1RTvY86_N7hxng0" />
-                <div class="absolute inset-0 bg-gradient-to-t from-navy-deep to-transparent opacity-90"></div>
-                <div class="absolute bottom-0 left-0 p-8 text-white">
-                    <span class="text-xs uppercase bg-accent px-3 py-1 rounded-full mb-3 inline-block">Civil</span>
-                    <h5 class="text-xl font-bold">Abuja Bypass Route</h5>
-                    <p class="text-slate-300 text-sm mt-2">Strategic Highway Engineering</p>
-                </div>
-            </div>
-            <div class="project-card group relative overflow-hidden rounded-2xl h-80"
-                data-gallery='["https://lh3.googleusercontent.com/aida-public/AB6AXuDD6-jUB4EoGo2KFKmxinWwnH8fcBnwBb-WU4BHPmVb_bsjfTFuVgO_FomCoRAW7lbUuC7Baq4HjsaL5XoXF47g9uTanOw-8ERlKP3d-EWVe5vrIhOT6q76rNANw57rPYwrD6zlbL2UcagIvG2lJ8x_nGEa8nLqE9zot4wSp_AqccxYdcNK9UpIy2DK2sLsCHrEY170JI79mTckyHnZbKI7fDZpoLH2FUFoIR92UVIvq033YodEJKQa_Yuroc-pa1jViek1ZLR-U6E"","https://picsum.photos/seed/mech2/1200/800","https://picsum.photos/seed/mech3/1200/800"]'>
-                <img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                    data-alt="Oil and gas refinery piping installation"
-                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuDD6-jUB4EoGo2KFKmxinWwnH8fcBnwBb-WU4BHPmVb_bsjfTFuVgO_FomCoRAW7lbUuC7Baq4HjsaL5XoXF47g9uTanOw-8ERlKP3d-EWVe5vrIhOT6q76rNANw57rPYwrD6zlbL2UcagIvG2lJ8x_nGEa8nLqE9zot4wSp_AqccxYdcNK9UpIy2DK2sLsCHrEY170JI79mTckyHnZbKI7fDZpoLH2FUFoIR92UVIvq033YodEJKQa_Yuroc-pa1jViek1ZLR-U6E"
-                    ]>
-                <div class="absolute inset-0 bg-gradient-to-t from-navy-deep to-transparent opacity-90"></div>
-                <div class="absolute bottom-0 left-0 p-8 text-white">
-                    <span
-                        class="text-xs uppercase bg-primary px-3 py-1 rounded-full mb-3 inline-block">Mechanical</span>
-                    <h5 class="text-xl font-bold">Delta Industrial Plant</h5>
-                    <p class="text-slate-300 text-sm mt-2">Mechanical Systems Deployment</p>
-                </div>
-            </div>
-        </div>
-    </section>
-    <footer class="bg-navy-deep text-slate-400 py-20 border-t border-slate-800">
-        <div class="max-w-7xl mx-auto px-6 lg:px-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
-            <div>
-                <div class="flex items-center gap-3 mb-8">
-                    <div class="bg-primary p-2 rounded-lg text-white">
-                        <span class="material-symbols-outlined">architecture</span>
-                    </div>
-                    <h1 class="text-white text-xl font-extrabold uppercase tracking-tight">Jammos</h1>
+                <div class="flex items-center mb-8">
+                    <img src="Asset/images/jammos logo.png" alt="Jammos Construction Nigeria Limited" class="h-16 sm:h-20 w-auto object-contain" />
                 </div>
                 <p class="text-sm leading-relaxed mb-6">
-                    Providing top-tier EPC and engineering solutions in Nigeria since 2008. Building the foundations of
-                    tomorrow's economy with precision and integrity.
+                    Jammos Construction Nigeria Limited is a professional engineering and construction company providing civil, mechanical, and industrial infrastructure solutions across Nigeria. Our mission is to deliver safe, reliable, and high-quality projects that support national development.
                 </p>
-                <div class="flex gap-4">
-                    <a class="size-10 bg-white/5 rounded-full flex items-center justify-center hover:bg-primary transition-colors text-white"
-                        href="#">
-                        <span class="material-symbols-outlined text-lg">public</span>
-                    </a>
-                    <a class="size-10 bg-white/5 rounded-full flex items-center justify-center hover:bg-primary transition-colors text-white"
-                        href="#">
-                        <span class="material-symbols-outlined text-lg">share</span>
-                    </a>
-                </div>
             </div>
-            <div>
-                <h6 class="text-white font-bold mb-8 uppercase text-xs tracking-[0.2em]">Quick Links</h6>
-                <ul class="space-y-4 text-sm font-medium">
-                    <li><a class="hover:text-primary transition-colors" href="about us.html">About Jammos</a></li>
-                    <li><a class="hover:text-primary transition-colors" href="services.html">Our Services</a></li>
-                    <li><a class="hover:text-primary transition-colors" href="project gallery.html">Major Projects</a>
-                    </li>
-                    <li><a class="hover:text-primary transition-colors" href="#">Governance &amp; Ethics</a></li>
-                    <li><a class="hover:text-primary transition-colors" href="#">CSR Initiatives</a></li>
-                </ul>
-            </div>
-            <div>
-                <h6 class="text-white font-bold mb-8 uppercase text-xs tracking-[0.2em]">Services</h6>
-                <ul class="space-y-4 text-sm font-medium">
-                    <li><a class="hover:text-primary transition-colors" href="#">Civil Construction</a></li>
-                    <li><a class="hover:text-primary transition-colors" href="#">Mechanical Engineering</a></li>
-                    <li><a class="hover:text-primary transition-colors" href="#">Telecommunications</a></li>
-                    <li><a class="hover:text-primary transition-colors" href="#">EPC Management</a></li>
-                    <li><a class="hover:text-primary transition-colors" href="#">Structural Designs</a></li>
-                </ul>
-            </div>
-            <div>
+<div>
                 <h6 class="text-white font-bold mb-8 uppercase text-xs tracking-[0.2em]">Office Location</h6>
                 <div class="space-y-4">
                     <div class="flex gap-4">
                         <span class="material-symbols-outlined text-primary">location_on</span>
-                        <p class="text-sm">Main Office, Plot 452 Business District, Victoria Island, Lagos, Nigeria</p>
+                        <p class="text-sm">7, Fadeyi Street, Owode Estate, Ibeshe Road, Ikorodu, Lagos State, Nigeria</p>
                     </div>
                     <div class="flex gap-4">
                         <span class="material-symbols-outlined text-primary">phone_in_talk</span>
-                        <p class="text-sm">+234 (0) 800-JAMMOS-01</p>
+                        <p class="text-sm">Phone: <a class="hover:text-white transition-colors" href="tel:+2347064475221">+234 706 447 5221</a></p>
+                    </div>
+                    <div class="flex gap-4">
+                        <span class="material-symbols-outlined text-primary">chat</span>
+                        <p class="text-sm">WhatsApp: <a class="hover:text-white transition-colors" href="https://wa.me/2348185885425" target="_blank">+234 818 588 5425</a></p>
                     </div>
                     <div class="flex gap-4">
                         <span class="material-symbols-outlined text-primary">mail</span>
-                        <p class="text-sm">info@jammos-construction.com.ng</p>
+                        <p class="text-sm">Email: <a class="hover:text-white transition-colors break-all" href="mailto:jammosconstruct@gmail.com">jammosconstruct@gmail.com</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        <div
-            class="max-w-7xl mx-auto px-6 lg:px-10 pt-16 mt-16 border-t border-slate-800 flex flex-col md:flex-row justify-between items-center text-xs">
-            <p>© 2024 Jammos Construction Nigeria Limited. All Rights Reserved.</p>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 pt-12 sm:pt-16 mt-12 sm:mt-16 border-t border-slate-800 flex flex-col md:flex-row justify-between items-start md:items-center text-xs gap-4 sm:gap-5">
+            <p>&copy; 2024 Jammos Construction Nigeria Limited. All Rights Reserved.</p>
             <div class="flex gap-8 mt-4 md:mt-0">
-                <a class="hover:text-white transition-colors" href="#">Privacy Policy</a>
-                <a class="hover:text-white transition-colors" href="#">Terms of Service</a>
-                <a class="hover:text-white transition-colors" href="#">Compliance Portal</a>
+                <a class="hover:text-white transition-colors" href="privacy-policy.html">Privacy Policy</a>
+                <a class="hover:text-white transition-colors" href="terms-of-service.html">Terms of Service</a>
+                <a class="hover:text-white transition-colors" href="compliance.html">Compliance Portal</a>
             </div>
         </div>
     </footer>
 
-    <!-- floating whatsapp button -->
-    <a href="https://wa.me/234800JAMMOS" target="_blank"
-        class="flex items-center justify-center fixed bottom-6 right-6 p-4 rounded-full shadow-xl z-50">
+    <a href="https://wa.me/2348185885425" target="_blank" class="flex items-center justify-center fixed bottom-6 right-6 p-4 rounded-full shadow-xl z-50">
         <i class="fa fa-whatsapp" style="font-size:3rem; color:green"></i>
     </a>
 
-    <!-- image lightbox overlay for homepage -->
-    <div id="gallery-overlay" class="fixed inset-0 z-[200] flex items-center justify-center p-4 modal-overlay hidden">
+    <div id="gallery-overlay" class="fixed inset-0 z-[200] flex items-center justify-center p-4 modal-overlay hidden bg-navy-deep/90">
         <div class="relative w-full max-w-4xl">
-            <button id="overlay-close"
-                class="absolute top-4 right-4 bg-white/10 hover:bg-white/20 text-white p-2 rounded-full">
-                <span class="material-symbols-outlined text-2xl">close</span>
-            </button>
+            <button id="overlay-close" class="absolute top-4 right-4 bg-white/10 hover:bg-white/20 text-white p-2 rounded-full"><span class="material-symbols-outlined text-2xl">close</span></button>
             <img id="overlay-img" class="w-full h-auto rounded-xl" src="" alt="gallery" />
-            <button id="overlay-prev"
-                class="absolute left-2 top-1/2 transform -translate-y-1/2 bg-white/10 hover:bg-white/20 text-white p-2 rounded-full z-20">
-                <span class="material-symbols-outlined text-3xl">chevron_left</span>
-            </button>
-            <button id="overlay-next"
-                class="absolute right-2 top-1/2 transform -translate-y-1/2 bg-white/10 hover:bg-white/20 text-white p-2 rounded-full z-20">
-                <span class="material-symbols-outlined text-3xl">chevron_right</span>
-            </button>
+            <button id="overlay-prev" class="absolute left-2 top-1/2 transform -translate-y-1/2 bg-white/10 hover:bg-white/20 text-white p-2 rounded-full z-20"><span class="material-symbols-outlined text-3xl">chevron_left</span></button>
+            <button id="overlay-next" class="absolute right-2 top-1/2 transform -translate-y-1/2 bg-white/10 hover:bg-white/20 text-white p-2 rounded-full z-20"><span class="material-symbols-outlined text-3xl">chevron_right</span></button>
+        </div>
+    </div>
+
+    <div id="consultation-modal" class="hidden fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6 lg:p-8">
+        <div id="modal-overlay" class="absolute inset-0 bg-black/60 backdrop-blur-sm"></div>
+        <div class="relative w-full max-w-3xl max-h-[92vh] sm:max-h-[90vh] overflow-y-auto bg-white rounded-xl shadow-2xl border border-slate-200">
+            <div class="sticky top-0 bg-white border-b border-slate-200 px-4 sm:px-6 lg:px-8 py-5 sm:py-6 flex items-start justify-between gap-4">
+                <div>
+                    <span class="inline-block text-xs font-bold tracking-widest text-primary uppercase mb-2">Consultation &amp; Project Brief</span>
+                    <h2 class="text-2xl md:text-3xl font-extrabold text-slate-900">Request a Technical Consultation</h2>
+                    <p class="text-slate-500 mt-2 max-w-2xl text-sm">Provide a brief overview of your project and our team will review your requirements and get in touch promptly.</p>
+                </div>
+                <button onclick="closeConsultationModal()" class="flex-shrink-0 text-slate-400 hover:text-slate-600 transition-colors -mt-1 -mr-2 p-2"><span class="material-symbols-outlined text-2xl">close</span></button>
+            </div>
+            <div class="px-4 sm:px-6 lg:px-8 py-6">
+                <form id="modal-consultation-form" method="POST" action="https://formspree.io/f/xeeldwez" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <input type="hidden" name="_subject" value="New Project Inquiry - Jammos Construction">
+                    <div class="flex flex-col gap-2"><label class="text-sm font-bold text-slate-700">Principal Contact Name</label><input name="full_name" required class="rounded-lg border border-slate-300 bg-transparent focus:ring-2 focus:ring-primary focus:border-primary py-3 px-4 text-slate-900" placeholder="e.g. Engr. Chidi Okafor" type="text" /></div>
+                    <div class="flex flex-col gap-2"><label class="text-sm font-bold text-slate-700">Organization / Client Entity</label><input name="company" class="rounded-lg border border-slate-300 bg-transparent focus:ring-2 focus:ring-primary focus:border-primary py-3 px-4 text-slate-900" placeholder="e.g. Federal Ministry of Works" type="text" /></div>
+                    <div class="flex flex-col gap-2"><label class="text-sm font-bold text-slate-700">Email Address</label><input name="email" required class="rounded-lg border border-slate-300 bg-transparent focus:ring-2 focus:ring-primary focus:border-primary py-3 px-4 text-slate-900" placeholder="official@company.com.ng" type="email" /></div>
+                    <div class="flex flex-col gap-2"><label class="text-sm font-bold text-slate-700">Direct Contact Number</label><input name="phone" required class="rounded-lg border border-slate-300 bg-transparent focus:ring-2 focus:ring-primary focus:border-primary py-3 px-4 text-slate-900" placeholder="+234..." type="tel" /></div>
+                    <div class="md:col-span-2 border-t border-slate-200 my-2"></div>
+                    <div class="flex flex-col gap-2"><label class="text-sm font-bold text-slate-700">Preferred Consultation Date</label><input name="consultation_date" class="rounded-lg border border-slate-300 bg-transparent focus:ring-2 focus:ring-primary focus:border-primary py-3 px-4 text-slate-900" type="date" /></div>
+                    <div class="flex flex-col gap-2"><label class="text-sm font-bold text-slate-700">Consultation Type</label><select name="consultation_type" class="rounded-lg border border-slate-300 bg-transparent focus:ring-2 focus:ring-primary focus:border-primary py-3 px-4 appearance-none text-slate-900"><option value="">Select an option</option><option>Physical Meeting</option><option>Virtual Meeting</option><option>Phone Call</option></select></div>
+                    <div class="flex flex-col gap-2 md:col-span-2"><label class="text-sm font-bold text-slate-700">Project Type</label><select name="project_type" required class="rounded-lg border border-slate-300 bg-transparent focus:ring-2 focus:ring-primary focus:border-primary py-3 px-4 appearance-none text-slate-900"><option value="">Select an option</option><option value="civil">Civil Engineering &amp; Infrastructure</option><option value="power">Power Generation &amp; Distribution</option><option value="oilgas">Oil &amp; Gas Services</option><option value="building">Commercial Building Construction</option><option value="procurement">Procurement &amp; Logistics</option><option value="other">Other Inquiry</option></select></div>
+                    <div class="flex flex-col gap-2 md:col-span-2"><label class="text-sm font-bold text-slate-700">Project Overview &amp; Scope Requirements</label><textarea name="message" required class="rounded-lg border border-slate-300 bg-transparent focus:ring-2 focus:ring-primary focus:border-primary py-3 px-4 text-slate-900" placeholder="Please provide details about your project or inquiry..." rows="4"></textarea></div>
+                    <div id="modal-form-success" class="hidden md:col-span-2 bg-green-50 border border-green-200 text-green-700 px-6 py-4 rounded-lg text-sm font-medium text-center"><p class="font-bold mb-1">Thank you!</p><p>Our technical team will contact you within 24 hours.</p></div>
+                    <div class="md:col-span-2 mt-4 flex flex-col sm:flex-row gap-4 justify-end">
+                        <button type="button" onclick="closeConsultationModal()" class="w-full sm:w-auto px-8 py-3 bg-slate-200 text-slate-900 font-bold rounded-lg hover:bg-slate-300 transition-colors text-sm md:text-base">Close</button>
+                        <button type="button" onclick="sendToWhatsApp()" class="w-full sm:w-auto px-8 py-3 bg-green-600 text-white font-bold rounded-lg shadow-lg hover:bg-green-700 active:scale-[0.98] transition-all flex items-center justify-center gap-2 uppercase tracking-wide text-sm md:text-base"><i class="fa fa-whatsapp" style="font-size:1.2rem;"></i><span>WhatsApp</span></button>
+                        <button type="submit" class="w-full sm:w-auto px-8 py-3 bg-accent text-white font-bold rounded-lg shadow-lg hover:brightness-110 active:scale-[0.98] transition-all flex items-center justify-center gap-2 uppercase tracking-wide text-sm md:text-base">Submit Brief <span class="material-symbols-outlined">send</span></button>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
 
@@ -548,7 +610,7 @@
 
             document.querySelectorAll('.project-card').forEach(card => {
                 card.addEventListener('click', e => {
-                    if (e.target.closest('a')) return; // let links navigate normally
+                    if (e.target.closest('a') && e.target !== card) return;
                     const data = card.getAttribute('data-gallery');
                     overlayImages = data ? JSON.parse(data) : [];
                     if (overlayImages.length) {
@@ -559,266 +621,152 @@
                 });
             });
 
-            if (overlayClose) overlayClose.addEventListener('click', () => {
-                overlay.classList.add('hidden');
-            });
-
-            if (overlayImg) overlayImg.addEventListener('click', (e) => {
-                e.stopPropagation();
-                overlay.classList.add('hidden');
-            });
+            if (overlayClose) overlayClose.addEventListener('click', () => overlay.classList.add('hidden'));
+            if (overlayImg) overlayImg.addEventListener('click', (e) => { e.stopPropagation(); overlay.classList.add('hidden'); });
 
             const overlayContent = overlay?.querySelector('.relative');
             if (overlayContent) {
-                overlayContent.addEventListener('click', (e) => {
-                    e.stopPropagation();
-                });
+                overlayContent.addEventListener('click', (e) => e.stopPropagation());
             }
 
             if (overlay) {
-                overlay.addEventListener('touchstart', (e) => {
-                    touchStartX = e.changedTouches[0].screenX;
-                }, false);
-
-                overlay.addEventListener('touchend', (e) => {
-                    touchEndX = e.changedTouches[0].screenX;
-                    handleSwipe();
-                }, false);
+                overlay.addEventListener('touchstart', (e) => { touchStartX = e.changedTouches[0].screenX; }, false);
+                overlay.addEventListener('touchend', (e) => { touchEndX = e.changedTouches[0].screenX; handleSwipe(); }, false);
             }
 
             function handleSwipe() {
                 const swipeThreshold = 50;
                 const diff = touchStartX - touchEndX;
-
-                if (Math.abs(diff) > swipeThreshold) {
-                    if (diff > 0) {
-                        overlayIdx = (overlayIdx + 1) % overlayImages.length;
-                    } else {
-                        overlayIdx = (overlayIdx + overlayImages.length - 1) % overlayImages.length;
-                    }
+                if (Math.abs(diff) > swipeThreshold && overlayImages.length) {
+                    if (diff > 0) overlayIdx = (overlayIdx + 1) % overlayImages.length;
+                    else overlayIdx = (overlayIdx + overlayImages.length - 1) % overlayImages.length;
                     overlayImg.src = overlayImages[overlayIdx];
                 }
             }
 
-            if (overlayPrev) overlayPrev.addEventListener('click', (e) => {
-                e.stopPropagation();
-                overlayIdx = (overlayIdx + overlayImages.length - 1) % overlayImages.length;
-                overlayImg.src = overlayImages[overlayIdx];
-            });
-
-            if (overlayNext) overlayNext.addEventListener('click', (e) => {
-                e.stopPropagation();
-                overlayIdx = (overlayIdx + 1) % overlayImages.length;
-                overlayImg.src = overlayImages[overlayIdx];
-            });
+            if (overlayPrev) overlayPrev.addEventListener('click', (e) => { e.stopPropagation(); overlayIdx = (overlayIdx + overlayImages.length - 1) % overlayImages.length; overlayImg.src = overlayImages[overlayIdx]; });
+            if (overlayNext) overlayNext.addEventListener('click', (e) => { e.stopPropagation(); overlayIdx = (overlayIdx + 1) % overlayImages.length; overlayImg.src = overlayImages[overlayIdx]; });
         })();
-    </script>
 
-<!-- Global Consultation Modal -->
-<div id="consultation-modal" class="hidden fixed inset-0 z-[100] flex items-center justify-center p-4">
-  <!-- Overlay -->
-  <div id="modal-overlay" class="absolute inset-0 bg-black/60 backdrop-blur-sm"></div>
-  
-  <!-- Modal Card -->
-  <div class="relative w-full max-w-3xl max-h-[90vh] overflow-y-auto bg-white dark:bg-slate-800 rounded-xl shadow-2xl border border-slate-200 dark:border-slate-700">
-    <!-- Modal Header -->
-    <div class="sticky top-0 bg-white dark:bg-slate-800 border-b border-slate-200 dark:border-slate-700 px-8 py-6 flex items-start justify-between">
-      <div>
-        <span class="inline-block text-xs font-bold tracking-widest text-primary uppercase mb-2">Consultation & Project Brief</span>
-        <h2 class="text-2xl md:text-3xl font-extrabold text-slate-900 dark:text-white">Request a Technical Consultation</h2>
-        <p class="text-slate-500 dark:text-slate-400 mt-2 max-w-2xl text-sm">Provide a brief overview of your project and our team will review your requirements and get in touch promptly.</p>
-      </div>
-      <button onclick="closeConsultationModal()" class="flex-shrink-0 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 transition-colors -mt-1 -mr-2 p-2">
-        <span class="material-symbols-outlined text-2xl">close</span>
-      </button>
-    </div>
-
-    <!-- Modal Content -->
-    <div class="px-8 py-6">
-      <form id="modal-consultation-form" method="POST" action="https://formspree.io/f/xeeldwez" class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <input type="hidden" name="_subject" value="New Project Inquiry - Jammos Construction">
-        
-        <!-- Contact Details -->
-        <div class="flex flex-col gap-2">
-          <label class="text-sm font-bold text-slate-700 dark:text-slate-300">Principal Contact Name</label>
-          <input name="full_name" required class="rounded-lg border border-slate-300 dark:border-slate-600 bg-transparent focus:ring-2 focus:ring-primary focus:border-primary py-3 px-4 text-slate-900 dark:text-white" placeholder="e.g. Engr. Chidi Okafor" type="text"/>
-        </div>
-        
-        <div class="flex flex-col gap-2">
-          <label class="text-sm font-bold text-slate-700 dark:text-slate-300">Organization / Client Entity</label>
-          <input name="company" class="rounded-lg border border-slate-300 dark:border-slate-600 bg-transparent focus:ring-2 focus:ring-primary focus:border-primary py-3 px-4 text-slate-900 dark:text-white" placeholder="e.g. Federal Ministry of Works" type="text"/>
-        </div>
-        
-        <div class="flex flex-col gap-2">
-          <label class="text-sm font-bold text-slate-700 dark:text-slate-300">Email Address</label>
-          <input name="email" required class="rounded-lg border border-slate-300 dark:border-slate-600 bg-transparent focus:ring-2 focus:ring-primary focus:border-primary py-3 px-4 text-slate-900 dark:text-white" placeholder="official@company.com.ng" type="email"/>
-        </div>
-        
-        <div class="flex flex-col gap-2">
-          <label class="text-sm font-bold text-slate-700 dark:text-slate-300">Direct Contact Number</label>
-          <input name="phone" required class="rounded-lg border border-slate-300 dark:border-slate-600 bg-transparent focus:ring-2 focus:ring-primary focus:border-primary py-3 px-4 text-slate-900 dark:text-white" placeholder="+234..." type="tel"/>
-        </div>
-
-        <!-- Project Details -->
-        <div class="md:col-span-2 border-t border-slate-200 dark:border-slate-700 my-2"></div>
-
-        <div class="flex flex-col gap-2">
-          <label class="text-sm font-bold text-slate-700 dark:text-slate-300">Preferred Consultation Date</label>
-          <input name="consultation_date" class="rounded-lg border border-slate-300 dark:border-slate-600 bg-transparent focus:ring-2 focus:ring-primary focus:border-primary py-3 px-4 text-slate-900 dark:text-white" type="date" />
-        </div>
-
-        <div class="flex flex-col gap-2">
-          <label class="text-sm font-bold text-slate-700 dark:text-slate-300">Consultation Type</label>
-          <select name="consultation_type" class="rounded-lg border border-slate-300 dark:border-slate-600 bg-transparent focus:ring-2 focus:ring-primary focus:border-primary py-3 px-4 appearance-none text-slate-900 dark:text-white">
-            <option value="">Select an option</option>
-            <option>Physical Meeting</option>
-            <option>Virtual Meeting</option>
-            <option>Phone Call</option>
-          </select>
-        </div>
-
-        <div class="flex flex-col gap-2 md:col-span-2">
-          <label class="text-sm font-bold text-slate-700 dark:text-slate-300">Project Type</label>
-          <select name="project_type" required class="rounded-lg border border-slate-300 dark:border-slate-600 bg-transparent focus:ring-2 focus:ring-primary focus:border-primary py-3 px-4 appearance-none text-slate-900 dark:text-white">
-            <option value="">Select an option</option>
-            <option value="civil">Civil Engineering &amp; Infrastructure</option>
-            <option value="power">Power Generation &amp; Distribution</option>
-            <option value="oilgas">Oil &amp; Gas Services</option>
-            <option value="building">Commercial Building Construction</option>
-            <option value="procurement">Procurement &amp; Logistics</option>
-            <option value="other">Other Inquiry</option>
-          </select>
-        </div>
-
-        <div class="flex flex-col gap-2 md:col-span-2">
-          <label class="text-sm font-bold text-slate-700 dark:text-slate-300">Project Overview & Scope Requirements</label>
-          <textarea name="message" required class="rounded-lg border border-slate-300 dark:border-slate-600 bg-transparent focus:ring-2 focus:ring-primary focus:border-primary py-3 px-4 text-slate-900 dark:text-white" placeholder="Please provide details about your project or inquiry..." rows="4"></textarea>
-        </div>
-
-        <!-- Success Message -->
-        <div id="modal-form-success" class="hidden md:col-span-2 bg-green-50 dark:bg-green-900/30 border border-green-200 dark:border-green-800 text-green-700 dark:text-green-300 px-6 py-4 rounded-lg text-sm font-medium text-center">
-          <p class="font-bold mb-1">Thank you!</p>
-          <p>Our technical team will contact you within 24 hours.</p>
-        </div>
-
-        <!-- Action Buttons -->
-        <div class="md:col-span-2 mt-4 flex flex-col sm:flex-row gap-4 justify-end">
-          <button type="button" onclick="closeConsultationModal()" class="w-full sm:w-auto px-8 py-3 bg-slate-200 dark:bg-slate-700 text-slate-900 dark:text-white font-bold rounded-lg hover:bg-slate-300 dark:hover:bg-slate-600 transition-colors text-sm md:text-base">
-            Close
-          </button>
-          <button type="button" onclick="sendToWhatsApp()" class="w-full sm:w-auto px-8 py-3 bg-green-600 text-white font-bold rounded-lg shadow-lg hover:bg-green-700 active:scale-[0.98] transition-all flex items-center justify-center gap-2 uppercase tracking-wide text-sm md:text-base">
-            <i class="fa fa-whatsapp" style="font-size:1.2rem;"></i>
-            <span class="hidden sm:inline">WhatsApp</span>
-            <span class="inline sm:hidden">WhatsApp</span>
-          </button>
-          <button type="submit" class="w-full sm:w-auto px-8 py-3 bg-accent text-white font-bold rounded-lg shadow-lg hover:brightness-110 active:scale-[0.98] transition-all flex items-center justify-center gap-2 uppercase tracking-wide text-sm md:text-base">
-            Submit Brief
-            <span class="material-symbols-outlined">send</span>
-          </button>
-        </div>
-      </form>
-    </div>
-  </div>
-</div>
-
-<script>
-  // Modal management functions
-  function openConsultationModal() {
-    const modal = document.getElementById('consultation-modal');
-    if (modal) {
-      modal.classList.remove('hidden');
-      document.body.style.overflow = 'hidden';
-    }
-  }
-
-  function closeConsultationModal() {
-    const modal = document.getElementById('consultation-modal');
-    if (modal) {
-      modal.classList.add('hidden');
-      document.body.style.overflow = 'auto';
-    }
-  }
-
-  // Close modal when clicking overlay
-  document.addEventListener('DOMContentLoaded', function() {
-    const modal = document.getElementById('consultation-modal');
-    const overlay = document.getElementById('modal-overlay');
-    
-    if (overlay) {
-      overlay.addEventListener('click', function(e) {
-        if (e.target === overlay) {
-          closeConsultationModal();
-        }
-      });
-    }
-    
-    // Close modal with Escape key
-    document.addEventListener('keydown', function(e) {
-      if (e.key === 'Escape') {
-        closeConsultationModal();
-      }
-    });
-
-    // Form submission handler
-    const form = document.getElementById('modal-consultation-form');
-    const successBox = document.getElementById('modal-form-success');
-    
-    if (form) {
-      form.addEventListener('submit', async (e) => {
-        e.preventDefault();
-        const url = form.action;
-        const data = new FormData(form);
-        
-        try {
-          const res = await fetch(url, {
-            method: 'POST',
-            body: data,
-            headers: { 'Accept': 'application/json' }
-          });
-          
-          if (res.ok) {
-            if (successBox) {
-              successBox.classList.remove('hidden');
-              form.style.display = 'none';
+        function openConsultationModal() {
+            const modal = document.getElementById('consultation-modal');
+            if (modal) {
+                modal.classList.remove('hidden');
+                document.body.style.overflow = 'hidden';
             }
-            form.reset();
-            setTimeout(() => {
-              closeConsultationModal();
-              if (successBox) successBox.classList.add('hidden');
-              if (form) form.style.display = 'block';
-            }, 3000);
-          } else {
-            alert('Submission failed. Please try again later.');
-          }
-        } catch (err) {
-          alert('Submission failed. Please check your connection and try again.');
         }
-      });
-    }
-  });
 
-  // WhatsApp submission
-  function sendToWhatsApp() {
-    const form = document.getElementById('modal-consultation-form');
-    
-    // Get form values
-    const full_name = form.elements['full_name']?.value?.trim() || '';
-    const company = form.elements['company']?.value?.trim() || '';
-    const email = form.elements['email']?.value?.trim() || '';
-    const phone = form.elements['phone']?.value?.trim() || '';
-    const consultation_date = form.elements['consultation_date']?.value?.trim() || '';
-    const consultation_type = form.elements['consultation_type']?.value?.trim() || '';
-    const project_type = form.elements['project_type']?.value?.trim() || '';
-    const message = form.elements['message']?.value?.trim() || '';
-    
-    // Validation
-    if (!full_name || !project_type || !message || (!email && !phone)) {
-      alert('Please complete the required fields before sending to WhatsApp.');
-      return;
-    }
-    
-    // Build WhatsApp message
-    const whatsappMessage = `Hello Jammos Construction,
+        function closeConsultationModal() {
+            const modal = document.getElementById('consultation-modal');
+            if (modal) {
+                modal.classList.add('hidden');
+                document.body.style.overflow = 'auto';
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const overlay = document.getElementById('modal-overlay');
+            if (overlay) {
+                overlay.addEventListener('click', function (e) {
+                    if (e.target === overlay) closeConsultationModal();
+                });
+            }
+
+            document.addEventListener('keydown', function (e) {
+                if (e.key === 'Escape') closeConsultationModal();
+            });
+
+            const form = document.getElementById('modal-consultation-form');
+            const successBox = document.getElementById('modal-form-success');
+            if (form) {
+                form.addEventListener('submit', async (e) => {
+                    e.preventDefault();
+                    const url = form.action;
+                    const data = new FormData(form);
+                    try {
+                        const res = await fetch(url, {
+                            method: 'POST',
+                            body: data,
+                            headers: { 'Accept': 'application/json' }
+                        });
+                        if (res.ok) {
+                            if (successBox) {
+                                successBox.classList.remove('hidden');
+                                form.style.display = 'none';
+                            }
+                            form.reset();
+                            setTimeout(() => {
+                                closeConsultationModal();
+                                if (successBox) successBox.classList.add('hidden');
+                                if (form) form.style.display = 'grid';
+                            }, 3000);
+                        } else {
+                            alert('Submission failed. Please try again later.');
+                        }
+                    } catch (err) {
+                        alert('Submission failed. Please check your connection and try again.');
+                    }
+                });
+            }
+
+            const revealObserver = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        revealObserver.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.12 });
+
+            document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach((element) => {
+                revealObserver.observe(element);
+            });
+
+            const statObserver = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    if (!entry.isIntersecting) return;
+                    const el = entry.target;
+                    const target = Number(el.getAttribute('data-counter') || 0);
+                    const duration = 1200;
+                    const start = performance.now();
+
+                    const suffix = target > 100 ? '' : '+';
+
+                    function step(now) {
+                        const progress = Math.min((now - start) / duration, 1);
+                        const value = Math.floor(progress * target);
+                        el.textContent = `${value}${suffix}`;
+                        if (progress < 1) requestAnimationFrame(step);
+                        else el.textContent = `${target}${suffix}`;
+                    }
+
+                    requestAnimationFrame(step);
+                    statObserver.unobserve(el);
+                });
+            }, { threshold: 0.4 });
+
+            document.querySelectorAll('[data-counter]').forEach((counter) => {
+                statObserver.observe(counter);
+            });
+        });
+
+        function sendToWhatsApp() {
+            const form = document.getElementById('modal-consultation-form');
+            const full_name = form.elements['full_name']?.value?.trim() || '';
+            const company = form.elements['company']?.value?.trim() || '';
+            const email = form.elements['email']?.value?.trim() || '';
+            const phone = form.elements['phone']?.value?.trim() || '';
+            const consultation_date = form.elements['consultation_date']?.value?.trim() || '';
+            const consultation_type = form.elements['consultation_type']?.value?.trim() || '';
+            const project_type = form.elements['project_type']?.value?.trim() || '';
+            const message = form.elements['message']?.value?.trim() || '';
+
+            if (!full_name || !project_type || !message || (!email && !phone)) {
+                alert('Please complete the required fields before sending to WhatsApp.');
+                return;
+            }
+
+            const whatsappMessage = `Hello Jammos Construction,
 
 I would like to request a consultation.
 
@@ -832,20 +780,11 @@ Project Type: ${project_type}
 
 Project Overview & Scope Requirements:
 ${message}`;
-    
-    // URL encode and open WhatsApp
-    const encodedMessage = encodeURIComponent(whatsappMessage);
-    const whatsappUrl = `https://wa.me/2347065615182?text=${encodedMessage}`;
-    window.open(whatsappUrl, '_blank');
-  }
 
-  function scrollToForm() {
-    const el = document.getElementById('consultation-form');
-    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    else window.location.href = 'contact.html#consultation-form';
-  }
-</script>
-
+            const encodedMessage = encodeURIComponent(whatsappMessage);
+            const whatsappUrl = `https://wa.me/2348185885425?text=${encodedMessage}`;
+            window.open(whatsappUrl, '_blank');
+        }
+    </script>
 </body>
-
 </html>

@@ -1,8 +1,13 @@
 <!DOCTYPE html>
-
-<html class="light" lang="en"><head>
+<html class="light" lang="en">
+<head>
 <meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="apple-touch-icon" sizes="180x180" href="Asset/favicon/apple-touch-icon.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="Asset/favicon/favicon-32x32.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="Asset/favicon/favicon-16x16.png" />
+<link rel="shortcut icon" href="Asset/favicon/favicon.ico" />
+<link rel="manifest" href="Asset/favicon/site.webmanifest" />
 <title>About Jammos Construction - Engineering Excellence</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
@@ -40,6 +45,7 @@
     </script>
 <style>
         body { font-family: 'Inter', sans-serif; }
+        .glass-header { backdrop-filter: blur(12px); background-color: rgba(10, 25, 47, 0.95); }
         .blueprint-pattern {
             background-color: #0f49bd;
             background-image: radial-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px);
@@ -47,46 +53,40 @@
         }
     </style>
 </head>
-<body class="bg-background-light dark:bg-background-dark text-steel-gray-900 dark:text-slate-100 font-display transition-colors duration-200">
+<body class="bg-background-light dark:bg-background-dark text-steel-gray-900 dark:text-slate-100 font-display transition-colors duration-200 overflow-x-hidden">
 <!-- Top Navigation -->
-<header class="sticky top-0 z-50 bg-white/90 dark:bg-background-dark/90 backdrop-blur-md border-b border-steel-gray-200 dark:border-slate-800">
-<div class="max-w-7xl mx-auto px-6 lg:px-10">
-  <div class="h-20 flex items-center justify-between">
-    <div class="flex items-center gap-3">
-      <div class="p-2 bg-primary rounded-lg text-white">
-        <span class="material-symbols-outlined text-2xl">architecture</span>
-      </div>
-      <h2 class="text-steel-gray-900 dark:text-white text-lg lg:text-xl font-extrabold tracking-tight">JAMMOS <span class="font-light text-primary">CONSTRUCTION</span></h2>
-    </div>
+<header class="glass-header sticky top-0 z-50 border-b border-slate-700/50">
+<div class="max-w-7xl mx-auto px-4 sm:px-4 sm:px-6 lg:px-10">
+  <div class="h-20 sm:h-20 sm:h-24 md:h-20 flex items-center justify-between gap-4">
+    <a href="index.html" class="flex items-center min-w-0">
+      <img src="Asset/images/jammos logo.png" alt="Jammos Construction Nigeria Limited" class="h-14 sm:h-16 md:h-16 lg:h-20 w-auto object-contain" />
+    </a>
     <!-- Desktop nav -->
-    <nav class="hidden md:flex items-center gap-8 text-sm font-semibold text-steel-gray-600 dark:text-slate-300 flex-1 justify-center">
-      <a class="hover:text-primary transition-colors" href="index.html">Home</a>
+    <nav class="hidden md:flex items-center gap-6 lg:gap-8 text-sm lg:text-base font-semibold text-slate-300 flex-1 justify-center">
+      <a class="text-slate-300 hover:text-primary transition-colors" href="index.html">Home</a>
       <a class="text-primary font-bold border-b-2 border-primary" href="#">About Us</a>
-      <a class="hover:text-primary transition-colors" href="services.html">Services</a>
-      <a class="hover:text-primary transition-colors" href="project gallery.html">Projects</a>
-      <a class="hover:text-primary transition-colors" href="contact.html">Contact</a>
+      <a class="text-slate-300 hover:text-primary transition-colors" href="services.html">Services</a>
+      <a class="text-slate-300 hover:text-primary transition-colors" href="project gallery.html">Projects</a>
+      <a class="text-slate-300 hover:text-primary transition-colors" href="contact.html">Contact</a>
     </nav>
     <!-- Desktop button + mobile burger -->
-    <div class="flex items-center gap-4">
-      <button class="hidden sm:flex items-center text-steel-gray-500 hover:text-primary">
-        <span class="material-symbols-outlined">search</span>
-      </button>
+    <div class="flex items-center gap-3 sm:gap-4">
       <button onclick="openConsultationModal()" class="hidden md:block bg-primary hover:bg-primary/90 text-white px-6 py-2.5 rounded-lg text-sm font-bold transition-all shadow-md shadow-primary/20">
         Request Consultation
       </button>
-      <button id="mobile-menu-btn" class="md:hidden text-steel-gray-900 dark:text-white p-2">
-        <span class="material-symbols-outlined text-2xl">menu</span>
+      <button id="mobile-menu-btn" class="md:hidden text-white p-2.5">
+        <span class="material-symbols-outlined text-[2rem]">menu</span>
       </button>
     </div>
   </div>
   <!-- Mobile nav (hidden by default) -->
-  <div id="mobile-nav" class="hidden md:hidden pb-4 pt-2 border-t border-slate-700/30 dark:border-slate-800">
-    <nav class="flex flex-col gap-2 text-sm font-semibold text-steel-gray-600 dark:text-slate-400 mb-4">
-      <a class="w-full text-center py-2.5 hover:text-primary transition-colors" href="index.html">Home</a>
-      <a class="w-full text-center py-2.5 text-primary" href="#">About Us</a>
-      <a class="w-full text-center py-2.5 hover:text-primary transition-colors" href="services.html">Services</a>
-      <a class="w-full text-center py-2.5 hover:text-primary transition-colors" href="project gallery.html">Projects</a>
-      <a class="w-full text-center py-2.5 hover:text-primary transition-colors" href="contact.html">Contact</a>
+  <div id="mobile-nav" class="hidden md:hidden pb-5 pt-3 border-t border-slate-700/30">
+    <nav class="flex flex-col gap-2 text-sm font-semibold text-slate-300 mb-5">
+      <a class="w-full text-center py-3 text-slate-300 hover:text-primary transition-colors" href="index.html">Home</a>
+      <a class="w-full text-center py-3 text-primary" href="#">About Us</a>
+      <a class="w-full text-center py-3 text-slate-300 hover:text-primary transition-colors" href="services.html">Services</a>
+      <a class="w-full text-center py-3 text-slate-300 hover:text-primary transition-colors" href="project gallery.html">Projects</a>
+      <a class="w-full text-center py-3 text-slate-300 hover:text-primary transition-colors" href="contact.html">Contact</a>
     </nav>
     <button onclick="openConsultationModal()" class="w-full bg-primary hover:bg-primary/90 text-white px-6 py-2.5 rounded-lg text-sm font-bold transition-all shadow-md shadow-primary/20">
       Request Consultation
@@ -102,62 +102,139 @@
 </script>
 <main>
 <!-- Hero Section -->
-<section class="relative h-[400px] flex items-center overflow-hidden bg-primary blueprint-pattern" data-alt="Technical blueprint background pattern in blue">
+<section class="relative min-h-[360px] sm:min-h-[440px] flex items-center overflow-hidden bg-primary blueprint-pattern" data-alt="Technical blueprint background pattern in blue">
 <div class="absolute inset-0 bg-gradient-to-r from-primary to-transparent opacity-90"></div>
-<div class="relative max-w-7xl mx-auto px-6 lg:px-10 w-full">
+<div class="relative max-w-7xl mx-auto px-4 sm:px-4 sm:px-6 lg:px-10 w-full py-16 sm:py-0">
+<div class="grid lg:grid-cols-[minmax(0,1fr)_360px] gap-10 lg:gap-12 items-center">
 <div class="max-w-2xl">
-<nav class="flex items-center gap-2 text-white/70 text-sm mb-6 font-medium">
+<nav class="flex items-center gap-2 text-white/70 text-xs sm:text-sm mb-5 sm:mb-6 font-medium">
 <a class="hover:text-white" href="index.html">Home</a>
 <span class="material-symbols-outlined text-xs">chevron_right</span>
 <span class="text-white">About Us</span>
 </nav>
-<h1 class="text-white text-5xl lg:text-6xl font-black leading-tight mb-6 tracking-tight">
+<h1 class="text-white text-3xl sm:text-5xl lg:text-6xl font-black leading-[1.05] sm:leading-tight mb-4 sm:mb-6 tracking-tight max-w-[12ch] sm:max-w-none">
                         Engineering with Precision &amp; Integrity
                     </h1>
-<p class="text-white/80 text-lg font-medium max-w-xl leading-relaxed">
-                        Nigeria's leading EPC firm, Jammos Construction, transforms complex challenges into enduring infrastructure.
+<p class="text-white/80 text-base sm:text-lg font-medium max-w-xl leading-relaxed">
+                        Jammos Construction Nigeria Limited is an indigenous engineering and construction company delivering reliable infrastructure solutions across civil works, industrial installations, and telecommunications infrastructure in Nigeria.
                     </p>
+</div>
+<div class="hidden lg:block">
+<div class="rounded-2xl border border-white/15 bg-white/10 backdrop-blur-md p-8 shadow-2xl shadow-slate-950/20">
+<div class="text-xs font-bold uppercase tracking-[0.2em] text-white/70 mb-5">Operational Overview</div>
+<div class="space-y-5">
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-white/80">apartment</span>
+<div>
+<div class="text-white font-bold">Established 2006</div>
+<p class="text-sm text-white/75 leading-relaxed">Built on nearly two decades of engineering, construction, and project delivery experience.</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-white/80">hub</span>
+<div>
+<div class="text-white font-bold">Integrated EPC Capability</div>
+<p class="text-sm text-white/75 leading-relaxed">Coordinated engineering, procurement, and construction support across multiple sectors.</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-white/80">verified</span>
+<div>
+<div class="text-white font-bold">Structured Delivery</div>
+<p class="text-sm text-white/75 leading-relaxed">Focused on professional execution, accountability, and infrastructure performance.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Who We Are Section -->
+<section class="py-20 bg-steel-gray-50 dark:bg-slate-900/50">
+<div class="max-w-7xl mx-auto px-4 sm:px-4 sm:px-6 lg:px-10">
+<div class="grid lg:grid-cols-[minmax(0,1.2fr)_360px] gap-10 lg:gap-14 items-start">
+<div class="max-w-4xl">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold uppercase tracking-wider mb-6">
+<span class="size-2 bg-primary rounded-full"></span>
+                            Who We Are
+                        </div>
+<h2 class="text-steel-gray-900 dark:text-white text-3xl sm:text-4xl font-black mb-6 sm:mb-8 leading-tight">
+                            Built for Reliable Project Delivery
+                        </h2>
+<div class="space-y-5 sm:space-y-6 text-steel-gray-600 dark:text-slate-400 text-base leading-relaxed">
+<p>
+                                Jammos Construction Nigeria Limited is a Nigerian engineering and construction company incorporated in Nigeria and registered with the Corporate Affairs Commission (CAC) under RC 1043373.
+                            </p>
+<p>
+                                Established in 2006, the company provides integrated engineering, procurement, and construction services across civil infrastructure, building construction, industrial installations, and telecommunications infrastructure projects.
+                            </p>
+<p>
+                                Our multidisciplinary team combines engineering expertise, project management capability, and modern construction techniques to deliver projects safely, efficiently, and to the highest quality standards.
+                            </p>
+</div>
+</div>
+<div class="bg-white dark:bg-background-dark rounded-2xl border border-steel-gray-200 dark:border-slate-800 shadow-xl shadow-slate-900/5 p-6 sm:p-8">
+<div class="text-xs font-bold uppercase tracking-[0.2em] text-primary mb-6">Company Facts</div>
+<div class="space-y-5">
+<div class="pb-5 border-b border-steel-gray-200 dark:border-slate-800">
+<div class="text-sm font-semibold text-steel-gray-500 dark:text-slate-400 uppercase">Registration</div>
+<div class="mt-2 text-lg font-bold text-steel-gray-900 dark:text-white">CAC RC 1043373</div>
+</div>
+<div class="pb-5 border-b border-steel-gray-200 dark:border-slate-800">
+<div class="text-sm font-semibold text-steel-gray-500 dark:text-slate-400 uppercase">Core Focus</div>
+<div class="mt-2 text-base font-semibold text-steel-gray-900 dark:text-white">Civil works, industrial installations, and telecommunications infrastructure</div>
+</div>
+<div>
+<div class="text-sm font-semibold text-steel-gray-500 dark:text-slate-400 uppercase">Delivery Approach</div>
+<div class="mt-2 text-base font-semibold text-steel-gray-900 dark:text-white">Engineering expertise, project discipline, and quality-led execution</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 </section>
 <!-- Company Profile Section -->
 <section class="py-20 bg-white dark:bg-background-dark">
-<div class="max-w-7xl mx-auto px-6 lg:px-10">
-<div class="grid lg:grid-cols-2 gap-16 items-center">
+<div class="max-w-7xl mx-auto px-4 sm:px-4 sm:px-6 lg:px-10">
+<div class="grid lg:grid-cols-2 gap-10 sm:gap-12 lg:gap-16 items-center">
 <div>
 <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold uppercase tracking-wider mb-6">
 <span class="size-2 bg-primary rounded-full"></span>
                             Established Excellence
                         </div>
-<h2 class="text-steel-gray-900 dark:text-white text-4xl font-black mb-8 leading-tight">
+<h2 class="text-steel-gray-900 dark:text-white text-3xl sm:text-4xl font-black mb-6 sm:mb-8 leading-tight">
                             Jammos Construction Nigeria Limited
                         </h2>
 <div class="space-y-6 text-steel-gray-600 dark:text-slate-400 text-base leading-relaxed">
 <p>
-                                Jammos Construction Nigeria Limited is a premier engineering, procurement, and construction (EPC) firm headquartered in Lagos. With over two decades of experience, we specialize in delivering high-stakes infrastructure projects that drive industrial progress across the West African region.
+                                Jammos Construction Nigeria Limited is an indigenous construction, engineering, and project management company delivering infrastructure solutions that support industrial and economic development.
                             </p>
 <p>
-                                Our reputation is built on technical excellence and an unwavering commitment to quality. We integrate global engineering standards with local insights, ensuring every project—from civil infrastructure to industrial facilities—is executed with structural precision and long-term viability.
+                                Since its establishment in 2006, the company has developed expertise across multiple engineering disciplines including civil engineering works, structural construction, industrial facilities, and telecommunications infrastructure deployment.
                             </p>
-<div class="grid grid-cols-2 gap-8 pt-6">
+<p>
+                                Through a commitment to engineering excellence, professional integrity, and innovation, Jammos Construction continues to deliver projects that meet client expectations while supporting sustainable development.
+                            </p>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8 pt-6">
 <div>
-<div class="text-3xl font-black text-primary mb-1">20+</div>
-<div class="text-sm font-bold text-steel-gray-500 uppercase">Years Experience</div>
+<div class="text-3xl font-black text-primary mb-1">2006</div>
+<div class="text-sm font-bold text-steel-gray-500 uppercase">Established</div>
 </div>
 <div>
-<div class="text-3xl font-black text-primary mb-1">500+</div>
-<div class="text-sm font-bold text-steel-gray-500 uppercase">Projects Completed</div>
+<div class="text-3xl font-black text-primary mb-1">EPC</div>
+<div class="text-sm font-bold text-steel-gray-500 uppercase">Integrated Engineering &amp; Construction Solutions</div>
 </div>
 </div>
 </div>
 </div>
 <div class="relative">
 <div class="aspect-video bg-steel-gray-200 dark:bg-slate-800 rounded-xl overflow-hidden shadow-2xl">
-<img alt="Construction site with cranes and structure" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" data-alt="Industrial construction site with heavy machinery and steel beams" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAqT2AZ7jClcuksvTULaaYWGSiiSnMyuGr5BWqq_FWI-2foQV1AhfaPRCqXZazub7Wb5pkj_FfqtIhZTwZ7cLNx-lyYIZxueqtCd0Ws0S88bRVIV0Hh48GqxEzEIWG5OQaixVlHraOwqoE_gPYy2sflWURq6EPqZ_4bi_kKHc3rJXcMWifJM89yHThxdkwd2VibQVE34VJeP-CBq1fkSc30EfeDJiaeVHOFPheME9iatYn6Jb9IjjlGoBIyvxOL3-2r9l_uI7UO-uI"/>
+<img alt="Engineers reviewing construction drawings and planning project execution" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" data-alt="Engineers reviewing construction drawings and planning project execution" src="Asset/images/about-engineers.jpg"/>
 </div>
-<div class="absolute -bottom-6 -left-6 bg-primary p-8 rounded-lg text-white shadow-xl hidden md:block">
+<div class="mt-4 sm:mt-0 sm:absolute sm:-bottom-6 sm:-left-6 bg-primary p-4 sm:p-6 rounded-lg text-white shadow-xl w-fit">
 <span class="material-symbols-outlined text-4xl mb-2">verified</span>
-<div class="text-sm font-bold leading-tight">ISO 9001:2015<br/>Certified Firm</div>
+<div class="text-sm font-bold leading-tight">CAC Registered<br/>RC 1043373</div>
 </div>
 </div>
 </div>
@@ -165,24 +242,24 @@
 </section>
 <!-- Vision & Mission Side-by-Side -->
 <section class="py-20 bg-steel-gray-50 dark:bg-slate-900/50">
-<div class="max-w-7xl mx-auto px-6 lg:px-10">
-<div class="grid md:grid-cols-2 gap-8">
-<div class="bg-white dark:bg-background-dark p-12 rounded-xl border border-steel-gray-200 dark:border-slate-800 shadow-sm">
+<div class="max-w-7xl mx-auto px-4 sm:px-4 sm:px-6 lg:px-10">
+<div class="grid md:grid-cols-2 gap-6 sm:gap-8">
+<div class="bg-white dark:bg-background-dark p-8 sm:p-10 lg:p-12 rounded-2xl border border-steel-gray-200 dark:border-slate-800 shadow-lg shadow-slate-900/5 h-full transition-transform duration-300 md:hover:-translate-y-1">
 <div class="size-14 bg-primary/10 rounded-lg flex items-center justify-center text-primary mb-8">
 <span class="material-symbols-outlined text-3xl">visibility</span>
 </div>
 <h3 class="text-2xl font-black text-steel-gray-900 dark:text-white mb-4">Our Vision</h3>
-<p class="text-steel-gray-600 dark:text-slate-400 leading-relaxed text-lg">
-                            To be the most trusted and innovative engineering firm in West Africa, setting global benchmarks for quality, safety, and technological advancement in the EPC sector.
+<p class="text-steel-gray-600 dark:text-slate-400 leading-relaxed text-base sm:text-lg">
+                            To become a globally recognized indigenous construction and engineering company known for innovation, excellence, integrity, and sustainable project delivery.
                         </p>
 </div>
-<div class="bg-white dark:bg-background-dark p-12 rounded-xl border border-steel-gray-200 dark:border-slate-800 shadow-sm">
+<div class="bg-white dark:bg-background-dark p-8 sm:p-10 lg:p-12 rounded-2xl border border-steel-gray-200 dark:border-slate-800 shadow-lg shadow-slate-900/5 h-full transition-transform duration-300 md:hover:-translate-y-1">
 <div class="size-14 bg-primary/10 rounded-lg flex items-center justify-center text-primary mb-8">
 <span class="material-symbols-outlined text-3xl">target</span>
 </div>
 <h3 class="text-2xl font-black text-steel-gray-900 dark:text-white mb-4">Our Mission</h3>
-<p class="text-steel-gray-600 dark:text-slate-400 leading-relaxed text-lg">
-                            To deliver superior construction services through advanced engineering, sustainable practices, and professional integrity, consistently exceeding client expectations and contributing to national development.
+<p class="text-steel-gray-600 dark:text-slate-400 leading-relaxed text-base sm:text-lg">
+                            To provide integrated Engineering, Procurement, and Construction (EPC) solutions through engineering excellence, digital innovation, and sustainable practices while delivering projects efficiently and to global standards.
                         </p>
 </div>
 </div>
@@ -190,115 +267,74 @@
 </section>
 <!-- Core Values Grid -->
 <section class="py-24 bg-white dark:bg-background-dark">
-<div class="max-w-7xl mx-auto px-6 lg:px-10">
-<div class="text-center max-w-3xl mx-auto mb-16">
+<div class="max-w-7xl mx-auto px-4 sm:px-4 sm:px-6 lg:px-10">
+<div class="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
 <h2 class="text-3xl font-black text-steel-gray-900 dark:text-white mb-4 tracking-tight">Our Core Values</h2>
 <p class="text-steel-gray-600 dark:text-slate-400 font-medium">The foundational principles that guide every decision and action within our organization.</p>
 </div>
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-steel-gray-200 dark:bg-slate-800 border border-steel-gray-200 dark:border-slate-800 rounded-xl overflow-hidden">
-<div class="bg-white dark:bg-background-dark p-8 group">
-<span class="material-symbols-outlined text-primary mb-6 group-hover:scale-110 transition-transform block">handshake</span>
-<h4 class="text-lg font-bold text-steel-gray-900 dark:text-white mb-3">Integrity</h4>
-<p class="text-sm text-steel-gray-500 dark:text-slate-400 leading-relaxed">Honesty and transparency in every contractual obligation and partnership.</p>
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-5 gap-5">
+<div class="bg-white dark:bg-background-dark p-6 sm:p-8 group rounded-2xl border border-steel-gray-200 dark:border-slate-800 shadow-lg shadow-slate-900/5 h-full">
+<span class="material-symbols-outlined text-primary mb-6 group-hover:scale-110 transition-transform block">workspace_premium</span>
+<h4 class="text-lg font-bold text-steel-gray-900 dark:text-white mb-3">Excellence</h4>
+<p class="text-sm text-steel-gray-500 dark:text-slate-400 leading-relaxed">Delivering high standards in engineering execution, planning, and project outcomes.</p>
 </div>
-<div class="bg-white dark:bg-background-dark p-8 group">
-<span class="material-symbols-outlined text-primary mb-6 group-hover:scale-110 transition-transform block">precision_manufacturing</span>
-<h4 class="text-lg font-bold text-steel-gray-900 dark:text-white mb-3">Quality</h4>
-<p class="text-sm text-steel-gray-500 dark:text-slate-400 leading-relaxed">Uncompromising standards in materials, engineering, and final delivery.</p>
-</div>
-<div class="bg-white dark:bg-background-dark p-8 group">
-<span class="material-symbols-outlined text-primary mb-6 group-hover:scale-110 transition-transform block">health_and_safety</span>
-<h4 class="text-lg font-bold text-steel-gray-900 dark:text-white mb-3">Safety</h4>
-<p class="text-sm text-steel-gray-500 dark:text-slate-400 leading-relaxed">Prioritizing the wellbeing of our workforce and the surrounding environment.</p>
-</div>
-<div class="bg-white dark:bg-background-dark p-8 group">
+<div class="bg-white dark:bg-background-dark p-6 sm:p-8 group rounded-2xl border border-steel-gray-200 dark:border-slate-800 shadow-lg shadow-slate-900/5 h-full">
 <span class="material-symbols-outlined text-primary mb-6 group-hover:scale-110 transition-transform block">lightbulb</span>
 <h4 class="text-lg font-bold text-steel-gray-900 dark:text-white mb-3">Innovation</h4>
-<p class="text-sm text-steel-gray-500 dark:text-slate-400 leading-relaxed">Continuous adoption of cutting-edge construction technologies and methods.</p>
+<p class="text-sm text-steel-gray-500 dark:text-slate-400 leading-relaxed">Applying modern construction methods and digital thinking to improve delivery.</p>
 </div>
+<div class="bg-white dark:bg-background-dark p-6 sm:p-8 group rounded-2xl border border-steel-gray-200 dark:border-slate-800 shadow-lg shadow-slate-900/5 h-full">
+<span class="material-symbols-outlined text-primary mb-6 group-hover:scale-110 transition-transform block">handshake</span>
+<h4 class="text-lg font-bold text-steel-gray-900 dark:text-white mb-3">Integrity</h4>
+<p class="text-sm text-steel-gray-500 dark:text-slate-400 leading-relaxed">Operating with transparency, accountability, and professional ethics in every engagement.</p>
 </div>
+<div class="bg-white dark:bg-background-dark p-6 sm:p-8 group rounded-2xl border border-steel-gray-200 dark:border-slate-800 shadow-lg shadow-slate-900/5 h-full">
+<span class="material-symbols-outlined text-primary mb-6 group-hover:scale-110 transition-transform block">eco</span>
+<h4 class="text-lg font-bold text-steel-gray-900 dark:text-white mb-3">Sustainability</h4>
+<p class="text-sm text-steel-gray-500 dark:text-slate-400 leading-relaxed">Supporting durable infrastructure delivery with responsible environmental consideration.</p>
 </div>
-</section>
-<!-- HSE Commitment -->
-<section class="py-20 bg-steel-gray-900 text-white">
-<div class="max-w-7xl mx-auto px-6 lg:px-10">
-<div class="flex flex-col lg:flex-row gap-16 items-center">
-<div class="lg:w-1/2">
-<div class="text-primary font-bold text-sm uppercase tracking-[0.2em] mb-6">Health, Safety &amp; Environment</div>
-<h2 class="text-4xl font-black mb-8 leading-tight">Zero-Harm Policy</h2>
-<p class="text-steel-gray-400 mb-8 text-lg leading-relaxed">
-                            At Jammos Construction, safety is not a metric—it is a culture. Our comprehensive HSE management system ensures that every person returns home safely, every single day.
-                        </p>
-<ul class="space-y-4">
-<li class="flex items-start gap-4">
-<span class="material-symbols-outlined text-primary">check_circle</span>
-<span class="text-steel-gray-200 font-medium">Mandatory daily safety briefings and site risk assessments.</span>
-</li>
-<li class="flex items-start gap-4">
-<span class="material-symbols-outlined text-primary">check_circle</span>
-<span class="text-steel-gray-200 font-medium">Continuous investment in high-spec PPE and safety equipment.</span>
-</li>
-<li class="flex items-start gap-4">
-<span class="material-symbols-outlined text-primary">check_circle</span>
-<span class="text-steel-gray-200 font-medium">Environmental impact mitigation strategies for all projects.</span>
-</li>
-</ul>
-</div>
-<div class="lg:w-1/2 grid grid-cols-2 gap-4">
-<div class="bg-white/5 p-6 rounded-lg border border-white/10 text-center">
-<div class="text-4xl font-black text-primary mb-2">0</div>
-<div class="text-xs font-bold uppercase text-steel-gray-400">LTI Rate</div>
-</div>
-<div class="bg-white/5 p-6 rounded-lg border border-white/10 text-center">
-<div class="text-4xl font-black text-primary mb-2">100%</div>
-<div class="text-xs font-bold uppercase text-steel-gray-400">Compliance</div>
-</div>
-<div class="bg-white/5 p-6 rounded-lg border border-white/10 text-center">
-<div class="text-4xl font-black text-primary mb-2">2M+</div>
-<div class="text-xs font-bold uppercase text-steel-gray-400">Safe Man-hours</div>
-</div>
-<div class="bg-white/5 p-6 rounded-lg border border-white/10 text-center">
-<div class="text-4xl font-black text-primary mb-2">ISO</div>
-<div class="text-xs font-bold uppercase text-steel-gray-400">45001 Standard</div>
-</div>
+<div class="bg-white dark:bg-background-dark p-6 sm:p-8 group rounded-2xl border border-steel-gray-200 dark:border-slate-800 shadow-lg shadow-slate-900/5 h-full">
+<span class="material-symbols-outlined text-primary mb-6 group-hover:scale-110 transition-transform block">groups</span>
+<h4 class="text-lg font-bold text-steel-gray-900 dark:text-white mb-3">Client-Centricity</h4>
+<p class="text-sm text-steel-gray-500 dark:text-slate-400 leading-relaxed">Aligning engineering solutions with client objectives, timelines, and long-term value.</p>
 </div>
 </div>
 </div>
 </section>
 <!-- Corporate Philosophy (4 Pillars) -->
 <section class="py-24 bg-background-light dark:bg-background-dark">
-<div class="max-w-7xl mx-auto px-6 lg:px-10">
-<div class="text-center max-w-3xl mx-auto mb-20">
+<div class="max-w-7xl mx-auto px-4 sm:px-4 sm:px-6 lg:px-10">
+<div class="text-center max-w-3xl mx-auto mb-14 sm:mb-20">
 <h2 class="text-3xl font-black text-steel-gray-900 dark:text-white mb-4 tracking-tight uppercase">Corporate Philosophy</h2>
 <div class="h-1.5 w-24 bg-primary mx-auto"></div>
 </div>
-<div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-<div class="flex flex-col gap-6">
+<div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+<div class="flex flex-col gap-5 rounded-2xl bg-white dark:bg-slate-900/50 border border-steel-gray-200 dark:border-slate-800 p-6 sm:p-8 shadow-lg shadow-slate-900/5 h-full">
 <div class="text-primary font-black text-5xl opacity-20">01</div>
-<h3 class="text-xl font-bold text-steel-gray-900 dark:text-white">Stakeholder Value</h3>
+<h3 class="text-xl font-bold text-steel-gray-900 dark:text-white">Construction &amp; Project Management Excellence</h3>
 <p class="text-steel-gray-600 dark:text-slate-400 text-sm leading-relaxed">
-                            Creating sustainable long-term value for our clients, employees, and the communities in which we operate.
+                            Maintaining disciplined engineering execution and project controls that support dependable delivery.
                         </p>
 </div>
-<div class="flex flex-col gap-6">
+<div class="flex flex-col gap-5 rounded-2xl bg-white dark:bg-slate-900/50 border border-steel-gray-200 dark:border-slate-800 p-6 sm:p-8 shadow-lg shadow-slate-900/5 h-full">
 <div class="text-primary font-black text-5xl opacity-20">02</div>
-<h3 class="text-xl font-bold text-steel-gray-900 dark:text-white">Operational Excellence</h3>
+<h3 class="text-xl font-bold text-steel-gray-900 dark:text-white">Operational Efficiency</h3>
 <p class="text-steel-gray-600 dark:text-slate-400 text-sm leading-relaxed">
-                            Relentless pursuit of efficiency through lean construction practices and advanced project management tools.
+                            Improving delivery performance through planning discipline, coordination, and structured execution.
                         </p>
 </div>
-<div class="flex flex-col gap-6">
+<div class="flex flex-col gap-5 rounded-2xl bg-white dark:bg-slate-900/50 border border-steel-gray-200 dark:border-slate-800 p-6 sm:p-8 shadow-lg shadow-slate-900/5 h-full">
 <div class="text-primary font-black text-5xl opacity-20">03</div>
-<h3 class="text-xl font-bold text-steel-gray-900 dark:text-white">Technical Leadership</h3>
+<h3 class="text-xl font-bold text-steel-gray-900 dark:text-white">Optimized Resource Utilization</h3>
 <p class="text-steel-gray-600 dark:text-slate-400 text-sm leading-relaxed">
-                            Fostering an environment of continuous learning to maintain our edge at the forefront of engineering science.
+                            Applying available manpower, materials, equipment, and technical input with maximum efficiency.
                         </p>
 </div>
-<div class="flex flex-col gap-6">
+<div class="flex flex-col gap-5 rounded-2xl bg-white dark:bg-slate-900/50 border border-steel-gray-200 dark:border-slate-800 p-6 sm:p-8 shadow-lg shadow-slate-900/5 h-full">
 <div class="text-primary font-black text-5xl opacity-20">04</div>
-<h3 class="text-xl font-bold text-steel-gray-900 dark:text-white">National Growth</h3>
+<h3 class="text-xl font-bold text-steel-gray-900 dark:text-white">Long-Term Strategic Growth</h3>
 <p class="text-steel-gray-600 dark:text-slate-400 text-sm leading-relaxed">
-                            Committed to building the vital infrastructure required for Nigeria's industrial and economic emergence.
+                            Building a durable, future-ready engineering business that creates lasting value for clients and stakeholders.
                         </p>
 </div>
 </div>
@@ -306,114 +342,83 @@
 </section>
 <!-- CTA Section -->
 <section class="py-20 border-t border-steel-gray-200 dark:border-slate-800">
-<div class="max-w-7xl mx-auto px-6 lg:px-10">
-<div class="bg-primary rounded-2xl p-10 lg:p-16 flex flex-col lg:flex-row items-center justify-between gap-10 shadow-2xl">
+<div class="max-w-7xl mx-auto px-4 sm:px-4 sm:px-6 lg:px-10">
+<div class="bg-primary rounded-2xl p-6 sm:p-10 lg:p-16 flex flex-col lg:flex-row items-center justify-between gap-8 sm:gap-10 shadow-2xl">
 <div class="text-center lg:text-left max-w-xl">
-<h2 class="text-3xl lg:text-4xl font-black text-white mb-4">Ready to start your next project?</h2>
-<p class="text-white/80 font-medium">Partner with Jammos Construction for engineering solutions that stand the test of time.</p>
+<h2 class="text-2xl sm:text-3xl lg:text-4xl font-black text-white mb-4">Ready to Start Your Next Infrastructure Project?</h2>
+<p class="text-white/80 font-medium">Partner with Jammos Construction Nigeria Limited for reliable engineering, procurement, and construction solutions delivered with excellence, innovation, and integrity.</p>
 </div>
-<div class="flex flex-col sm:flex-row gap-4">
-<button class="bg-white text-primary px-8 py-4 rounded-lg font-bold hover:bg-steel-gray-100 transition-colors shadow-lg">
+<div class="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
+<button type="button" onclick="openConsultationModal()" class="w-full sm:w-auto bg-white text-primary px-8 py-4 rounded-lg font-bold hover:bg-steel-gray-100 transition-colors shadow-lg">
                             Consult with our Engineers
                         </button>
-<button class="border-2 border-white/30 text-white px-8 py-4 rounded-lg font-bold hover:bg-white/10 transition-colors">
+<a class="w-full sm:w-auto text-center border-2 border-white/30 text-white px-8 py-4 rounded-lg font-bold hover:bg-white/10 transition-colors" href="contact.html">
                             Contact Us
-                        </button>
+                        </a>
 </div>
 </div>
 </div>
 </section>
 </main>
-<footer class="bg-navy-deep text-slate-400 py-20 border-t border-slate-800">
-        <div class="max-w-7xl mx-auto px-6 lg:px-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+    <footer class="bg-navy-deep text-slate-400 py-16 sm:py-20 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-4 sm:px-6 lg:px-10 grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-12">
             <div>
-                <div class="flex items-center gap-3 mb-8">
-                    <div class="bg-primary p-2 rounded-lg text-white">
-                        <span class="material-symbols-outlined">architecture</span>
-                    </div>
-                    <h1 class="text-white text-xl font-extrabold uppercase tracking-tight">Jammos</h1>
+                <div class="flex items-center mb-8">
+                    <img src="Asset/images/jammos logo.png" alt="Jammos Construction Nigeria Limited" class="h-16 sm:h-20 w-auto object-contain" />
                 </div>
                 <p class="text-sm leading-relaxed mb-6">
-                    Providing top-tier EPC and engineering solutions in Nigeria since 2008. Building the foundations of
-                    tomorrow's economy with precision and integrity.
+                    Jammos Construction Nigeria Limited is a professional engineering and construction company providing civil, mechanical, and industrial infrastructure solutions across Nigeria. Our mission is to deliver safe, reliable, and high-quality projects that support national development.
                 </p>
-                <div class="flex gap-4">
-                    <a class="size-10 bg-white/5 rounded-full flex items-center justify-center hover:bg-primary transition-colors text-white"
-                        href="#">
-                        <span class="material-symbols-outlined text-lg">public</span>
-                    </a>
-                    <a class="size-10 bg-white/5 rounded-full flex items-center justify-center hover:bg-primary transition-colors text-white"
-                        href="#">
-                        <span class="material-symbols-outlined text-lg">share</span>
-                    </a>
-                </div>
             </div>
-            <div>
-                <h6 class="text-white font-bold mb-8 uppercase text-xs tracking-[0.2em]">Quick Links</h6>
-                <ul class="space-y-4 text-sm font-medium">
-                    <li><a class="hover:text-primary transition-colors" href="index.html">Home</a></li>
-                    <li><a class="hover:text-primary transition-colors" href="about us.html">About Jammos</a></li>
-                    <li><a class="hover:text-primary transition-colors" href="services.html">Our Services</a></li>
-                    <li><a class="hover:text-primary transition-colors" href="project gallery.html">Major Projects</a></li>
-                    <li><a class="hover:text-primary transition-colors" href="contact.html">Contact Us</a></li>
-                </ul>
-            </div>
-            <div>
-                <h6 class="text-white font-bold mb-8 uppercase text-xs tracking-[0.2em]">Services</h6>
-                <ul class="space-y-4 text-sm font-medium">
-                    <li><a class="hover:text-primary transition-colors" href="services.html">Civil Construction</a></li>
-                    <li><a class="hover:text-primary transition-colors" href="services.html">Mechanical Engineering</a></li>
-                    <li><a class="hover:text-primary transition-colors" href="services.html">Telecommunications</a></li>
-                    <li><a class="hover:text-primary transition-colors" href="services.html">EPC Management</a></li>
-                    <li><a class="hover:text-primary transition-colors" href="services.html">Structural Designs</a></li>
-                </ul>
-            </div>
-            <div>
+<div>
                 <h6 class="text-white font-bold mb-8 uppercase text-xs tracking-[0.2em]">Office Location</h6>
-                <div class="space-y-4">
-                    <div class="flex gap-4">
+                <div class="space-y-5">
+                    <div class="flex items-start gap-4">
                         <span class="material-symbols-outlined text-primary">location_on</span>
-                        <p class="text-sm">Main Office, Plot 452 Business District, Victoria Island, Lagos, Nigeria</p>
+                        <p class="text-sm">7, Fadeyi Street, Owode Estate, Ibeshe Road, Ikorodu, Lagos State, Nigeria</p>
                     </div>
-                    <div class="flex gap-4">
+                    <div class="flex items-start gap-4">
                         <span class="material-symbols-outlined text-primary">phone_in_talk</span>
-                        <p class="text-sm">+234 (0) 800-JAMMOS-01</p>
+                        <p class="text-sm">Phone: <a class="hover:text-white transition-colors" href="tel:+2347064475221">+234 706 447 5221</a></p>
                     </div>
-                    <div class="flex gap-4">
+                    <div class="flex items-start gap-4">
+                        <span class="material-symbols-outlined text-primary">chat</span>
+                        <p class="text-sm">WhatsApp: <a class="hover:text-white transition-colors" href="https://wa.me/2348185885425" target="_blank">+234 818 588 5425</a></p>
+                    </div>
+                    <div class="flex items-start gap-4">
                         <span class="material-symbols-outlined text-primary">mail</span>
-                        <p class="text-sm">info@jammos-construction.com.ng</p>
+                        <p class="text-sm">Email: <a class="hover:text-white transition-colors break-all" href="mailto:jammosconstruct@gmail.com">jammosconstruct@gmail.com</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        <div
-            class="max-w-7xl mx-auto px-6 lg:px-10 pt-16 mt-16 border-t border-slate-800 flex flex-col md:flex-row justify-between items-center text-xs">
-            <p>© 2024 Jammos Construction Nigeria Limited. All Rights Reserved.</p>
-            <div class="flex gap-8 mt-4 md:mt-0">
-                <a class="hover:text-white transition-colors" href="#">Privacy Policy</a>
-                <a class="hover:text-white transition-colors" href="#">Terms of Service</a>
-                <a class="hover:text-white transition-colors" href="#">Compliance Portal</a>
+        <div class="max-w-7xl mx-auto px-4 sm:px-4 sm:px-6 lg:px-10 pt-12 sm:pt-16 mt-12 sm:mt-16 border-t border-slate-800 flex flex-col md:flex-row justify-between items-start md:items-center text-xs gap-4 sm:gap-5 sm:gap-5">
+            <p class="text-center md:text-left">&copy; 2024 Jammos Construction Nigeria Limited. All Rights Reserved.</p>
+            <div class="flex flex-col sm:flex-row items-center gap-3 sm:gap-8 mt-2 md:mt-0">
+                <a class="hover:text-white transition-colors" href="privacy-policy.html">Privacy Policy</a>
+                <a class="hover:text-white transition-colors" href="terms-of-service.html">Terms of Service</a>
+                <a class="hover:text-white transition-colors" href="compliance.html">Compliance Portal</a>
             </div>
         </div>
     </footer>
 
 <!-- floating whatsapp button -->
-<a href="https://wa.me/234800JAMMOS" target="_blank" class="flex items-center justify-center fixed bottom-6 right-6 p-4 rounded-full shadow-xl z-50">
+<a href="https://wa.me/2348185885425" target="_blank" class="flex items-center justify-center fixed bottom-6 right-6 p-4 rounded-full shadow-xl z-50">
   <i class="fa fa-whatsapp" style="font-size:3rem; color:green"></i>
 </a>
 
 <!-- Global Consultation Modal -->
-<div id="consultation-modal" class="hidden fixed inset-0 z-[100] flex items-center justify-center p-4">
+<div id="consultation-modal" class="hidden fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6 lg:p-8">
   <!-- Overlay -->
   <div id="modal-overlay" class="absolute inset-0 bg-black/60 backdrop-blur-sm"></div>
   
   <!-- Modal Card -->
-  <div class="relative w-full max-w-3xl max-h-[90vh] overflow-y-auto bg-white dark:bg-slate-800 rounded-xl shadow-2xl border border-slate-200 dark:border-slate-700">
+  <div class="relative w-full max-w-3xl max-h-[92vh] sm:max-h-[90vh] overflow-y-auto bg-white dark:bg-slate-800 rounded-xl shadow-2xl border border-slate-200 dark:border-slate-700">
     <!-- Modal Header -->
-    <div class="sticky top-0 bg-white dark:bg-slate-800 border-b border-slate-200 dark:border-slate-700 px-8 py-6 flex items-start justify-between">
+    <div class="sticky top-0 bg-white dark:bg-slate-800 border-b border-slate-200 dark:border-slate-700 px-4 sm:px-6 lg:px-8 py-5 sm:py-6 flex items-start justify-between gap-4">
       <div>
         <span class="inline-block text-xs font-bold tracking-widest text-primary uppercase mb-2">Consultation & Project Brief</span>
-        <h2 class="text-2xl md:text-3xl font-extrabold text-slate-900 dark:text-white">Request a Technical Consultation</h2>
+        <h2 class="text-xl sm:text-2xl md:text-3xl font-extrabold text-slate-900 dark:text-white">Request a Technical Consultation</h2>
         <p class="text-slate-500 dark:text-slate-400 mt-2 max-w-2xl text-sm">Provide a brief overview of your project and our team will review your requirements and get in touch promptly.</p>
       </div>
       <button onclick="closeConsultationModal()" class="flex-shrink-0 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 transition-colors -mt-1 -mr-2 p-2">
@@ -422,7 +427,7 @@
     </div>
 
     <!-- Modal Content -->
-    <div class="px-8 py-6">
+    <div class="px-4 sm:px-6 lg:px-8 py-6">
       <form id="modal-consultation-form" method="POST" action="https://formspree.io/f/xeeldwez" class="grid grid-cols-1 md:grid-cols-2 gap-6">
         <input type="hidden" name="_subject" value="New Project Inquiry - Jammos Construction">
         
@@ -623,7 +628,7 @@ ${message}`;
     
     // URL encode and open WhatsApp
     const encodedMessage = encodeURIComponent(whatsappMessage);
-    const whatsappUrl = `https://wa.me/2347065615182?text=${encodedMessage}`;
+    const whatsappUrl = `https://wa.me/2348185885425?text=${encodedMessage}`;
     window.open(whatsappUrl, '_blank');
   }
 

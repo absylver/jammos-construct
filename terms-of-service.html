@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="apple-touch-icon" sizes="180x180" href="Asset/favicon/apple-touch-icon.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="Asset/favicon/favicon-32x32.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="Asset/favicon/favicon-16x16.png" />
+<link rel="shortcut icon" href="Asset/favicon/favicon.ico" />
+<link rel="manifest" href="Asset/favicon/site.webmanifest" />
+  <title>Terms of Service | Jammos Construction Nigeria Limited</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#0f49bd",
+            "accent": "#e67e22",
+            "navy-deep": "#0a192f",
+            "navy-dark": "#0a192f",
+            "steel-gray": "#4a5568",
+            "background-light": "#f6f6f8",
+            "background-dark": "#101622"
+          },
+          fontFamily: {
+            "display": ["Inter", "sans-serif"]
+          },
+          borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"}
+        }
+      }
+    }
+  </script>
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .glass-header { backdrop-filter: blur(12px); background-color: rgba(10, 25, 47, 0.95); }
+    .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+  </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 antialiased overflow-x-hidden">
+<div class="flex min-h-screen w-full flex-col overflow-x-hidden">
+  <header class="glass-header sticky top-0 z-50 border-b border-slate-700/50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
+      <div class="h-20 sm:h-24 md:h-20 flex items-center justify-between">
+        <a href="index.html" class="flex items-center hover:opacity-80 transition-opacity">
+          <img src="Asset/images/jammos logo.png" alt="Jammos Construction Nigeria Limited" class="h-16 sm:h-20 md:h-16 lg:h-18 w-auto object-contain" />
+        </a>
+        <nav class="hidden md:flex items-center gap-8 text-base font-semibold text-slate-300">
+          <a class="text-slate-300 hover:text-primary transition-colors" href="index.html">Home</a>
+          <a class="text-slate-300 hover:text-primary transition-colors" href="about us.html">About Us</a>
+          <a class="text-slate-300 hover:text-primary transition-colors" href="services.html">Services</a>
+          <a class="text-slate-300 hover:text-primary transition-colors" href="project gallery.html">Projects</a>
+          <a class="text-slate-300 hover:text-primary transition-colors" href="contact.html">Contact</a>
+        </nav>
+        <div class="flex items-center gap-4">
+          <button onclick="openConsultationModal()" class="hidden md:flex min-w-[120px] items-center justify-center rounded-lg h-10 px-5 bg-primary text-white text-sm font-bold shadow-md hover:bg-blue-700 transition-all">Request Consultation</button>
+          <button id="mobile-menu-btn" class="md:hidden text-white p-2"><span class="material-symbols-outlined text-[2rem]">menu</span></button>
+        </div>
+      </div>
+      <div id="mobile-nav" class="hidden md:hidden pb-5 pt-3 border-t border-slate-700/30">
+        <nav class="flex flex-col gap-2 text-sm font-semibold text-slate-300 mb-4">
+          <a class="w-full text-center py-2.5 text-slate-300 hover:text-primary transition-colors" href="index.html">Home</a>
+          <a class="w-full text-center py-2.5 text-slate-300 hover:text-primary transition-colors" href="about us.html">About Us</a>
+          <a class="w-full text-center py-2.5 text-slate-300 hover:text-primary transition-colors" href="services.html">Services</a>
+          <a class="w-full text-center py-2.5 text-slate-300 hover:text-primary transition-colors" href="project gallery.html">Projects</a>
+          <a class="w-full text-center py-2.5 text-slate-300 hover:text-primary transition-colors" href="contact.html">Contact</a>
+        </nav>
+        <button onclick="openConsultationModal()" class="w-full bg-primary text-white px-5 py-2.5 rounded-lg text-sm font-bold shadow-md hover:bg-blue-700 transition-all">Request Consultation</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="flex-1">
+    <section class="bg-slate-900 py-16 md:py-24 px-4 sm:px-6 lg:px-10 relative overflow-hidden">
+      <div class="absolute inset-0 opacity-20 pointer-events-none"><div class="absolute inset-0 bg-gradient-to-br from-primary to-transparent"></div></div>
+      <div class="max-w-6xl mx-auto relative z-10">
+        <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-white/80 text-xs font-bold uppercase tracking-[0.2em] mb-6">Legal Information</span>
+        <h1 class="text-white text-3xl sm:text-4xl md:text-5xl font-black leading-tight tracking-tight mb-4">Terms of Service</h1>
+        <p class="text-slate-300 text-lg max-w-3xl">Conditions governing the use of the Jammos Construction website and services.</p>
+      </div>
+    </section>
+
+    <section class="py-16 md:py-24 px-4 sm:px-6 lg:px-10 bg-background-light">
+      <div class="max-w-7xl mx-auto">
+        <div class="max-w-4xl mb-12">
+          <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 mb-5">Use of This Website and Related Information</h2>
+          <p class="text-slate-600 text-base md:text-lg leading-relaxed">These terms describe the conditions that govern access to the Jammos Construction Nigeria Limited website and the way visitors may use the information and communication channels provided on it.</p>
+        </div>
+        <div class="space-y-6">
+  <article class="bg-white rounded-xl border border-slate-200 shadow-sm p-8"><p class="text-xs font-bold uppercase tracking-[0.2em] text-primary mb-4">1 Acceptance of Terms</p><p class="text-slate-600 leading-relaxed">By accessing or using this website, you agree to comply with these terms and conditions.</p></article>
+  <article class="bg-white rounded-xl border border-slate-200 shadow-sm p-8"><p class="text-xs font-bold uppercase tracking-[0.2em] text-primary mb-4">2 Website Use</p><p class="text-slate-600 leading-relaxed">Users may access the website for informational purposes, project enquiries, and legitimate business communication.</p></article>
+  <article class="bg-white rounded-xl border border-slate-200 shadow-sm p-8"><p class="text-xs font-bold uppercase tracking-[0.2em] text-primary mb-4">3 Intellectual Property</p><p class="text-slate-600 leading-relaxed">All content on this website including text, graphics, branding, designs, and project materials remain the property of Jammos Construction Nigeria Limited unless otherwise stated.</p></article>
+  <article class="bg-white rounded-xl border border-slate-200 shadow-sm p-8"><p class="text-xs font-bold uppercase tracking-[0.2em] text-primary mb-4">4 Limitation of Liability</p><p class="text-slate-600 leading-relaxed">While we strive to maintain accurate information, Jammos Construction Nigeria Limited shall not be held liable for decisions made based on information provided on this website.</p></article>
+  <article class="bg-white rounded-xl border border-slate-200 shadow-sm p-8"><p class="text-xs font-bold uppercase tracking-[0.2em] text-primary mb-4">5 External Links</p><p class="text-slate-600 leading-relaxed">The website may contain links to third-party resources. We are not responsible for the content or policies of external websites.</p></article>
+  <article class="bg-slate-900 rounded-xl border border-slate-800 p-8"><p class="text-xs font-bold uppercase tracking-[0.2em] text-primary mb-4">6 Updates</p><p class="text-slate-300 leading-relaxed">These terms may be updated periodically to reflect operational or regulatory changes.</p></article>
+</div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-navy-deep text-slate-400 py-16 sm:py-20 border-t border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-12">
+      <div>
+        <div class="flex items-center mb-8">
+                    <img src="Asset/images/jammos logo.png" alt="Jammos Construction Nigeria Limited" class="h-16 sm:h-20 w-auto object-contain" />
+                </div>
+        <p class="text-sm leading-relaxed mb-6">Jammos Construction Nigeria Limited is a professional engineering and construction company providing civil, mechanical, and industrial infrastructure solutions across Nigeria. Our mission is to deliver safe, reliable, and high-quality projects that support national development.</p>
+      </div>
+<div>
+        <h6 class="text-white font-bold mb-8 uppercase text-xs tracking-[0.2em]">Office Location</h6>
+        <div class="space-y-4">
+          <div class="flex gap-4"><span class="material-symbols-outlined text-primary">location_on</span><p class="text-sm">7, Fadeyi Street, Owode Estate, Ibeshe Road, Ikorodu, Lagos State, Nigeria</p></div>
+          <div class="flex gap-4"><span class="material-symbols-outlined text-primary">phone_in_talk</span><p class="text-sm">Phone: <a class="hover:text-white transition-colors" href="tel:+2347064475221">+234 706 447 5221</a></p></div>
+          <div class="flex gap-4"><span class="material-symbols-outlined text-primary">chat</span><p class="text-sm">WhatsApp: <a class="hover:text-white transition-colors" href="https://wa.me/2348185885425" target="_blank">+234 818 588 5425</a></p></div>
+          <div class="flex gap-4"><span class="material-symbols-outlined text-primary">mail</span><p class="text-sm">Email: <a class="hover:text-white transition-colors break-all" href="mailto:jammosconstruct@gmail.com">jammosconstruct@gmail.com</a></p></div>
+        </div>
+      </div>
+    </div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 pt-12 sm:pt-16 mt-12 sm:mt-16 border-t border-slate-800 flex flex-col md:flex-row justify-between items-start md:items-center text-xs gap-4 sm:gap-5">
+      <p>&copy; 2024 Jammos Construction Nigeria Limited. All Rights Reserved.</p>
+      <div class="flex gap-8 mt-4 md:mt-0">
+        <a class="hover:text-white transition-colors" href="privacy-policy.html">Privacy Policy</a>
+        <a class="hover:text-white transition-colors" href="terms-of-service.html">Terms of Service</a>
+        <a class="hover:text-white transition-colors" href="compliance.html">Compliance Portal</a>
+      </div>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/2348185885425" target="_blank" class="flex items-center justify-center fixed bottom-6 right-6 p-4 rounded-full shadow-xl z-40"><i class="fa fa-whatsapp" style="font-size:3rem; color:green"></i></a>
+  <div id="consultation-modal" class="hidden fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6 lg:p-8">
+    <div id="modal-overlay" class="absolute inset-0 bg-black/60 backdrop-blur-sm"></div>
+    <div class="relative w-full max-w-3xl max-h-[92vh] sm:max-h-[90vh] overflow-y-auto bg-white dark:bg-slate-800 rounded-xl shadow-2xl border border-slate-200 dark:border-slate-700">
+      <div class="sticky top-0 bg-white dark:bg-slate-800 border-b border-slate-200 dark:border-slate-700 px-8 py-6 flex items-start justify-between">
+        <div>
+          <span class="inline-block text-xs font-bold tracking-widest text-primary uppercase mb-2">Consultation & Project Brief</span>
+          <h2 class="text-2xl md:text-3xl font-extrabold text-slate-900 dark:text-white">Request a Technical Consultation</h2>
+          <p class="text-slate-500 dark:text-slate-400 mt-2 max-w-2xl text-sm">Provide a brief overview of your project and our team will review your requirements and get in touch promptly.</p>
+        </div>
+        <button onclick="closeConsultationModal()" class="flex-shrink-0 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 transition-colors -mt-1 -mr-2 p-2"><span class="material-symbols-outlined text-2xl">close</span></button>
+      </div>
+      <div class="px-8 py-6">
+        <form id="modal-consultation-form" method="POST" action="https://formspree.io/f/xeeldwez" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <input type="hidden" name="_subject" value="New Project Inquiry - Jammos Construction">
+          <div class="flex flex-col gap-2"><label class="text-sm font-bold text-slate-700 dark:text-slate-300">Principal Contact Name</label><input name="full_name" required class="rounded-lg border border-slate-300 dark:border-slate-600 bg-transparent focus:ring-2 focus:ring-primary focus:border-primary py-3 px-4 text-slate-900 dark:text-white" type="text"/></div>
+          <div class="flex flex-col gap-2"><label class="text-sm font-bold text-slate-700 dark:text-slate-300">Organization / Client Entity</label><input name="company" class="rounded-lg border border-slate-300 dark:border-slate-600 bg-transparent focus:ring-2 focus:ring-primary focus:border-primary py-3 px-4 text-slate-900 dark:text-white" type="text"/></div>
+          <div class="flex flex-col gap-2"><label class="text-sm font-bold text-slate-700 dark:text-slate-300">Email Address</label><input name="email" required class="rounded-lg border border-slate-300 dark:border-slate-600 bg-transparent focus:ring-2 focus:ring-primary focus:border-primary py-3 px-4 text-slate-900 dark:text-white" type="email"/></div>
+          <div class="flex flex-col gap-2"><label class="text-sm font-bold text-slate-700 dark:text-slate-300">Direct Contact Number</label><input name="phone" required class="rounded-lg border border-slate-300 dark:border-slate-600 bg-transparent focus:ring-2 focus:ring-primary focus:border-primary py-3 px-4 text-slate-900 dark:text-white" type="tel"/></div>
+          <div class="md:col-span-2 border-t border-slate-200 dark:border-slate-700 my-2"></div>
+          <div class="flex flex-col gap-2"><label class="text-sm font-bold text-slate-700 dark:text-slate-300">Preferred Consultation Date</label><input name="consultation_date" class="rounded-lg border border-slate-300 dark:border-slate-600 bg-transparent focus:ring-2 focus:ring-primary focus:border-primary py-3 px-4 text-slate-900 dark:text-white" type="date" /></div>
+          <div class="flex flex-col gap-2"><label class="text-sm font-bold text-slate-700 dark:text-slate-300">Consultation Type</label><select name="consultation_type" class="rounded-lg border border-slate-300 dark:border-slate-600 bg-transparent focus:ring-2 focus:ring-primary focus:border-primary py-3 px-4 appearance-none text-slate-900 dark:text-white"><option value="">Select an option</option><option>Physical Meeting</option><option>Virtual Meeting</option><option>Phone Call</option></select></div>
+          <div class="flex flex-col gap-2 md:col-span-2"><label class="text-sm font-bold text-slate-700 dark:text-slate-300">Project Type</label><select name="project_type" required class="rounded-lg border border-slate-300 dark:border-slate-600 bg-transparent focus:ring-2 focus:ring-primary focus:border-primary py-3 px-4 appearance-none text-slate-900 dark:text-white"><option value="">Select an option</option><option value="civil">Civil Engineering &amp; Infrastructure</option><option value="power">Power Generation &amp; Distribution</option><option value="oilgas">Oil &amp; Gas Services</option><option value="building">Commercial Building Construction</option><option value="procurement">Procurement &amp; Logistics</option><option value="other">Other Inquiry</option></select></div>
+          <div class="flex flex-col gap-2 md:col-span-2"><label class="text-sm font-bold text-slate-700 dark:text-slate-300">Project Overview & Scope Requirements</label><textarea name="message" required class="rounded-lg border border-slate-300 dark:border-slate-600 bg-transparent focus:ring-2 focus:ring-primary focus:border-primary py-3 px-4 text-slate-900 dark:text-white" rows="4"></textarea></div>
+          <div id="modal-form-success" class="hidden md:col-span-2 bg-green-50 dark:bg-green-900/30 border border-green-200 dark:border-green-800 text-green-700 dark:text-green-300 px-6 py-4 rounded-lg text-sm font-medium text-center"><p class="font-bold mb-1">Thank you!</p><p>Our technical team will contact you within 24 hours.</p></div>
+          <div class="md:col-span-2 mt-4 flex flex-col sm:flex-row gap-4 justify-end"><button type="button" onclick="closeConsultationModal()" class="w-full sm:w-auto px-8 py-3 bg-slate-200 dark:bg-slate-700 text-slate-900 dark:text-white font-bold rounded-lg hover:bg-slate-300 dark:hover:bg-slate-600 transition-colors text-sm md:text-base">Close</button><button type="button" onclick="sendToWhatsApp()" class="w-full sm:w-auto px-8 py-3 bg-green-600 text-white font-bold rounded-lg shadow-lg hover:bg-green-700 transition-all flex items-center justify-center gap-2 uppercase tracking-wide text-sm md:text-base"><i class="fa fa-whatsapp" style="font-size:1.2rem;"></i><span>WhatsApp</span></button><button type="submit" class="w-full sm:w-auto px-8 py-3 bg-accent text-white font-bold rounded-lg shadow-lg hover:brightness-110 transition-all flex items-center justify-center gap-2 uppercase tracking-wide text-sm md:text-base">Submit Brief<span class="material-symbols-outlined">send</span></button></div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.getElementById('mobile-menu-btn')?.addEventListener('click', function() { document.getElementById('mobile-nav').classList.toggle('hidden'); });
+    function openConsultationModal() { const modal = document.getElementById('consultation-modal'); if (modal) { modal.classList.remove('hidden'); document.body.style.overflow = 'hidden'; } }
+    function closeConsultationModal() { const modal = document.getElementById('consultation-modal'); if (modal) { modal.classList.add('hidden'); document.body.style.overflow = 'auto'; } }
+    document.addEventListener('DOMContentLoaded', function() {
+      const overlay = document.getElementById('modal-overlay');
+      const form = document.getElementById('modal-consultation-form');
+      const successBox = document.getElementById('modal-form-success');
+      overlay?.addEventListener('click', function(e) { if (e.target === overlay) closeConsultationModal(); });
+      document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeConsultationModal(); });
+      form?.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        const res = await fetch(form.action, { method: 'POST', body: new FormData(form), headers: { 'Accept': 'application/json' } });
+        if (res.ok) { successBox?.classList.remove('hidden'); form.reset(); } else { alert('Submission failed. Please try again later.'); }
+      });
+    });
+    function sendToWhatsApp() {
+      const form = document.getElementById('modal-consultation-form');
+      const full_name = form.elements['full_name']?.value?.trim() || '';
+      const company = form.elements['company']?.value?.trim() || '';
+      const email = form.elements['email']?.value?.trim() || '';
+      const phone = form.elements['phone']?.value?.trim() || '';
+      const consultation_date = form.elements['consultation_date']?.value?.trim() || '';
+      const consultation_type = form.elements['consultation_type']?.value?.trim() || '';
+      const project_type = form.elements['project_type']?.value?.trim() || '';
+      const message = form.elements['message']?.value?.trim() || '';
+      if (!full_name || !email || !phone || !project_type || !message) { alert('Please complete the required fields before sending to WhatsApp.'); return; }
+      const whatsappMessage = `Hello Jammos Construction,\n\nI would like to request a consultation.\n\nPrincipal Contact Name: ${full_name}\nOrganization / Client Entity: ${company || 'Not provided'}\nEmail Address: ${email || 'Not provided'}\nDirect Contact Number: ${phone || 'Not provided'}\nPreferred Consultation Date: ${consultation_date || 'Not specified'}\nConsultation Type: ${consultation_type || 'Not specified'}\nProject Type: ${project_type}\n\nProject Overview & Scope Requirements:\n${message}`;
+      window.open(`https://wa.me/2348185885425?text=${encodeURIComponent(whatsappMessage)}`, '_blank');
+    }
+  </script>
+</div>
+</body>
+</html>

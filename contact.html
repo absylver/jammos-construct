@@ -1,8 +1,13 @@
 <!DOCTYPE html>
-
-<html lang="en"><head>
+<html lang="en">
+<head>
 <meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="apple-touch-icon" sizes="180x180" href="Asset/favicon/apple-touch-icon.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="Asset/favicon/favicon-32x32.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="Asset/favicon/favicon-16x16.png" />
+<link rel="shortcut icon" href="Asset/favicon/favicon.ico" />
+<link rel="manifest" href="Asset/favicon/site.webmanifest" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
@@ -16,6 +21,7 @@
                     colors: {
                         "primary": "#0f49bd",
                         "accent": "#e67e22",
+                        "navy-deep": "#0a192f",
                         "background-light": "#f6f6f8",
                         "background-dark": "#101622",
                     },
@@ -29,44 +35,41 @@
     </script>
 <title>Contact &amp; Inquiries | Jammos Construction Nigeria Limited</title>
 </head>
-<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100">
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 overflow-x-hidden">
 <div class="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden">
 <div class="layout-container flex h-full grow flex-col">
 <!-- Navigation -->
-<header class="sticky top-0 z-50 w-full border-b border-slate-200 dark:border-slate-800 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md">
-<div class="max-w-7xl mx-auto px-6">
-  <div class="h-20 flex items-center justify-between">
-    <div class="flex items-center gap-3">
-      <div class="size-8 flex items-center justify-center bg-primary rounded text-white">
-        <span class="material-symbols-outlined">architecture</span>
-      </div>
-      <h2 class="text-slate-900 dark:text-white text-lg font-bold leading-tight tracking-tight">Jammos Construction</h2>
-    </div>
+<header class="sticky top-0 z-50 border-b border-slate-700/50 bg-[#0a192f]/95 backdrop-blur-md">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
+  <div class="h-20 sm:h-24 md:h-20 flex items-center justify-between">
+    <a href="index.html" class="flex items-center min-w-0">
+      <img src="Asset/images/jammos logo.png" alt="Jammos Construction Nigeria Limited" class="h-16 sm:h-20 md:h-16 lg:h-18 w-auto object-contain" />
+    </a>
     <!-- Desktop nav -->
-    <nav class="hidden md:flex items-center gap-8">
-      <a class="text-slate-700 dark:text-slate-300 text-sm font-medium hover:text-primary transition-colors" href="index.html">Home</a>
-      <a class="text-slate-700 dark:text-slate-300 text-sm font-medium hover:text-primary transition-colors" href="about us.html">About Us</a>
-      <a class="text-slate-700 dark:text-slate-300 text-sm font-medium hover:text-primary transition-colors" href="services.html">Services</a>
-      <a class="text-slate-700 dark:text-slate-300 text-sm font-medium hover:text-primary transition-colors" href="project gallery.html">Projects</a>
-      <a class="text-primary dark:text-primary text-sm font-bold border-b-2 border-primary pb-1" href="contact.html">Contact</a>
+    <nav class="hidden md:flex items-center gap-8 text-base font-semibold text-slate-300">
+      <a class="text-slate-300 hover:text-primary transition-colors" href="index.html">Home</a>
+      <a class="text-slate-300 hover:text-primary transition-colors" href="about us.html">About Us</a>
+      <a class="text-slate-300 hover:text-primary transition-colors" href="services.html">Services</a>
+      <a class="text-slate-300 hover:text-primary transition-colors" href="project gallery.html">Projects</a>
+      <a class="text-primary dark:text-primary text-base font-bold border-b-2 border-primary pb-1" href="contact.html">Contact</a>
     </nav>
     <!-- Desktop button + mobile burger -->
     <div class="flex items-center gap-4">
       <button onclick="openConsultationModal()" class="hidden md:flex min-w-[120px] cursor-pointer items-center justify-center rounded-lg h-10 px-5 bg-primary text-white text-sm font-bold shadow-md hover:bg-blue-700 transition-all">
         Request Consultation
       </button>
-      <button id="mobile-menu-btn" class="md:hidden text-slate-900 dark:text-white p-2">
-        <span class="material-symbols-outlined text-2xl">menu</span>
+      <button id="mobile-menu-btn" class="md:hidden text-white p-2">
+        <span class="material-symbols-outlined text-[2rem]">menu</span>
       </button>
     </div>
   </div>
   <!-- Mobile nav (hidden by default) -->
-  <div id="mobile-nav" class="hidden md:hidden pb-4 pt-2 border-t border-slate-200 dark:border-slate-800">
-    <nav class="flex flex-col gap-2 text-sm font-medium text-slate-700 dark:text-slate-400 mb-4">
-      <a class="w-full text-center py-2.5 hover:text-primary transition-colors" href="index.html">Home</a>
-      <a class="w-full text-center py-2.5 hover:text-primary transition-colors" href="about us.html">About Us</a>
-      <a class="w-full text-center py-2.5 hover:text-primary transition-colors" href="services.html">Services</a>
-      <a class="w-full text-center py-2.5 hover:text-primary transition-colors" href="project gallery.html">Projects</a>
+  <div id="mobile-nav" class="hidden md:hidden pb-5 pt-3 border-t border-slate-700/30">
+    <nav class="flex flex-col gap-2 text-sm font-semibold text-slate-300 mb-4">
+      <a class="w-full text-center py-2.5 text-slate-300 hover:text-primary transition-colors" href="index.html">Home</a>
+      <a class="w-full text-center py-2.5 text-slate-300 hover:text-primary transition-colors" href="about us.html">About Us</a>
+      <a class="w-full text-center py-2.5 text-slate-300 hover:text-primary transition-colors" href="services.html">Services</a>
+      <a class="w-full text-center py-2.5 text-slate-300 hover:text-primary transition-colors" href="project gallery.html">Projects</a>
       <a class="w-full text-center py-2.5 text-primary font-bold" href="contact.html">Contact</a>
     </nav>
     <button onclick="openConsultationModal()" class="w-full bg-primary text-white px-5 py-2.5 rounded-lg text-sm font-bold shadow-md hover:bg-blue-700 transition-all">
@@ -83,18 +86,18 @@
 </script>
 <main class="flex-1">
 <!-- Hero Section -->
-<div class="bg-slate-900 py-16 px-6 md:px-20 relative overflow-hidden">
+<div class="bg-slate-900 py-16 px-4 sm:px-6 lg:px-10 relative overflow-hidden">
 <div class="absolute inset-0 opacity-20 pointer-events-none">
 <div class="absolute inset-0 bg-gradient-to-br from-primary to-transparent"></div>
 </div>
 <div class="max-w-6xl mx-auto relative z-10">
-<h1 class="text-white text-4xl md:text-5xl font-black leading-tight tracking-tight mb-4">Contact &amp; Inquiries</h1>
+<h1 class="text-white text-3xl sm:text-4xl md:text-5xl font-black leading-tight tracking-tight mb-4">Contact &amp; Inquiries</h1>
 <p class="text-slate-300 text-lg max-w-2xl">
               Engage our engineering and EPC specialists for large-scale infrastructure, power, industrial, and commercial developments across Nigeria. We deliver precision, compliance, and execution excellence.
             </p>
 </div>
 </div>
-<div class="max-w-6xl mx-auto px-6 py-12">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-10 py-10 sm:py-12">
 <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
 <!-- Contact Info Column -->
 <div class="lg:col-span-4 flex flex-col gap-6">
@@ -109,11 +112,11 @@
 <span class="material-symbols-outlined">location_on</span>
 </div>
 <div>
-<p class="font-bold text-slate-900 dark:text-white">Lagos Headquarters</p>
+<p class="font-bold text-slate-900 dark:text-white">Jammos Construction Nigeria Limited</p>
 <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
-                                                Plot 12, Commercial Avenue,<br/>
-                                                Victoria Island, Lagos,<br/>
-                                                Nigeria
+                                                7, Fadeyi Street, Owode Estate,<br/>
+                                                Ibeshe Road, Ikorodu,<br/>
+                                                Lagos State, Nigeria
                                             </p>
 </div>
 </div>
@@ -122,9 +125,9 @@
 <span class="material-symbols-outlined">call</span>
 </div>
 <div>
-<p class="font-bold text-slate-900 dark:text-white">Phone Enquiries</p>
-<p class="text-slate-600 dark:text-slate-400 text-sm">+234 800 JAMMOS (526667)</p>
-<p class="text-slate-600 dark:text-slate-400 text-sm">+234 1 234 5678</p>
+<p class="font-bold text-slate-900 dark:text-white">Phone &amp; WhatsApp</p>
+<p class="text-slate-600 dark:text-slate-400 text-sm"><a class="hover:text-primary transition-colors" href="tel:+2347064475221">Phone: +234 706 447 5221</a></p>
+<p class="text-slate-600 dark:text-slate-400 text-sm"><a class="hover:text-primary transition-colors" href="https://wa.me/2348185885425" target="_blank">WhatsApp: +234 818 588 5425</a></p>
 </div>
 </div>
 <div class="flex gap-4 transition duration-300 hover:bg-slate-50 dark:hover:bg-slate-700/30 p-3 rounded-lg">
@@ -132,15 +135,15 @@
 <span class="material-symbols-outlined">mail</span>
 </div>
 <div>
-<p class="font-bold text-slate-900 dark:text-white">Email Correspondence</p>
-<p class="text-slate-600 dark:text-slate-400 text-sm break-words break-all max-w-full">info@jammosconstruction.com</p>
+<p class="font-bold text-slate-900 dark:text-white">Email</p>
+<p class="text-slate-600 dark:text-slate-400 text-sm break-words break-all max-w-full"><a class="hover:text-primary transition-colors" href="mailto:jammosconstruct@gmail.com">Email: jammosconstruct@gmail.com</a></p>
 </div>
 </div>
 </div>
 </div>
-<!-- Embedded Google Map (Victoria Island, Lagos) -->
+<!-- Embedded Google Map (Ikorodu, Lagos) -->
 <div class="rounded-xl overflow-hidden border border-slate-200 dark:border-slate-700 h-64">
-  <iframe src="https://www.google.com/maps?q=Victoria+Island+Lagos&output=embed" width="100%" height="100%" class="w-full h-full border-0" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+  <iframe src="https://www.google.com/maps?q=7,+Fadeyi+Street,+Owode+Estate,+Ibeshe+Road,+Ikorodu,+Lagos+State,+Nigeria&output=embed" width="100%" height="100%" class="w-full h-full border-0" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 </div>
 </div>
 <!-- Inquiry Form Column -->
@@ -227,25 +230,50 @@
 </div>
 </main>
 <!-- Footer -->
-<footer class="bg-white dark:bg-slate-950 border-t border-slate-200 dark:border-slate-800 py-12 px-6 md:px-20 mt-12">
-<div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
-<div class="flex items-center gap-3">
-<div class="size-8 flex items-center justify-center bg-slate-200 dark:bg-slate-800 rounded text-primary">
-<span class="material-symbols-outlined text-sm">architecture</span>
-</div>
-<p class="text-slate-600 dark:text-slate-400 text-sm font-medium">© 2024 Jammos Construction Nigeria Limited. All Rights Reserved.</p>
-<p class="text-slate-500 dark:text-slate-400 text-sm">Engineering &amp; EPC Solutions Across Nigeria</p>
-</div>
-<div class="flex gap-6">
-<a class="text-slate-400 transition duration-300 hover:scale-110 hover:text-primary" href="#"><span class="material-symbols-outlined">public</span></a>
-<a class="text-slate-400 transition duration-300 hover:scale-110 hover:text-primary" href="#"><span class="material-symbols-outlined">work</span></a>
-<a class="text-slate-400 transition duration-300 hover:scale-110 hover:text-primary" href="#"><span class="material-symbols-outlined">share</span></a>
-</div>
-</div>
-</footer>
+    <footer class="bg-navy-deep text-slate-400 py-16 sm:py-20 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-12">
+            <div>
+                <div class="flex items-center mb-8">
+                    <img src="Asset/images/jammos logo.png" alt="Jammos Construction Nigeria Limited" class="h-16 sm:h-20 w-auto object-contain" />
+                </div>
+                <p class="text-sm leading-relaxed mb-6">
+                    Jammos Construction Nigeria Limited is a professional engineering and construction company providing civil, mechanical, and industrial infrastructure solutions across Nigeria. Our mission is to deliver safe, reliable, and high-quality projects that support national development.
+                </p>
+            </div>
+<div>
+                <h6 class="text-white font-bold mb-8 uppercase text-xs tracking-[0.2em]">Office Location</h6>
+                <div class="space-y-4">
+                    <div class="flex gap-4">
+                        <span class="material-symbols-outlined text-primary">location_on</span>
+                        <p class="text-sm">7, Fadeyi Street, Owode Estate, Ibeshe Road, Ikorodu, Lagos State, Nigeria</p>
+                    </div>
+                    <div class="flex gap-4">
+                        <span class="material-symbols-outlined text-primary">phone_in_talk</span>
+                        <p class="text-sm">Phone: <a class="hover:text-white transition-colors" href="tel:+2347064475221">+234 706 447 5221</a></p>
+                    </div>
+                    <div class="flex gap-4">
+                        <span class="material-symbols-outlined text-primary">chat</span>
+                        <p class="text-sm">WhatsApp: <a class="hover:text-white transition-colors" href="https://wa.me/2348185885425" target="_blank">+234 818 588 5425</a></p>
+                    </div>
+                    <div class="flex gap-4">
+                        <span class="material-symbols-outlined text-primary">mail</span>
+                        <p class="text-sm">Email: <a class="hover:text-white transition-colors break-all" href="mailto:jammosconstruct@gmail.com">jammosconstruct@gmail.com</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 pt-12 sm:pt-16 mt-12 sm:mt-16 border-t border-slate-800 flex flex-col md:flex-row justify-between items-start md:items-center text-xs gap-4 sm:gap-5">
+            <p>&copy; 2024 Jammos Construction Nigeria Limited. All Rights Reserved.</p>
+            <div class="flex gap-8 mt-4 md:mt-0">
+                <a class="hover:text-white transition-colors" href="privacy-policy.html">Privacy Policy</a>
+                <a class="hover:text-white transition-colors" href="terms-of-service.html">Terms of Service</a>
+                <a class="hover:text-white transition-colors" href="compliance.html">Compliance Portal</a>
+            </div>
+        </div>
+    </footer>
 
 <!-- floating whatsapp button -->
-<a href="https://wa.me/2347065615182" target="_blank" class="flex items-center justify-center fixed bottom-6 right-6 p-4 rounded-full shadow-xl z-50">
+<a href="https://wa.me/2348185885425" target="_blank" class="flex items-center justify-center fixed bottom-6 right-6 p-4 rounded-full shadow-xl z-50">
   <i class="fa fa-whatsapp" style="font-size:3rem; color:green"></i>
 </a>
 
@@ -323,7 +351,7 @@ ${message}`;
     
     // URL encode and open WhatsApp
     const encodedMessage = encodeURIComponent(whatsappMessage);
-    const whatsappUrl = `https://wa.me/2347065615182?text=${encodedMessage}`;
+    const whatsappUrl = `https://wa.me/2348185885425?text=${encodedMessage}`;
     window.open(whatsappUrl, '_blank');
   }
 </script>

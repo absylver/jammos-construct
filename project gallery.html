@@ -1,8 +1,13 @@
 <!DOCTYPE html>
-
-<html class="light" lang="en"><head>
+<html class="light" lang="en">
+<head>
 <meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="apple-touch-icon" sizes="180x180" href="Asset/favicon/apple-touch-icon.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="Asset/favicon/favicon-32x32.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="Asset/favicon/favicon-16x16.png" />
+<link rel="shortcut icon" href="Asset/favicon/favicon.ico" />
+<link rel="manifest" href="Asset/favicon/site.webmanifest" />
 <title>Project Portfolio Gallery | Jammos Construction Nigeria Limited</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
@@ -39,49 +44,46 @@
         }
     </style>
 </head>
-<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 antialiased">
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 antialiased overflow-x-hidden">
 <div class="relative flex min-h-screen flex-col">
 <!-- Navigation Bar -->
-<header class="sticky top-0 z-50 w-full border-b border-slate-200 dark:border-slate-800 bg-white/80 dark:bg-background-dark/80 backdrop-blur-md">
-<div class="max-w-7xl mx-auto px-6">
+<header class="sticky top-0 z-50 border-b border-slate-700/50 bg-[#0a192f]/95 backdrop-blur-md">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
   <!-- Top row -->
-  <div class="h-20 flex items-center justify-between">
-    <div class="flex items-center gap-3">
-      <div class="bg-primary p-1.5 rounded-lg text-white">
-        <span class="material-symbols-outlined text-2xl">architecture</span>
-      </div>
-      <h1 class="text-lg md:text-xl font-extrabold tracking-tight text-slate-900 dark:text-white uppercase">Jammos <span class="text-primary font-medium">Construction</span></h1>
-    </div>
+  <div class="h-20 sm:h-24 md:h-20 flex items-center justify-between">
+    <a href="index.html" class="flex items-center min-w-0">
+      <img src="Asset/images/jammos logo.png" alt="Jammos Construction Nigeria Limited" class="h-16 sm:h-20 md:h-16 lg:h-18 w-auto object-contain" />
+    </a>
     <!-- Desktop nav -->
-    <nav class="hidden md:flex items-center gap-8">
-      <a class="text-sm font-semibold text-slate-600 dark:text-slate-400 hover:text-primary transition-colors" href="index.html">Home</a>
-      <a class="text-sm font-semibold text-slate-600 dark:text-slate-400 hover:text-primary transition-colors" href="about us.html">About</a>
-      <a class="text-sm font-semibold text-primary" href="project gallery.html">Projects</a>
-      <a class="text-sm font-semibold text-slate-600 dark:text-slate-400 hover:text-primary transition-colors" href="services.html">Services</a>
-      <a class="text-sm font-semibold text-slate-600 dark:text-slate-400 hover:text-primary transition-colors" href="contact.html">Contact</a>
+    <nav class="hidden md:flex items-center gap-8 text-base font-semibold text-slate-300">
+      <a class="text-base font-semibold text-slate-300 hover:text-primary transition-colors" href="index.html">Home</a>
+      <a class="text-base font-semibold text-slate-300 hover:text-primary transition-colors" href="about us.html">About</a>
+      <a class="text-base font-semibold text-primary" href="project gallery.html">Projects</a>
+      <a class="text-base font-semibold text-slate-300 hover:text-primary transition-colors" href="services.html">Services</a>
+      <a class="text-base font-semibold text-slate-300 hover:text-primary transition-colors" href="contact.html">Contact</a>
     </nav>
     <!-- Desktop button + mobile burger -->
     <div class="flex items-center gap-4">
       <div class="hidden lg:block relative group">
         <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-primary transition-colors">search</span>
-        <input class="pl-10 pr-4 py-2 bg-slate-100 dark:bg-slate-800 border-none rounded-lg text-sm w-64 focus:ring-2 focus:ring-primary/20 focus:bg-white transition-all" placeholder="Search projects..." type="text"/>
+        <input id="project-search" class="pl-10 pr-4 py-2 bg-slate-800/80 border border-slate-700/60 rounded-lg text-sm text-slate-200 placeholder:text-slate-400 w-64 focus:ring-2 focus:ring-primary/20 focus:border-primary focus:bg-slate-800 transition-all" placeholder="Search projects..." type="text"/>
       </div>
       <button onclick="openConsultationModal()" class="hidden md:block bg-primary text-white px-6 py-2.5 rounded-lg text-sm font-bold hover:bg-primary/90 transition-all shadow-lg shadow-primary/20">
         Request Quote
       </button>
-      <button id="mobile-menu-btn" class="md:hidden text-slate-900 dark:text-white p-2">
-        <span class="material-symbols-outlined text-2xl">menu</span>
+      <button id="mobile-menu-btn" class="md:hidden text-white p-2">
+        <span class="material-symbols-outlined text-[2rem]">menu</span>
       </button>
     </div>
   </div>
   <!-- Mobile nav (hidden by default) -->
-  <div id="mobile-nav" class="hidden md:hidden pb-4 pt-2 border-t border-slate-700/30 dark:border-slate-800">
+  <div id="mobile-nav" class="hidden md:hidden pb-5 pt-3 border-t border-slate-700/30">
     <nav class="flex flex-col gap-3 text-sm font-semibold text-slate-300 mb-4">
-      <a class="w-full text-center py-2.5 hover:text-primary transition-colors" href="index.html">Home</a>
-      <a class="w-full text-center py-2.5 hover:text-primary transition-colors" href="about us.html">About</a>
+      <a class="w-full text-center py-2.5 text-slate-300 hover:text-primary transition-colors" href="index.html">Home</a>
+      <a class="w-full text-center py-2.5 text-slate-300 hover:text-primary transition-colors" href="about us.html">About</a>
       <a class="w-full text-center py-2.5 text-primary" href="project gallery.html">Projects</a>
-      <a class="w-full text-center py-2.5 hover:text-primary transition-colors" href="services.html">Services</a>
-      <a class="w-full text-center py-2.5 hover:text-primary transition-colors" href="contact.html">Contact</a>
+      <a class="w-full text-center py-2.5 text-slate-300 hover:text-primary transition-colors" href="services.html">Services</a>
+      <a class="w-full text-center py-2.5 text-slate-300 hover:text-primary transition-colors" href="contact.html">Contact</a>
     </nav>
     <button onclick="openConsultationModal()" class="w-full bg-primary text-white px-6 py-2.5 rounded-lg text-sm font-bold hover:bg-primary/90 transition-all shadow-lg shadow-primary/20">
       Request Quote
@@ -97,173 +99,157 @@
 </script>
 <main class="flex-grow">
 <!-- Hero Header Section -->
-<section class="max-w-7xl mx-auto px-6 pt-16 pb-8">
+<section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 pt-12 sm:pt-16 pb-8">
 <div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
 <div class="max-w-2xl">
-<span class="inline-block px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold uppercase tracking-wider mb-4">Engineering Excellence</span>
-<h2 class="text-5xl font-black text-slate-900 dark:text-white tracking-tight mb-4">Our Projects Portfolio</h2>
-<p class="text-lg text-slate-600 dark:text-slate-400 leading-relaxed">
-                            Showcasing our expertise in Civil Engineering, Mechanical Systems, and Telecom Infrastructure across Nigeria's dynamic landscape.
+<span class="inline-block px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold uppercase tracking-wider mb-4">Recent Projects</span>
+<h2 class="text-3xl sm:text-4xl md:text-5xl font-black text-slate-900 dark:text-white tracking-tight mb-4">Project Portfolio</h2>
+<p class="text-lg text-slate-600 dark:text-slate-400 leading-relaxed mb-4">
+                            Jammos Construction Nigeria Limited has successfully delivered a range of civil engineering, commercial construction, and renovation projects across Nigeria. Our portfolio reflects our commitment to quality construction, disciplined project management, and reliable delivery across diverse project environments.
                         </p>
-</div>
-<div class="flex items-center gap-2 text-slate-500 dark:text-slate-400 text-sm font-medium">
-<span class="material-symbols-outlined text-xl">location_on</span>
-<span>Across Nigeria &amp; West Africa</span>
+<p class="text-base text-slate-500 dark:text-slate-400 leading-relaxed">
+                            From commercial market developments to structural construction and residential renovation projects, our work demonstrates practical engineering expertise and a strong focus on safety, durability, and client satisfaction.
+</p>
 </div>
 </div>
 <!-- Filters -->
 <div class="mt-12 flex flex-wrap gap-3">
 <button data-filter="all" class="filter-btn px-6 py-2.5 rounded-full bg-primary text-white text-sm font-bold shadow-md">All Projects</button>
-<button data-filter="civil" class="filter-btn px-6 py-2.5 rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 text-sm font-semibold hover:border-primary transition-colors">Civil Engineering</button>
-<button data-filter="mechanical" class="filter-btn px-6 py-2.5 rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 text-sm font-semibold hover:border-primary transition-colors">Mechanical Systems</button>
-<button data-filter="telecom" class="filter-btn px-6 py-2.5 rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 text-sm font-semibold hover:border-primary transition-colors">Telecom Infrastructure</button>
-<button data-filter="epc" class="filter-btn px-6 py-2.5 rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 text-sm font-semibold hover:border-primary transition-colors">EPC Turnkey</button>
+<button data-filter="structural" class="filter-btn px-6 py-2.5 rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 text-sm font-semibold hover:border-primary transition-colors">Structural Construction</button>
+<button data-filter="commercial" class="filter-btn px-6 py-2.5 rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 text-sm font-semibold hover:border-primary transition-colors">Commercial Construction</button>
+<button data-filter="renovation" class="filter-btn px-6 py-2.5 rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 text-sm font-semibold hover:border-primary transition-colors">Building Renovation</button>
 </div>
 </section>
 <!-- Projects Grid -->
-<section class="max-w-7xl mx-auto px-6 py-12">
+<section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 py-10 sm:py-12">
+<div class="max-w-3xl mb-10">
+<h3 class="text-3xl md:text-4xl font-extrabold text-slate-900 dark:text-white mb-4">Our Completed Projects</h3>
+<p class="text-slate-600 dark:text-slate-400 text-base md:text-lg leading-relaxed">A selection of engineering and construction projects delivered by Jammos Construction Nigeria Limited across different sectors and locations.</p>
+</div>
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 <!-- Project Card 1 -->
-<div class="project-card group bg-white dark:bg-slate-800 rounded-xl overflow-hidden border border-slate-100 dark:border-slate-700 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col" data-category="civil" data-gallery='["https://picsum.photos/seed/bridge1/1200/800","https://picsum.photos/seed/bridge2/1200/800","https://picsum.photos/seed/bridge3/1200/800"]'>
+<div class="project-card group bg-white dark:bg-slate-800 rounded-xl overflow-hidden border border-slate-100 dark:border-slate-700 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col" data-category="structural" data-gallery='["Asset/images/Sandcrete Hollow Pot Slab Installation/IMG_20140702_112431.jpg","Asset/images/Sandcrete Hollow Pot Slab Installation/IMG_20140705_113301.jpg"]'>
 <div class="relative overflow-hidden aspect-[4/3]">
-<div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110" data-alt="Modern highway bridge construction in urban Nigeria" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCsEF6FE5K0qDLwCOIPQKh9zAq4hSLNZrLtQv0oMDlNQpJdZlMtRijJDWN4ZGaJBRPppSsYzV_BIVqqv6k0KnHobi1DbP3ZQRdAyA1UI86AWPQrmcna0m0RWqdxebZGmIBTO47ZowBGBZGbI2UwSKOMv0YhUZ-8RQgyBYX-XOc1HpNQRrPpsruvbC6G3h7bmwWyZiCGbQqYXPx6gwSbwg9CVvkx6w0EfpDD5iq4xtObrQolQ0qMyp0s-2vZLasGWWxx1EBfcD5Xjhk')"></div>
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110" data-alt="Sandcrete Hollow Pot Slab Installation project in Trans-Amadi, Rivers State" style="background-image: url('Asset/images/Sandcrete Hollow Pot Slab Installation/IMG_20140702_112431.jpg')"></div>
 <div class="absolute top-4 left-4">
-<span class="bg-primary/90 text-white text-[10px] font-bold px-2.5 py-1 rounded uppercase tracking-widest backdrop-blur-sm">Civil</span>
+<span class="bg-primary/90 text-white text-[10px] font-bold px-2.5 py-1 rounded uppercase tracking-widest backdrop-blur-sm">Structural Construction</span>
 </div>
 </div>
 <div class="p-6 flex flex-col flex-grow">
-<h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2 group-hover:text-primary transition-colors">Lagos Interstate Bridge</h3>
+<h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2 group-hover:text-primary transition-colors">Sandcrete Hollow Pot Slab Installation</h3>
 <div class="flex items-center gap-2 text-slate-500 dark:text-slate-400 text-sm mb-6">
 <span class="material-symbols-outlined text-sm">location_on</span>
-<span data-location="Lagos">Lagos, Nigeria</span>
+<span data-location="Trans-Amadi">Trans-Amadi, Rivers State</span>
 </div>
+<p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed mb-6">Structural slab construction using sandcrete hollow pot systems designed to improve structural efficiency while reducing material load.</p>
 <div class="mt-auto flex items-center justify-between border-t border-slate-100 dark:border-slate-700 pt-6">
-<a class="text-primary text-sm font-bold flex items-center gap-2 group/btn" href="project gallery/lagos-interstate-bridge.html">
-                                    View Project
+<a class="text-primary text-sm font-bold flex items-center gap-2 group/btn" href="project gallery/sandcrete-hollow-pot-slab-installation.html">
+                                    View Project Details
                                     <span class="material-symbols-outlined text-sm transition-transform group-hover/btn:translate-x-1">arrow_forward</span>
 </a>
-<span class="text-slate-400 text-xs font-medium">Completed 2023</span>
+<span class="text-slate-400 text-xs font-medium">Completed Project</span>
 </div>
 </div>
 </div>
 <!-- Project Card 2 -->
-<div class="project-card group bg-white dark:bg-slate-800 rounded-xl overflow-hidden border border-slate-100 dark:border-slate-700 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col" data-category="mechanical" data-gallery='["https://picsum.photos/seed/piping1/1200/800","https://picsum.photos/seed/piping2/1200/800","https://picsum.photos/seed/piping3/1200/800"]'>
+<div class="project-card group bg-white dark:bg-slate-800 rounded-xl overflow-hidden border border-slate-100 dark:border-slate-700 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col" data-category="commercial" data-gallery='["Asset/images/Construction of Modern Open Market Shops/IMG-20190416-WA0002.jpg","Asset/images/Construction of Modern Open Market Shops/IMG-20190416-WA0004.jpg","Asset/images/Construction of Modern Open Market Shops/IMG_20190418_171313.jpg","Asset/images/Construction of Modern Open Market Shops/IMG_20190421_175523.jpg"]'>
 <div class="relative overflow-hidden aspect-[4/3]">
-<div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110" data-alt="Complex industrial piping system at petrochemical plant" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDp4U8I48t6HA16EFe2cfyDjlIN6jzV9u0Tj9vDWXFid1EAsOM9ciNw6zwylV_2h3wUbqqUtei0qxwoufVUibzsy5sadxgq7RBV75k5IhUNj29tpN7I07jaWHZwP2Q5LqY4qt__IGieCBFSHQG0JgS2jZHamJKZWulY5d0hyaD47j0B9qaPskGkKVPLjDG8KH1T1LOqk0elofiAyLxEpBL85QAi_15Z2gE4PQhTzbJbfcVw7h6LlpC8ZQPQBVg1ul2EMt0Jf-NHQyE')"></div>
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110" data-alt="Construction of Modern Open Market Shops project in Igboho, Oyo State" style="background-image: url('Asset/images/Construction of Modern Open Market Shops/IMG-20190416-WA0002.jpg')"></div>
 <div class="absolute top-4 left-4">
-<span class="bg-primary/90 text-white text-[10px] font-bold px-2.5 py-1 rounded uppercase tracking-widest backdrop-blur-sm">Mechanical</span>
+<span class="bg-primary/90 text-white text-[10px] font-bold px-2.5 py-1 rounded uppercase tracking-widest backdrop-blur-sm">Commercial Construction</span>
 </div>
 </div>
 <div class="p-6 flex flex-col flex-grow">
-<h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2 group-hover:text-primary transition-colors">Industrial Piping System</h3>
+<h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2 group-hover:text-primary transition-colors">Construction of Modern Open Market Shops</h3>
 <div class="flex items-center gap-2 text-slate-500 dark:text-slate-400 text-sm mb-6">
 <span class="material-symbols-outlined text-sm">location_on</span>
-<span data-location="Rivers State">Rivers State, Nigeria</span>
+<span data-location="Igboho">Igboho, Oyo State</span>
 </div>
+<p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed mb-6">Development of modern open commercial shop structures designed to support organized market trading and local economic activity.</p>
 <div class="mt-auto flex items-center justify-between border-t border-slate-100 dark:border-slate-700 pt-6">
-<a class="text-primary text-sm font-bold flex items-center gap-2 group/btn" href="project gallery/industrial-piping-system.html">
-                                    View Project
+<a class="text-primary text-sm font-bold flex items-center gap-2 group/btn" href="project gallery/construction-of-modern-open-market-shops.html">
+                                    View Project Details
                                     <span class="material-symbols-outlined text-sm transition-transform group-hover/btn:translate-x-1">arrow_forward</span>
 </a>
-<span class="text-slate-400 text-xs font-medium">Completed 2022</span>
+<span class="text-slate-400 text-xs font-medium">Completed Project</span>
 </div>
 </div>
 </div>
 <!-- Project Card 3 -->
-<div class="project-card group bg-white dark:bg-slate-800 rounded-xl overflow-hidden border border-slate-100 dark:border-slate-700 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col" data-category="telecom" data-gallery='["https://picsum.photos/seed/fiber1/1200/800","https://picsum.photos/seed/fiber2/1200/800","https://picsum.photos/seed/fiber3/1200/800"]'>
+<div class="project-card group bg-white dark:bg-slate-800 rounded-xl overflow-hidden border border-slate-100 dark:border-slate-700 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col" data-category="commercial" data-gallery='["Asset/images/Construction of Open Stores and Enclosed Shop Units/IMG_20190512_170241.jpg","Asset/images/Construction of Open Stores and Enclosed Shop Units/IMG_20190513_114231.jpg","Asset/images/Construction of Open Stores and Enclosed Shop Units/IMG_20190513_114235.jpg","Asset/images/Construction of Open Stores and Enclosed Shop Units/IMG_20190527_095144.jpg","Asset/images/Construction of Open Stores and Enclosed Shop Units/IMG_20190602_175826.jpg","Asset/images/Construction of Open Stores and Enclosed Shop Units/IMG_20190602_175943.jpg"]'>
 <div class="relative overflow-hidden aspect-[4/3]">
-<div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110" data-alt="Fiber optic cable laying and telecom infrastructure" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBnuUSTnrHX00jyVYZWYQ6YmfZn0qeY6uC3W-gBG7PxZ9HKe22OAG6SADydT2ldcA3OF0FHrjNSddq1gTzvhf2QaeQRFa4K69xWMO_3bamt9VuKEiMmCuJlz6LpXjLZws6_G1LqSoy2qRmQhxj6beZ71aWme0WGoVJcDOwgL9Iv4GdKndYSWurNyXD_O4HYXROPc289MVtx8cMWRzBAd3Z9J0iecdkznkxnR-S96-BsaT7o9AsE6ydJPm_RU4inBlG4qT2Bd_1-eLA')"></div>
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110" data-alt="Construction of Open Stores and Enclosed Shop Units project in Igboho, Oyo State" style="background-image: url('Asset/images/Construction of Open Stores and Enclosed Shop Units/IMG_20190512_170241.jpg')"></div>
 <div class="absolute top-4 left-4">
-<span class="bg-primary/90 text-white text-[10px] font-bold px-2.5 py-1 rounded uppercase tracking-widest backdrop-blur-sm">Telecom</span>
+<span class="bg-primary/90 text-white text-[10px] font-bold px-2.5 py-1 rounded uppercase tracking-widest backdrop-blur-sm">Commercial Construction</span>
 </div>
 </div>
 <div class="p-6 flex flex-col flex-grow">
-<h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2 group-hover:text-primary transition-colors">National Fiber Backbone</h3>
+<h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2 group-hover:text-primary transition-colors">Construction of Open Stores and Enclosed Shop Units</h3>
 <div class="flex items-center gap-2 text-slate-500 dark:text-slate-400 text-sm mb-6">
 <span class="material-symbols-outlined text-sm">location_on</span>
-<span data-location="Abuja">Abuja, FCT</span>
+<span data-location="Igboho">Igboho, Oyo State</span>
 </div>
+<p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed mb-6">Construction of commercial store units combining open trading areas with enclosed shop spaces for market merchants.</p>
 <div class="mt-auto flex items-center justify-between border-t border-slate-100 dark:border-slate-700 pt-6">
-<a class="text-primary text-sm font-bold flex items-center gap-2 group/btn" href="project gallery/national-fiber-backbone.html">
-                                    View Project
+<a class="text-primary text-sm font-bold flex items-center gap-2 group/btn" href="project gallery/construction-of-open-stores-and-enclosed-shop-units.html">
+                                    View Project Details
                                     <span class="material-symbols-outlined text-sm transition-transform group-hover/btn:translate-x-1">arrow_forward</span>
 </a>
-<span class="text-slate-400 text-xs font-medium">In Progress</span>
+<span class="text-slate-400 text-xs font-medium">Completed Project</span>
 </div>
 </div>
 </div>
 <!-- Project Card 4 -->
-<div class="project-card group bg-white dark:bg-slate-800 rounded-xl overflow-hidden border border-slate-100 dark:border-slate-700 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col" data-category="epc" data-gallery='["https://picsum.photos/seed/petro1/1200/800","https://picsum.photos/seed/petro2/1200/800","https://picsum.photos/seed/petro3/1200/800"]'>
+<div class="project-card group bg-white dark:bg-slate-800 rounded-xl overflow-hidden border border-slate-100 dark:border-slate-700 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col" data-category="commercial" data-gallery='["Asset/images/Completion of Market Stores and Shop Complex/IMG_20190608_173404.jpg","Asset/images/Completion of Market Stores and Shop Complex/IMG_20190608_173418.jpg","Asset/images/Completion of Market Stores and Shop Complex/IMG_20190608_173452.jpg","Asset/images/Completion of Market Stores and Shop Complex/IMG_20190608_173510.jpg","Asset/images/Completion of Market Stores and Shop Complex/IMG_20190608_173722.jpg","Asset/images/Completion of Market Stores and Shop Complex/IMG_20190608_173926.jpg","Asset/images/Completion of Market Stores and Shop Complex/IMG_20190608_174222.jpg"]'>
 <div class="relative overflow-hidden aspect-[4/3]">
-<div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110" data-alt="Petrochemical processing plant with steel structures" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAAdZwXBHoH3PwvUpPYoYOR1RK5AtwoU8EYD02-fsVnNLYo8CTiVuGdoYtxD_G7m3Y1pQEewVPDo1ILqY5cPLWGdxfrc2oMPA4yV2afDSMePIx2pGB92znYA4-T4s2qydexUtuSyZpy0UGXG1_4cpDhTHMx_AgoPZMB4-MxsGpNWLyPjVMYD-31jZNIcVEqEK12RmJpfkCujFP8b9Sdvkh5uIIlcEs1-MlUTnZTBHIElonB1Fdkt2IIwyYG__ZWnaJ0bsNON4P6Wb0')"></div>
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110" data-alt="Completion of Market Stores and Shop Complex project in Igboho, Oyo State" style="background-image: url('Asset/images/Completion of Market Stores and Shop Complex/IMG_20190608_173404.jpg')"></div>
 <div class="absolute top-4 left-4">
-<span class="bg-primary/90 text-white text-[10px] font-bold px-2.5 py-1 rounded uppercase tracking-widest backdrop-blur-sm">EPC</span>
+<span class="bg-primary/90 text-white text-[10px] font-bold px-2.5 py-1 rounded uppercase tracking-widest backdrop-blur-sm">Commercial Construction</span>
 </div>
 </div>
 <div class="p-6 flex flex-col flex-grow">
-<h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2 group-hover:text-primary transition-colors">Petrochemical Plant EPC</h3>
+<h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2 group-hover:text-primary transition-colors">Completion of Market Stores and Shop Complex</h3>
 <div class="flex items-center gap-2 text-slate-500 dark:text-slate-400 text-sm mb-6">
 <span class="material-symbols-outlined text-sm">location_on</span>
-<span data-location="Delta State">Delta State, Nigeria</span>
+<span data-location="Igboho">Igboho, Oyo State</span>
 </div>
+<p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed mb-6">Completion and delivery of open market stores and enclosed shop structures, including structural finishing and facility preparation.</p>
 <div class="mt-auto flex items-center justify-between border-t border-slate-100 dark:border-slate-700 pt-6">
-<a class="text-primary text-sm font-bold flex items-center gap-2 group/btn" href="project gallery/petrochemical-plant-epc.html">
-                                    View Project
+<a class="text-primary text-sm font-bold flex items-center gap-2 group/btn" href="project gallery/completion-of-market-stores-and-shop-complex.html">
+                                    View Project Details
                                     <span class="material-symbols-outlined text-sm transition-transform group-hover/btn:translate-x-1">arrow_forward</span>
 </a>
-<span class="text-slate-400 text-xs font-medium">Completed 2021</span>
+<span class="text-slate-400 text-xs font-medium">Completed Project</span>
 </div>
 </div>
 </div>
 <!-- Project Card 5 -->
-<div class="project-card group bg-white dark:bg-slate-800 rounded-xl overflow-hidden border border-slate-100 dark:border-slate-700 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col" data-category="civil" data-gallery='["https://picsum.photos/seed/drainage1/1200/800","https://picsum.photos/seed/drainage2/1200/800","https://picsum.photos/seed/drainage3/1200/800"]'>
+<div class="project-card group bg-white dark:bg-slate-800 rounded-xl overflow-hidden border border-slate-100 dark:border-slate-700 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col" data-category="renovation" data-gallery='["Asset/images/Residential Building Renovation/IMG_20190817_175301.jpg","Asset/images/Residential Building Renovation/IMG_20190817_175354.jpg","Asset/images/Residential Building Renovation/IMG_20190817_175422.jpg"]'>
 <div class="relative overflow-hidden aspect-[4/3]">
-<div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110" data-alt="Underground urban drainage network construction" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCs6GISZ-PWDLvH4cKNXPEVQXf0xmwUR1tw5WMjRv7fL62G3XgbtDPCANTCn-DsRLKlkIY6aSBejOWtjejmEP1VuXmtqYnpy2tSWkdc_scjLk6BN9agOZZg0rxWKuPPfNWJ-2Vgk-9sOuXSZC_fkk8SodPRAiO6yDXQ9Z9ULNAoFOXdnVbduoAsy_vSuxtCmbL887dHao6ipAI6OP9NafeCkXvLUFSCjxEhrQaNUPjFYgL8DIzWsAjhlnXaoCx2HqEvd3O_8TEJGos')"></div>
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110" data-alt="Residential Building Renovation project in Kwara State" style="background-image: url('Asset/images/Residential Building Renovation/IMG_20190817_175301.jpg')"></div>
 <div class="absolute top-4 left-4">
-<span class="bg-primary/90 text-white text-[10px] font-bold px-2.5 py-1 rounded uppercase tracking-widest backdrop-blur-sm">Civil</span>
+<span class="bg-primary/90 text-white text-[10px] font-bold px-2.5 py-1 rounded uppercase tracking-widest backdrop-blur-sm">Building Renovation</span>
 </div>
 </div>
 <div class="p-6 flex flex-col flex-grow">
-<h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2 group-hover:text-primary transition-colors">Urban Drainage Network</h3>
+<h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2 group-hover:text-primary transition-colors">Residential Building Renovation</h3>
 <div class="flex items-center gap-2 text-slate-500 dark:text-slate-400 text-sm mb-6">
 <span class="material-symbols-outlined text-sm">location_on</span>
-<span data-location="Kano">Kano State, Nigeria</span>
+<span data-location="Kwara State">Kwara State</span>
 </div>
+<p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed mb-6">Renovation and structural refurbishment of an existing residential property to improve structural integrity and overall living standards.</p>
 <div class="mt-auto flex items-center justify-between border-t border-slate-100 dark:border-slate-700 pt-6">
-<a class="text-primary text-sm font-bold flex items-center gap-2 group/btn" href="project gallery/urban-drainage-network.html">
-                                    View Project
+<a class="text-primary text-sm font-bold flex items-center gap-2 group/btn" href="project gallery/renovation-of-residential-building.html">
+                                    View Project Details
                                     <span class="material-symbols-outlined text-sm transition-transform group-hover/btn:translate-x-1">arrow_forward</span>
 </a>
-<span class="text-slate-400 text-xs font-medium">Completed 2023</span>
-</div>
-</div>
-</div>
-<!-- Project Card 6 -->
-<div class="project-card group bg-white dark:bg-slate-800 rounded-xl overflow-hidden border border-slate-100 dark:border-slate-700 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col" data-category="telecom" data-gallery='["https://picsum.photos/seed/tower1/1200/800","https://picsum.photos/seed/tower2/1200/800","https://picsum.photos/seed/tower3/1200/800"]'>
-<div class="relative overflow-hidden aspect-[4/3]">
-<div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110" data-alt="High-rise telecom tower deployment in rural landscape" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAttx492vNFr01iWvsHHT0jHfV_oLH_ZJbs3-48xUIXto-1Ikdx-uVJ9ZC5IaNYZOPeYr8rWzM3-cL23XuHit9gPIQI-jM5KSA5z8YFGYfCwt6yo5irZXGNVSdGnR-mBxNb6XLag7myXckN_u60RQUibZ5W_L-Fo1icxd4zPCblNZxrVd4YZ2gItKUE9thRQV67eOdV4cdrBMkTKR8ALwEKKFFaHn80Zzi-_Gj1E1bRTdLS4KJvNNvCoOAZovT0Rf0riTJ4xeU-4aA')"></div>
-<div class="absolute top-4 left-4">
-<span class="bg-primary/90 text-white text-[10px] font-bold px-2.5 py-1 rounded uppercase tracking-widest backdrop-blur-sm">Telecom</span>
-</div>
-</div>
-<div class="p-6 flex flex-col flex-grow">
-<h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2 group-hover:text-primary transition-colors">Telecom Tower Deployment</h3>
-<div class="flex items-center gap-2 text-slate-500 dark:text-slate-400 text-sm mb-6">
-<span class="material-symbols-outlined text-sm">location_on</span>
-<span data-location="Oyo State">Oyo State, Nigeria</span>
-</div>
-<div class="mt-auto flex items-center justify-between border-t border-slate-100 dark:border-slate-700 pt-6">
-<a class="text-primary text-sm font-bold flex items-center gap-2 group/btn" href="project gallery/telecom-tower-deployment.html">
-                                    View Project
-                                    <span class="material-symbols-outlined text-sm transition-transform group-hover/btn:translate-x-1">arrow_forward</span>
-</a>
-<span class="text-slate-400 text-xs font-medium">Completed 2022</span>
+<span class="text-slate-400 text-xs font-medium">Completed Project</span>
 </div>
 </div>
 </div>
 </div>
 <!-- Pagination -->
-<div class="mt-20 flex items-center justify-center gap-2">
+<div class="mt-16 sm:mt-20 flex flex-wrap items-center justify-center gap-2">
 <button class="w-10 h-10 flex items-center justify-center rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-400 hover:text-primary transition-colors">
 <span class="material-symbols-outlined">chevron_left</span>
 </button>
@@ -299,9 +285,9 @@
 <section class="bg-primary py-20 px-6 mt-12 overflow-hidden relative">
 <div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(circle at 2px 2px, white 1px, transparent 0); background-size: 40px 40px;"></div>
 <div class="max-w-4xl mx-auto text-center relative z-10">
-<h3 class="text-3xl md:text-4xl font-black text-white mb-6">Have a large-scale project in mind?</h3>
+<h3 class="text-3xl md:text-4xl font-black text-white mb-6">Planning Your Next Construction Project?</h3>
 <p class="text-primary-foreground/80 text-white/80 text-lg mb-10 max-w-2xl mx-auto">
-                    Partner with Nigeria's leading EPC firm. From engineering design to procurement and final construction, we deliver excellence.
+                    Speak with Jammos Construction Nigeria Limited about your next civil, commercial, or renovation project and let our team support you with disciplined delivery and practical engineering expertise.
                 </p>
 <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
 <button class="px-8 py-4 bg-white text-primary rounded-xl font-bold text-lg shadow-xl hover:bg-slate-50 transition-all w-full sm:w-auto">Start a Consultation</button>
@@ -310,81 +296,50 @@
 </div>
 </section>
 <!-- Footer -->
-<footer class="bg-navy-deep text-slate-400 py-20 border-t border-slate-800">
-        <div class="max-w-7xl mx-auto px-6 lg:px-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+    <footer class="bg-navy-deep text-slate-400 py-16 sm:py-20 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-12">
             <div>
-                <div class="flex items-center gap-3 mb-8">
-                    <div class="bg-primary p-2 rounded-lg text-white">
-                        <span class="material-symbols-outlined">architecture</span>
-                    </div>
-                    <h1 class="text-white text-xl font-extrabold uppercase tracking-tight">Jammos</h1>
+                <div class="mb-8">
+                    <img src="Asset/images/jammos logo.png" alt="Jammos Construction Nigeria Limited" class="h-16 sm:h-20 w-auto object-contain" />
                 </div>
                 <p class="text-sm leading-relaxed mb-6">
-                    Providing top-tier EPC and engineering solutions in Nigeria since 2008. Building the foundations of
-                    tomorrow's economy with precision and integrity.
+                    Jammos Construction Nigeria Limited is a professional engineering and construction company providing civil, mechanical, and industrial infrastructure solutions across Nigeria. Our mission is to deliver safe, reliable, and high-quality projects that support national development.
                 </p>
-                <div class="flex gap-4">
-                    <a class="size-10 bg-white/5 rounded-full flex items-center justify-center hover:bg-primary transition-colors text-white"
-                        href="#">
-                        <span class="material-symbols-outlined text-lg">public</span>
-                    </a>
-                    <a class="size-10 bg-white/5 rounded-full flex items-center justify-center hover:bg-primary transition-colors text-white"
-                        href="#">
-                        <span class="material-symbols-outlined text-lg">share</span>
-                    </a>
-                </div>
             </div>
-            <div>
-                <h6 class="text-white font-bold mb-8 uppercase text-xs tracking-[0.2em]">Quick Links</h6>
-                <ul class="space-y-4 text-sm font-medium">
-                    <li><a class="hover:text-primary transition-colors" href="index.html">Home</a></li>
-                    <li><a class="hover:text-primary transition-colors" href="about us.html">About Jammos</a></li>
-                    <li><a class="hover:text-primary transition-colors" href="services.html">Our Services</a></li>
-                    <li><a class="hover:text-primary transition-colors" href="project gallery.html">Major Projects</a></li>
-                    <li><a class="hover:text-primary transition-colors" href="contact.html">Contact Us</a></li>
-                </ul>
-            </div>
-            <div>
-                <h6 class="text-white font-bold mb-8 uppercase text-xs tracking-[0.2em]">Services</h6>
-                <ul class="space-y-4 text-sm font-medium">
-                    <li><a class="hover:text-primary transition-colors" href="services.html">Civil Construction</a></li>
-                    <li><a class="hover:text-primary transition-colors" href="services.html">Mechanical Engineering</a></li>
-                    <li><a class="hover:text-primary transition-colors" href="services.html">Telecommunications</a></li>
-                    <li><a class="hover:text-primary transition-colors" href="services.html">EPC Management</a></li>
-                    <li><a class="hover:text-primary transition-colors" href="services.html">Structural Designs</a></li>
-                </ul>
-            </div>
-            <div>
+<div>
                 <h6 class="text-white font-bold mb-8 uppercase text-xs tracking-[0.2em]">Office Location</h6>
                 <div class="space-y-4">
                     <div class="flex gap-4">
                         <span class="material-symbols-outlined text-primary">location_on</span>
-                        <p class="text-sm">Main Office, Plot 452 Business District, Victoria Island, Lagos, Nigeria</p>
+                        <p class="text-sm">7, Fadeyi Street, Owode Estate, Ibeshe Road, Ikorodu, Lagos State, Nigeria</p>
                     </div>
                     <div class="flex gap-4">
                         <span class="material-symbols-outlined text-primary">phone_in_talk</span>
-                        <p class="text-sm">+234 (0) 800-JAMMOS-01</p>
+                        <p class="text-sm">Phone: <a class="hover:text-white transition-colors" href="tel:+2347064475221">+234 706 447 5221</a></p>
+                    </div>
+                    <div class="flex gap-4">
+                        <span class="material-symbols-outlined text-primary">chat</span>
+                        <p class="text-sm">WhatsApp: <a class="hover:text-white transition-colors" href="https://wa.me/2348185885425" target="_blank">+234 818 588 5425</a></p>
                     </div>
                     <div class="flex gap-4">
                         <span class="material-symbols-outlined text-primary">mail</span>
-                        <p class="text-sm">info@jammos-construction.com.ng</p>
+                        <p class="text-sm">Email: <a class="hover:text-white transition-colors break-all" href="mailto:jammosconstruct@gmail.com">jammosconstruct@gmail.com</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        <div
-            class="max-w-7xl mx-auto px-6 lg:px-10 pt-16 mt-16 border-t border-slate-800 flex flex-col md:flex-row justify-between items-center text-xs">
-            <p>© 2024 Jammos Construction Nigeria Limited. All Rights Reserved.</p>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 pt-12 sm:pt-16 mt-12 sm:mt-16 border-t border-slate-800 flex flex-col md:flex-row justify-between items-start md:items-center text-xs gap-4 sm:gap-5">
+            <p>&copy; 2024 Jammos Construction Nigeria Limited. All Rights Reserved.</p>
             <div class="flex gap-8 mt-4 md:mt-0">
-                <a class="hover:text-white transition-colors" href="#">Privacy Policy</a>
-                <a class="hover:text-white transition-colors" href="#">Terms of Service</a>
-                <a class="hover:text-white transition-colors" href="#">Compliance Portal</a>
+                <a class="hover:text-white transition-colors" href="privacy-policy.html">Privacy Policy</a>
+                <a class="hover:text-white transition-colors" href="terms-of-service.html">Terms of Service</a>
+                <a class="hover:text-white transition-colors" href="compliance.html">Compliance Portal</a>
             </div>
         </div>
     </footer>
 
 <!-- floating whatsapp button -->
-<a href="https://wa.me/234800JAMMOS" target="_blank" class="flex items-center justify-center fixed bottom-6 right-6 p-4 rounded-full shadow-xl z-50">
+<a href="https://wa.me/2348185885425" target="_blank" class="flex items-center justify-center fixed bottom-6 right-6 p-4 rounded-full shadow-xl z-50">
   <i class="fa fa-whatsapp" style="font-size:3rem; color:green"></i>
 </a>
 </div>
@@ -405,7 +360,30 @@
   // Filter functionality
   const filterButtons = document.querySelectorAll('.filter-btn');
   const projectCards = document.querySelectorAll('.project-card');
+  const searchInput = document.getElementById('project-search');
   let currentFilter = 'all';
+
+  function applyProjectFilters() {
+    const searchTerm = searchInput?.value.trim().toLowerCase() || '';
+
+    projectCards.forEach(card => {
+      const category = card.getAttribute('data-category') || '';
+      const title = card.querySelector('h3')?.textContent.toLowerCase() || '';
+      const location = card.querySelector('[data-location]')?.textContent.toLowerCase() || '';
+      const description = card.querySelector('p')?.textContent.toLowerCase() || '';
+      const badge = card.querySelector('[class*="bg-primary/90"]')?.textContent.toLowerCase() || '';
+      const matchesFilter = currentFilter === 'all' || category === currentFilter;
+      const matchesSearch = !searchTerm || [title, location, description, badge].some(value => value.includes(searchTerm));
+
+      if (matchesFilter && matchesSearch) {
+        card.style.display = 'flex';
+        setTimeout(() => card.style.opacity = '1', 10);
+      } else {
+        card.style.opacity = '0';
+        setTimeout(() => card.style.display = 'none', 300);
+      }
+    });
+  }
 
   // Filter button click handler
   filterButtons.forEach(button => {
@@ -420,19 +398,13 @@
       this.classList.remove('bg-white', 'dark:bg-slate-800', 'border', 'border-slate-200', 'dark:border-slate-700', 'text-slate-700', 'dark:text-slate-300');
       this.classList.add('bg-primary', 'text-white', 'shadow-md');
 
-      // Filter cards
-      projectCards.forEach(card => {
-        const category = card.getAttribute('data-category');
-        if (currentFilter === 'all' || category === currentFilter) {
-          card.style.display = 'flex';
-          setTimeout(() => card.style.opacity = '1', 10);
-        } else {
-          card.style.opacity = '0';
-          setTimeout(() => card.style.display = 'none', 300);
-        }
-      });
+      applyProjectFilters();
     });
   });
+
+  if (searchInput) {
+    searchInput.addEventListener('input', applyProjectFilters);
+  }
 
   // Make category badges clickable to filter
   projectCards.forEach(card => {
@@ -527,12 +499,12 @@
 </script>
 
 <!-- Global Consultation Modal -->
-<div id="consultation-modal" class="hidden fixed inset-0 z-[100] flex items-center justify-center p-4">
+<div id="consultation-modal" class="hidden fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6 lg:p-8">
   <!-- Overlay -->
   <div id="modal-overlay" class="absolute inset-0 bg-black/60 backdrop-blur-sm"></div>
   
   <!-- Modal Card -->
-  <div class="relative w-full max-w-3xl max-h-[90vh] overflow-y-auto bg-white dark:bg-slate-800 rounded-xl shadow-2xl border border-slate-200 dark:border-slate-700">
+  <div class="relative w-full max-w-3xl max-h-[92vh] sm:max-h-[90vh] overflow-y-auto bg-white dark:bg-slate-800 rounded-xl shadow-2xl border border-slate-200 dark:border-slate-700">
     <!-- Modal Header -->
     <div class="sticky top-0 bg-white dark:bg-slate-800 border-b border-slate-200 dark:border-slate-700 px-8 py-6 flex items-start justify-between">
       <div>
@@ -747,7 +719,7 @@ ${message}`;
     
     // URL encode and open WhatsApp
     const encodedMessage = encodeURIComponent(whatsappMessage);
-    const whatsappUrl = `https://wa.me/2347065615182?text=${encodedMessage}`;
+    const whatsappUrl = `https://wa.me/2348185885425?text=${encodedMessage}`;
     window.open(whatsappUrl, '_blank');
   }
 
