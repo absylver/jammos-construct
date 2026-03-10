@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://jammosconstruction.com/sitemap.xml

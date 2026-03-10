@@ -8,12 +8,20 @@
 <link rel="icon" type="image/png" sizes="16x16" href="Asset/favicon/favicon-16x16.png" />
 <link rel="shortcut icon" href="Asset/favicon/favicon.ico" />
 <link rel="manifest" href="Asset/favicon/site.webmanifest" />
-<title>Project Portfolio Gallery | Jammos Construction Nigeria Limited</title>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<title>Construction Project Portfolio | Jammos Construction Nigeria Limited</title>
+<meta name="description" content="View the construction project portfolio of Jammos Construction Nigeria Limited featuring structural construction, commercial developments, and renovation projects across Nigeria." />
+<meta name="keywords" content="construction projects Nigeria, project portfolio Nigeria, commercial construction Nigeria, building renovation Nigeria, structural construction Nigeria" />
+<meta name="author" content="Jammos Construction Nigeria Limited" />
+<meta name="robots" content="index, follow" />
+<meta property="og:title" content="Construction Project Portfolio | Jammos Construction Nigeria Limited" />
+<meta property="og:description" content="View the construction project portfolio of Jammos Construction Nigeria Limited featuring structural construction, commercial developments, and renovation projects across Nigeria." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://jammosconstruction.com/project%20gallery.html" />
+<meta property="og:image" content="https://jammosconstruction.com/Asset/images/Completion%20of%20Market%20Stores%20and%20Shop%20Complex/IMG_20190608_173404.jpg" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet" />
 <script id="tailwind-config">
         tailwind.config = {
             darkMode: "class",
@@ -271,7 +279,7 @@
     <button id="overlay-close" class="absolute top-4 right-4 bg-white/10 hover:bg-white/20 text-white p-2 rounded-full">
       <span class="material-symbols-outlined text-2xl">close</span>
     </button>
-    <img id="overlay-img" class="w-full h-auto rounded-xl" src="" alt="gallery" />
+    <img id="overlay-img" class="w-full h-auto rounded-xl" src="" alt="Construction project gallery image from Jammos Construction Nigeria Limited" />
     <button id="overlay-prev" class="absolute left-2 top-1/2 transform -translate-y-1/2 bg-white/10 hover:bg-white/20 text-white p-2 rounded-full z-20">
       <span class="material-symbols-outlined text-3xl">chevron_left</span>
     </button>
@@ -350,6 +358,7 @@
   let overlayIdx = 0;
   let touchStartX = 0;
   let touchEndX = 0;
+  let overlayAlt = 'Construction project gallery image from Jammos Construction Nigeria Limited';
   
   const overlay = document.getElementById('gallery-overlay');
   const overlayImg = document.getElementById('overlay-img');
@@ -427,10 +436,13 @@
     card.addEventListener('click', e => {
       if (e.target.closest('a')) return; // let links navigate normally
       const data = card.getAttribute('data-gallery');
+      const preview = card.querySelector('[data-alt]');
       overlayImages = data ? JSON.parse(data) : [];
       if (overlayImages.length) {
         overlayIdx = 0;
+        overlayAlt = preview?.getAttribute('data-alt') || overlayAlt;
         overlayImg.src = overlayImages[0];
+        overlayImg.alt = overlayAlt;
         overlay.classList.remove('hidden');
       }
     });
@@ -480,6 +492,7 @@
         overlayIdx = (overlayIdx + overlayImages.length - 1) % overlayImages.length;
       }
       overlayImg.src = overlayImages[overlayIdx];
+      overlayImg.alt = overlayAlt;
     }
   }
 
@@ -488,12 +501,14 @@
     e.stopPropagation();
     overlayIdx = (overlayIdx + overlayImages.length - 1) % overlayImages.length;
     overlayImg.src = overlayImages[overlayIdx];
+    overlayImg.alt = overlayAlt;
   });
   
   if (overlayNext) overlayNext.addEventListener('click', (e) => {
     e.stopPropagation();
     overlayIdx = (overlayIdx + 1) % overlayImages.length;
     overlayImg.src = overlayImages[overlayIdx];
+    overlayImg.alt = overlayAlt;
   });
 })();
 </script>
